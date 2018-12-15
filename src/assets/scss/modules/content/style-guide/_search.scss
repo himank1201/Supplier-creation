@@ -1,0 +1,22 @@
+.search {
+    &-item {
+        .dealer-search-bar {
+            padding-top: $space-6;
+        }
+
+        .dealer-locator-nav__container {
+            position: relative;
+            margin-top: unset;
+            color: $black;
+        }
+
+        .dealer-locator-nav__link {
+            color: $black;
+            padding-left: 0;
+
+            &:before {
+                top: 0;
+            }
+        }
+    }
+}

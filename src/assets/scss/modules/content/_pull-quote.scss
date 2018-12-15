@@ -1,0 +1,71 @@
+.quote {
+    margin-bottom: $space-4;
+    margin-top: $space-4;
+
+    @include media($tablet) {
+        margin-bottom: $space-6;
+        margin-top: $space-6;
+    }
+
+    @include media($mobile-only) {
+        padding-left: $space-4;
+        padding-right: $space-4;
+    }
+
+    &__container {
+        padding: $space-6 0;
+        text-align: center;
+        width: 100%;
+        @include media($tablet) {
+            @include span-columns(8);
+            @include shift(2);
+            float: none;
+        }
+    }
+
+    &__text {
+        @include section-italic;
+        color: $dusty-gray;
+        @include theme-amg() {
+            color: $white;
+        }
+    }
+
+    &__attribution {
+        margin-top: $space-3;
+    }
+
+    &__attribution-from {
+        color: $denim;
+        @include section-italic;
+        @include theme-amg() {
+            color: $guardsman-red;
+        }
+
+        &:before {
+            content: "\2013";
+            color: $dusty-gray;
+            padding-right: $space;
+            @include theme-amg() {
+                color: $white;
+            }
+        }
+    }
+
+    &:before,
+    &:after {
+        content: "";
+        display: block;
+        width: 33px;
+        border-top: 1px solid $silver;
+        margin: 0 auto 0;
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        width: 33px;
+        border-top: 1px solid $silver;
+        margin: 0 auto 0;
+    }
+}

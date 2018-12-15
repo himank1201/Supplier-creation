@@ -1,0 +1,8 @@
+@mixin list-block($columns) {
+    @include omega(#{$columns}n);
+    width: 100%;
+
+    @include media($tablet) {
+        @include span-columns(12/$columns);
+    }
+}

@@ -1,0 +1,88 @@
+.form {
+    &__checkbox {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+
+        & + .form__checkbox-label {
+            @include featured-copy-reg();
+            $checkbox-size: 16px;
+            position: relative;
+            display: block;
+            padding-left: #{$space-2 + $checkbox-size};
+            user-select: none;
+            cursor: pointer;
+
+            &--hidden > * {
+                @include offscreen();
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                @include center-content(vertical);
+                left: 0;
+                display: block;
+                border: 1px solid $silver-chalice;
+                height: $checkbox-size;
+                width: $checkbox-size;
+                background: $white;
+
+            }
+
+            &:empty,
+            &--hidden {
+                padding-left: $checkbox-size;
+            }
+
+            &:empty:before,
+            &--hidden:before {
+                top: 0;
+                transform: translateY(0);
+            }
+        }
+
+        &:checked + .form__checkbox-label {
+            &:before {
+                background: $denim;
+                border: none;
+            }
+
+            &:after {
+                position: absolute;
+                @include center-content(vertical);
+                left: 3px;
+                @include icon($icon-check, 8px); 
+                color: $white;
+            }
+
+            &:empty:after,
+            &--hidden:after{
+                top: 2px;
+                transform: translateY(0);
+            }
+        }
+
+        &:focus + .form__checkbox-label {
+            &:before {
+                border-color: $azure-radiance;
+            }
+        }
+
+        &:checked:focus + .form__checkbox-label {
+            &:before {
+                background: $azure-radiance;
+            }
+        }
+
+        &:disabled + .form__checkbox-label {
+            color: $silver-chalice;
+            cursor: default;
+
+            &:before {
+                background: $mercury;
+                border-color: $mercury;
+            }
+        }
+    }
+}

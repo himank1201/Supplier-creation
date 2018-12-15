@@ -1,0 +1,31 @@
+.forms-pre-footer {
+    &__section {
+        @include clearfix;
+    }
+
+    &__heading {
+        @include subhead-reg;
+        margin: $space-4 0;
+    }
+
+    &__form-container {
+        margin-bottom: $space-10;
+
+        @include media($large) {
+            @include span-columns(5);
+            margin-bottom: 0;
+        }
+    }
+    &__description-container {
+
+        @include media($large) {
+            @include shift(1);
+            @include span-columns(6);
+            float: right;
+        }
+    }
+
+    &__description {
+        margin-bottom: $space-4;
+    }
+}

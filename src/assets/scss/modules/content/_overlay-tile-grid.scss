@@ -1,0 +1,58 @@
+.overlay-tile-grid {
+
+    &__heading {
+        @include section-reg;
+        text-align: center;
+        margin-bottom: $space-4;
+
+        @include media($tablet) {
+            @include featured-heading;
+            margin-bottom: $space-4;
+        }
+    }
+
+    &__container {
+        text-align: left;
+
+        &--center {
+            text-align: center;
+        }
+    }
+
+    &__tiles {
+        @include outer-container(100%);
+
+        .multimedia-tile__description, .multimedia-tile__link, .multimedia-asset__video {
+            display: none;
+        }
+    }
+
+    .layout-tile-item {
+        @include media($tablet) {
+            @include span-columns(3);
+
+            &:nth-child(4n) {
+                @include omega;
+            }
+
+            &:nth-child(4n+1) {
+                clear: left;
+
+                @include editorial() {
+                    clear: none;
+                }
+            }
+        }
+    }
+
+    .multimedia-asset__icon-play {
+        display: none;
+    }
+
+    @include editorial() {
+       .newpar {
+           float: left;
+           width: 100%;
+       }
+    }
+}

@@ -1,0 +1,48 @@
+.icon-item {
+    overflow: hidden;
+    display: block;
+    margin-bottom: $space-4;
+
+    @include media($large-only) {
+        margin-bottom: $space-6;
+        @include span-columns(4);
+        @include omega(3n)
+    }
+
+    @include media($desktop) {
+        margin-bottom: $space-6;
+        @include span-columns(3);
+        @include omega(4n);
+    }
+
+    [class^="icon-mb"], [class*=" icon-mb"] {
+        font-size: 35px;
+    }
+
+    //make MB logo smaller to prevent display issues
+    .icon-mbusa-logo:before {
+        zoom: .5;
+        -moz-transform: scale(0.5);
+        -moz-transform-origin: center;
+    }
+
+    code {
+        color: $black;
+        margin-top: $space-5;
+        margin-bottom: 0;
+        @include media($tablet) {
+            min-height: 135px;
+        }
+    }
+}
+
+.icons-section {
+    clear: both;
+    margin-bottom: $space-4;
+
+    &__title {
+        @include call-out-text-bold();
+        margin-bottom: $space-4;
+        text-transform: uppercase;
+    }
+}

@@ -1,0 +1,30 @@
+.column-link-list {
+    &__column {
+
+    }
+
+    &__column-heading {
+
+    }
+
+    &__link-container {
+        color: $black;
+
+        li {
+            @include footer-link;
+        }
+
+        a {
+            display: block;
+            padding-bottom: $space-2;
+            color: $blitz;
+
+            &:hover,
+            &:focus {
+                animation: none;
+                color: $azure-radiance;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,28 @@
+.home-page-section-header {
+    margin-bottom: $space-3;
+    display: block;
+    @include call-out-text-reg;
+    position: relative;
+    text-align: center;
+
+    &:after {
+        background: $seashell;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        z-index: -1;
+    }
+    @include media($large) {
+        margin-bottom: $space-4;
+    }
+}
+
+.home-page-section-header-text {
+    background-color: $white;
+    display: inline-block;
+    padding: 0 $space-2;
+}

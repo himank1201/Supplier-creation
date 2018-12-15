@@ -1,0 +1,22 @@
+.cta-contact {
+
+    &__tile {
+        @extend .cta-link__tile;
+    }
+
+    &__label-wrapper {
+        margin-bottom: $space;
+    }
+
+    &__label {
+        @extend .cta-link__label;
+    }
+
+    &__description {
+        @extend .cta-link__description;
+    }
+
+    &__link {
+        @extend .cta-link__link;
+    }
+}

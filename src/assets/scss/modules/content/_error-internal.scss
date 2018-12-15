@@ -1,0 +1,57 @@
+.error-internal {
+    &__header {
+        background-color: $blitz;
+        position: relative;
+        padding-top: $space-2;
+        padding-bottom: $space-2;
+        @include media($tablet) {
+            height: 90px;
+        }
+
+    }
+
+    &__header-container {
+        color: $white;
+        font-weight: 400;
+        height: 100%;
+        text-shadow: 1px 1px 1px $black;
+    }
+
+    &__header-link {
+        height: 100%;
+        display: table;
+        @include media($mobile-only) {
+            margin: 0 auto;
+        }
+    }
+
+    &__header-logo-container {
+        line-height: 0;
+        height: 100%;
+        display: table-cell;
+        vertical-align: bottom;
+        @include media($tablet) {
+            padding-bottom: $space;
+        }
+    }
+
+    &__header-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    &__header-text {
+        @include media($mobile-only) {
+            display: none;
+        }
+        display: table-cell;
+        color: white;
+        padding-left: $space * 7;
+        padding-bottom: $space-2;
+        vertical-align: bottom;
+
+        &:before {
+            font-size: 11px;
+        }
+    }
+}

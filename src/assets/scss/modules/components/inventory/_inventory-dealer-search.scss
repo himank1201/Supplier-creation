@@ -1,0 +1,10 @@
+.inventory-page {
+    .dealer-selector-location-search {
+        &__bar {
+            @include media($tablet) {
+                @include span-columns(6);
+                @include shift(3);
+            }
+        }
+    }
+}

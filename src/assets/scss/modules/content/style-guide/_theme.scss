@@ -1,0 +1,52 @@
+.style-guide {
+    &__toggle-container {
+
+        height: 25px;
+        margin-top: $space-4;
+        margin-bottom: $space-4;
+
+        @include media($tablet) {
+            margin-bottom: $space-6;
+            margin-top: $space-6;
+        }
+
+        [class^="icon-mb"], [class*=" icon-mb"] {
+            font-size: 25px;
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+                animation: none;
+                color: $azure-radiance;
+                @include theme-amg() {
+                    color: $guardsman-red;
+                }
+            }
+        }
+
+        .icon-AMG_logo {
+            font-size: 200px;
+            line-height: 20px;
+        }
+    }
+
+    &__toggle-theme {
+        text-align: center;
+    }
+
+    &__button-toggle {
+        animation: none;
+        @include theme-amg() {
+            color: $white;
+        }
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+    }
+}

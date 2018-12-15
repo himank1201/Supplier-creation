@@ -1,0 +1,149 @@
+.model-page-features {
+    
+    &__feature-cards-container {
+        @include clearfix();
+    }
+
+    &__feature-card {
+        @include span-columns(2 of 4);
+
+        @include media($lt-large) {
+            margin-bottom: $space-3;
+
+            &:nth-child(even) {
+                @include omega;
+            }
+
+            &:nth-child(2n + 1) {
+                clear: left;
+            }
+        }
+
+        @include media($large) {
+            @include span-columns(3);
+        }
+
+        [modal-detail-opener] {
+            
+            @include media($xlarge) {
+                cursor: pointer;
+            }
+        }
+
+        &-picture {
+            position: relative;
+        }
+        
+        &-image {
+            padding-bottom: $space-3;
+        }
+
+        &-title {
+            @include copy-wide-bold;
+            text-align: center;
+            position: relative;
+        }
+    }
+
+    .accordion__pane {
+        padding-top: $space-3;
+
+        @include media($large) {
+            padding-top: $space-10;
+        }
+    }
+
+    &__options-list {
+        text-align: center;
+        margin-top: $space-6;
+
+        &__wrapper {
+            border: 1px solid $silver;
+            padding: $space-6 $space-6 0;
+
+            @include media($large) {
+                padding: $space-6 $space-11 0;
+            }
+        }
+
+        &__cta {
+            margin-bottom: $space-6;
+            cursor: pointer;
+            line-height: 2.1;
+
+            span {
+                position: relative;
+            }
+
+            .icon-mb {
+                color: $white;
+                font-size: 12px;
+
+                &::before {
+                    @include icon($icon-plus);
+                    background-color: $azure-radiance;
+                    border-radius: 50%;
+                    font-size: 12px;
+                    padding: $space;
+                }
+            }
+
+            &[aria-expanded="true"] {
+                .icon-mb::before {
+                    @include icon($icon-minus);
+                    font-size: 12px;
+                    padding: $space;
+                }
+            }
+        }
+
+        &__title {
+            @include section-reg;
+            padding-bottom: $space-4;
+            line-height: 1.16;
+        }
+
+        &__container {
+            text-align: left;
+            margin-bottom: $space-2;
+
+            @include media($large) {
+                margin-bottom: $space-8;
+            }
+
+            &:last-child {
+                @include media($large) {
+                    margin-bottom: $space-6;
+                }
+            }
+        }
+
+        &__item {
+            @include copy-narrow-bold;
+            padding-bottom: $space-2;
+            padding-left: $space-3;
+            line-height: 1.6;
+
+            &.disabled {
+                color: $black;
+            }
+
+            &::before {
+                top: $space-2;
+            }
+
+            [modal-detail-opener] {
+                font: inherit;
+                text-align: left;
+
+                @include media($xlarge) {
+                    cursor: pointer;
+                }
+
+                &:hover {
+                    color: $azure-radiance;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,325 @@
+.all-vehicles {
+    &__body-group-heading {
+        @include heading-reg;
+        border-bottom: 1px solid $mercury;
+        color: $silver-chalice;
+        padding-bottom: $space-4;
+        text-align: center;
+    }
+
+    &__class {
+        position: relative;
+
+        @include media($large-only) {
+            @include span-columns(6);
+            @include omega(2n);
+
+            // No padding for last two items
+            &:nth-last-child(-n + 2) {
+                padding-bottom: 0;
+
+                .all-vehicles__models-list {
+                    top: 100%;
+                }
+            }
+        }
+
+        @include media($xlarge) {
+            @include span-columns(4);
+            @include omega(3n);
+
+            // No padding for last three items
+            &:nth-last-child(-n + 3) {
+                padding-bottom: 0;
+
+                .all-vehicles__models-list {
+                    top: 100%;
+                }
+            }
+        }
+    }
+
+    &__class-name {
+        @include section-reg;
+        color: $blitz;
+    }
+
+    &__class-tagline {
+        @include media($large) {
+            height: $space-8;
+        }
+
+        @media only print {
+            @include copy-narrow-reg;
+        }
+    }
+
+    &__class-price {
+        @include copy-wide-reg;
+        color: $silver-chalice;
+
+        span {
+            color: $tundora;
+        }
+
+        @media only print {
+            @include font-regular(12px, 22/12);
+        }
+    }
+
+    &__class-page-link {
+        display: inline-block;
+        margin-bottom: $space-3;
+
+        @include media($large) {
+            margin-bottom: $space-4;
+        }
+    }
+
+    &__class-image {
+        width: 100%;
+    }
+
+    &__class-more-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $silver;
+        padding-bottom: $space-2;
+    }
+
+    &__class-models-cta {
+        @include featured-copy-reg;
+        color: $denim;
+        position: relative;
+
+        &:after {
+            @include icon($icon-caret-down-thin);
+            left: 100%;
+            padding-left: $space-2;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            .open & {
+                @include icon($icon-caret-up-thin);
+            }
+        }
+
+        &:hover,
+        &:focus {
+            color: $azure-radiance;
+            animation: none;
+        }
+    }
+
+    &__class-build-cta {
+        @include featured-copy-reg;
+        color: $denim;
+        position: relative;
+
+        &:before {
+            @include icon($icon-gears);
+            font-size: 22px;
+            padding-right: $space-2;
+            position: absolute;
+            bottom: $space;
+            right: 100%;
+            line-height: 1;
+        }
+
+        &:hover,
+        &:focus {
+            color: $azure-radiance;
+            animation: none;
+        }
+    }
+
+    &__nav {
+        margin-top: $space-4;
+        margin-bottom: $space-4;
+
+        @include media($large) {
+            margin-top: 0;
+            margin-bottom: $space-6;
+        }
+    }
+
+    &__nav-inner {
+        background-color: $white;
+        border-bottom: 1px solid $silver;
+        border-top: none;
+        position: relative;
+
+        // Items in sticky nav needs to be flushed to edges
+        & > .wrapper {
+            @include media($mobile-only) {
+                width: auto;
+            }
+        }
+    }
+
+    &__nav-container {
+        @include featured-copy-bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include media($large) {
+            flex-direction: row;
+        }
+    }
+
+    &__nav-item {
+        color: $silver-chalice;
+        display: none;
+        text-align: center;
+
+        &.active {
+            color: $tundora;
+            display: block;
+            text-align: center;
+
+            @include media($large) {
+                color: $azure-radiance;
+            }
+
+            .open > & {
+                display: block;
+            }
+        }
+
+        .open > & {
+            display: block;
+
+            // Sticky nav items should have a border
+            @include media($mobile-only) {
+                border-bottom: 1px solid $seashell;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        @include media($large) {
+            color: $tundora;
+            display: block;
+            max-height: 100px;
+            opacity: 1;
+        }
+    }
+
+    &__nav-link {
+        color: currentColor;
+        display: inline-block;
+        line-height: 48px;
+        width: 100%;
+
+        // Add hover styles only for touch devices, since touch devices add hover styles on tap
+        @at-root.all-vehicles__nav:not(.touch) & {
+            &:hover {
+                animation: none;
+                color: $azure-radiance;
+            }
+        }
+
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+        }
+
+        .active & {
+            @include media($large) {
+                border-bottom: 2px solid $silver-chalice;
+            }
+        }
+    }
+
+    &__nav-toggle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 49px;
+
+        &:before {
+            @include icon($icon-caret-down-thin);
+
+            color: $denim;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .open + & {
+            width: 49px;
+
+            &:before {
+                @include icon($icon-caret-up-thin);
+            }
+        }
+
+        @include media($large) {
+            display: none;
+        }
+    }
+
+    &__models-list {
+        border: 1px solid $silver;
+        border-top: none;
+        display: none;
+
+        .open > & {
+            background-color: white;
+            display: block;
+            left: 0;
+            position: absolute;
+            top: calc(100% - #{$space-4});
+            width: 100%;
+            z-index: $z-content;
+
+            @include media($large) {
+                top: calc(100% - #{$space-6});
+            }
+        }
+    }
+
+    &__model {
+        border-bottom: 1px solid $silver;
+//        display: flex;
+//        justify-content: space-between;
+//        padding: $space-3 $space-2;
+        @include highlight-copy-reg;
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+    }
+
+    &__model-name {
+        width: 100%;
+        padding: $space-3 $space-2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+
+        &.link {
+            width: 100%;
+
+            &:hover {
+                color: $azure-radiance;
+            }
+        }
+
+        .icon-hybrid {
+            color: $fruit-salad;
+        }
+    }
+
+    &__model-price {
+        white-space: nowrap;
+    }
+}

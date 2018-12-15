@@ -1,0 +1,66 @@
+.sphere-image-rotator {
+    position: relative;
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: move;
+    }
+
+    &__zoom-ctas {
+        position: absolute;
+        bottom: $space-4;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    &__zoom {
+        color: $white;
+        cursor: pointer;
+        font-size: 35px;
+
+        &--disabled {
+            color: $dove-gray;
+            cursor: default;
+        }
+    }
+
+    .icon-zoomin {
+        margin-right: $space-3;
+    }
+
+    &__rotate-box {
+        display: table;
+        background: $black;
+        color: $white;
+        border-radius: 2px;
+        position: absolute;
+        width: 140px;
+        min-height: 100px;
+        opacity: 0.8;
+        @include center-content(both);
+        text-align: center;
+        padding: $space-3 $space-2;
+        z-index: 1;
+        transition: opacity $speed-4, z-index $speed-4;
+
+        &--hidden {
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .icon-mb {
+            display: block;
+            font-size: 38px;
+            margin-bottom: $space-3;
+        }
+    }
+
+    &__rotate-message {
+        @include featured-copy-bold;
+        color: $white;
+    }
+}

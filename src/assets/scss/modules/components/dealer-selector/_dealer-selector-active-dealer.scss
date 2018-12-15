@@ -1,0 +1,27 @@
+.dealer-selector-active-dealer {
+    text-align: center;
+
+    &__address {
+        @include featured-copy-reg;
+        line-height: 1.8;
+        margin-bottom: $space-3;
+    }
+
+    &__phone-number {
+        color: $blitz;
+    }
+
+    &__button {
+        margin-bottom: $space-3;
+    }
+
+    &__cta {
+        clear: both;
+
+        .link {
+            cursor: pointer;
+            font: inherit;
+            line-height: initial;
+        }
+    }
+}

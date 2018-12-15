@@ -1,0 +1,73 @@
+.multi-media-carousel {
+    &__pagination {
+        display: none;
+
+        &--visible {
+            display: flex;
+        }
+
+        &--large-right {
+            @include media($large) {
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    &__indicators {
+        @include font-regular-bold(13px, 1);
+        color: $dove-gray;
+        display: inline-block;
+        margin: 3px $space-2 0 0;
+    }
+
+    &__pagination-buttons {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &__cta {
+        color: $denim;
+        cursor: pointer;
+        font-size: 19px;
+
+        @include theme-amg() {
+            color: $guardsman-red;
+
+            &--inactive {
+                color: $dusty-gray;
+                cursor: auto;
+            }
+        }
+
+        &--inactive {
+            color: $silver;
+            cursor: auto;
+        }
+    }
+
+    &__items {
+        position: relative;
+        overflow: hidden;
+        line-height: 0;
+        margin-bottom: $space-3;
+        @include media($large) {
+            margin-bottom: $space-4;
+        }
+    }
+
+    .multimedia-asset {
+        position: absolute;
+        opacity: 0;
+        top: 0px;
+        left: 0px;
+        overflow: hidden;
+        width: 100%;
+        transition: opacity $speed-4;
+
+        &--active {
+            opacity: 1;
+            position: relative;
+            transition-delay: $speed-4;
+        }
+    }
+}

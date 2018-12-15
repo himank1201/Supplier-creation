@@ -1,0 +1,10 @@
+// Styles for decorating with shadows
+.shadowed {
+    box-shadow: 0px 5px 25px -10px black;
+}
+
+.inset-shadowed {
+    background-image: radial-gradient(ellipse closest-corner at 50% 100px, color(mine-shaft) 0%, transparent 160%);
+    background-position: 0px -300px;
+    background-repeat: no-repeat;
+}

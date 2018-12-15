@@ -1,0 +1,10 @@
+.inventory-search {
+  &__dealer {
+    background-color: $seashell;
+    padding: $space-8 0;
+
+    @include media($large){
+      padding: $space-6 0;
+    }
+  }
+}

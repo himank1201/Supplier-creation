@@ -1,0 +1,29 @@
+.variant-offers {
+    padding: $space-2 0;
+    text-align: center;
+    background-color: $mercury;
+
+    .link_secondary {
+        @include featured-copy-reg;
+        @include theme-amg() {
+            color: $tundora;
+        }
+
+        &:before {
+            top: 8px;
+        }
+
+        &:hover,
+        &:focus {
+            @include theme-amg() {
+                animation: none;
+                color: $guardsman-red;
+                transition: color $speed-4 linear;
+            }
+        }
+    }
+
+    @include variant(wheelstand) {
+        margin-bottom: $space-3;
+    }
+}

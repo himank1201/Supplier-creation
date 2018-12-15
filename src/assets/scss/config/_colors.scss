@@ -1,0 +1,52 @@
+//http://chir.ag/projects/name-that-color
+//http://www.color-blindness.com/color-name-hue/ - if you get duplicates
+
+$pacific-blue: #00A6C9; //grid overlay
+$white: #fff;
+$white-sand: #f6f6f6;
+$seashell: #f1f1f1;
+$mercury: #e3e3e3;
+$alto: #dadada;
+$silver: #c7c7c7;
+$silver-chalice: #a1a1a1;
+$dusty-gray: #999;
+$dove-gray: #666;
+$scorpion: #565656;
+$tundora: #444;
+$mine-shaft: #333;
+$asphalt: #2a2a2a;
+$blitz: #222;
+$black: #010101;
+$azure-radiance: #0090ff;
+$denim: #176db7;
+$cinnabar: #e23a39;
+$guardsman-red: #eb0000;
+$fruit-salad: #569C53;
+
+// color palette variables
+$palette-colors: (
+    'white': $white,
+    'white-sand': $white-sand,
+    'seashell': $seashell,
+    'mercury': $mercury,
+    'alto': $alto,
+    'silver': $silver,
+    'silver-chalice': $silver-chalice,
+    'dusty-gray': $dusty-gray,
+    'dove-gray': $dove-gray,
+    'scorpion': $scorpion,
+    'tundora': $tundora,
+    'mine-shaft': $mine-shaft,
+    'asphalt': $asphalt,
+    'blitz': $blitz,
+    'black': $black,
+    'azure-radiance': $azure-radiance,
+    'denim': $denim,
+    'cinnabar': $cinnabar,
+    'guardsman-red': $guardsman-red,
+    'fruit-salad': $fruit-salad
+);
+
+@function color($color-name) {
+    @return map-get($palette-colors, $color-name);
+}

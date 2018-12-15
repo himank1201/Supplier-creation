@@ -1,0 +1,111 @@
+.offers-list {
+    margin-bottom: $space-12;
+
+    &__heading {
+        text-align: center;
+        margin-bottom: $space-4;
+
+        .offers-list--cpo & {
+            display: none;
+
+            @include media($large) {
+                display: block;
+            }
+        }
+
+        @include media($large) {
+            margin-bottom: $space-6;
+        }
+    }
+
+    &__offer-container {
+        overflow: hidden;
+        border-top: 1px solid $alto;
+        padding-top: $space-6;
+        margin-bottom: $space-6;
+
+        &:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    &__class-title {
+        border-bottom: 1px solid $alto;
+
+        .icon-mb {
+            color: $denim;
+            float: right;
+            margin-top: 3px;
+        }
+
+        @media screen and (min-width: $large),
+        only print {
+            @include subhead-reg;
+            margin-bottom: $space-3;
+            text-align: center;
+            padding-bottom: 0;
+            border: 0;
+
+            .icon-mb {
+                display: none;
+            }
+        }
+    }
+
+    &__class-subtitle {
+        @include call-out-text-bold;
+        margin-bottom: $space-3;
+
+        @include media($large) {
+            margin-bottom: $space-2;
+        }
+    }
+
+    &__heading-cta {
+        color: $denim;
+        display: inline-block;
+    }
+
+    // All accordion style overrides
+    &__class-section {
+        .accordion__pane {
+            padding: $space-4 0;
+
+            @include media($large) {
+                padding: 0 0 $space-4 0;
+            }
+        }
+
+        .accordion__title {
+            @include media($mobile-only) {
+                @include featured-copy-reg;
+                border-top: none;
+
+                &:after {
+                    color: $denim;
+                }
+            }
+        }
+
+        .accordion__button {
+            @include media($mobile-only) {
+                padding: $space-3 $space*7 $space-3 0;
+            }
+        }
+
+        .accordion__item {
+            &--active {
+                @include media($mobile-only) {
+                    color: $azure-radiance;
+                }
+            }
+        }
+    }
+}
+
+.special-offers__list {
+    .offers-list {
+        margin-bottom: 0;
+    }
+}

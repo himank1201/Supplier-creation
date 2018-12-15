@@ -1,0 +1,104 @@
+.dealer-locator-nav {
+    display: inline-flex;
+    padding: $space-2 $space-6 $space-2 $space-2;
+
+    @include media($tablet) {
+        padding: $space-2 0;
+    }
+
+    .form__input {
+        background: $white;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        &-dropdown {
+            display: none;
+            line-height: $space-5;
+            background: $white;
+            color: $blitz;
+            margin-left: $space;
+
+            &.error {
+                display: none;
+            }
+        }
+
+        &-field {
+            width: 100%;
+            height: 27px;
+            border-bottom: none;
+            padding: 0 $space-6 0 $space;
+
+            &:focus {
+                color: $blitz;
+            }
+
+            &.error {
+                border: 1px solid $guardsman-red;
+                color: $guardsman-red;
+            }
+        }
+
+        &-label {
+            display: none!important;
+        }
+    }
+
+    &__label {
+        @include featured-copy-reg;
+        display: inline-block;
+        padding-bottom: $space;
+
+        @include media($tablet) {
+            color: $white;
+            margin-top: 3px;
+            margin-right: $space-2;
+
+            &-text {
+                display: none;
+            }
+        }
+    }
+
+    &__input {
+        position: relative;
+        width: 208px;
+        height: auto;
+        min-height: $space-6;
+        @include copy-narrow-reg();
+
+        &:focus {
+            outline: none;
+        }
+
+        @include media($tablet) {
+            width: 228px;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        float: none;
+        top: 36px;
+        left: 190px;
+        height: 27px;
+        width: 28px;
+        border: 0 none;
+        border-radius: 0;
+        background-color: $azure-radiance;
+        padding: unset;
+        line-height: unset;
+
+        &:before {
+            @include icon($icon-caret-right-thin);
+            display: inline;
+            color: $white;
+        }
+
+        @include media($tablet) {
+            top: $space-2;
+            left: auto;
+            right: 0;
+        }
+    }
+}

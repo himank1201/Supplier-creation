@@ -1,0 +1,9 @@
+.tool-tip-demo {
+    display: flex;
+    align-items: center;
+
+    &__title {
+        display: inline-block;
+        margin-right: $space;
+    }
+}

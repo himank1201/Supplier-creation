@@ -1,0 +1,46 @@
+.sales-hero {
+    padding-top: 0;
+
+    @include page-specific(corporate-page) {
+        @include media($large) {
+            padding-bottom: 0;
+        }
+    }
+
+    @include page-specific(special-offers) {
+        @include media($large) {
+            padding-bottom: 0;
+        }
+    }
+
+    &__image-container {
+        line-height: 0;
+
+        @include media($mobile-only) {
+            width: 100%;
+        }
+    }
+
+    &__interior {
+        padding-bottom: 0;
+    }
+
+    &__copy-container {
+        &.right {
+            @include media($large) {
+                @include shift(8);
+            }
+        }
+
+        &.center {
+            text-align: center;
+            @include media($large) {
+                @include shift(4);
+            }
+        }
+
+        & >:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

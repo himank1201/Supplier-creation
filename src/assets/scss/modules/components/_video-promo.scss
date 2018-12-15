@@ -1,0 +1,119 @@
+.video-promo {
+    position: relative;
+    padding-bottom: $space-4;
+
+    .wrapper & {
+        width: 100vw;
+        left: calc(50% - 50vw);
+        position: relative;
+
+        .wrapper {
+            @include mobile-container-width();
+        }
+    }
+
+    @include media($large) {
+        padding-bottom: $space-6;
+    }
+
+    &__video-preview-container {
+        position: relative;
+        background-color: $asphalt;
+        overflow: hidden;
+    }
+
+    &__icon-play {
+        border-radius: 50%;
+        border: 2px solid $white;
+        height: 75px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 75px;
+    }
+
+    &__circle {
+        opacity: 0.5;
+        fill: $black;
+    }
+
+    &__triangle {
+        fill: $white;
+    }
+
+    &__preview-image {
+        display: block;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 460px;
+
+        // Creating exception for placeholder image for promo video
+        @include media($medium-only) {
+            width: 100%;
+        }
+
+        @include media($large) {
+            width: 920px;
+        }
+
+        @include media($desktop) {
+            width: 1440px;
+        }
+    }
+
+    &__interior {
+        background-color: $asphalt;
+        @include media($large) {
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+    }
+
+    &__copy-container {
+        color: $white;
+        padding: $space-4 0;
+
+        @include media($large) {
+            padding: $space-8 0;
+            @include span-columns(4 of 12);
+        }
+    }
+
+    &__title {
+        margin-bottom: $space-3;
+        @include subhead-reg;
+    }
+
+    &__subtitle {
+        position: relative;
+        z-index: 10;
+
+        .disclaimer__legend-reference {
+            color: $white;
+        }
+    }
+
+    &__youtube-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.0001;
+        z-index: 9;
+        transition: opacity .8s ease-in-out;
+
+        .playing & {
+            opacity: 1;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

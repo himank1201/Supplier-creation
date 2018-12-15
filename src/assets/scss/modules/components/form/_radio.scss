@@ -1,0 +1,59 @@
+.form {
+    $radio-size: 16px;
+
+    &__radio-control-group-container {
+        &.error .form__input-error {
+            display: block;
+        }
+    }
+    
+    &__radio-control {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        padding-left: $space-4;
+        margin-bottom: $space-3;
+    }
+
+    &__radio {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+
+        &:checked + .form__radio-indicator {
+            &:after {
+                background: $denim;
+            }
+        }
+
+        &:focus + .form__radio-indicator {
+            border-color: $azure-radiance;
+        }
+    }
+
+    &__radio-label {
+        @include featured-copy-reg();
+    }
+
+    &__radio-indicator {
+        position: absolute;
+        @include center-content(vertical);
+        border: 1px solid $silver-chalice;
+        border-radius: 50%;
+        left: 0;
+        height: $radio-size;
+        width: $radio-size;
+
+        &:after {
+            display: block;
+            content: '';
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            height: $radio-size - 6;
+            width: $radio-size - 6;
+            border-radius: 50%;
+            transition: background 0.25s linear;
+        }
+    }
+}

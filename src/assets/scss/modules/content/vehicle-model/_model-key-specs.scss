@@ -1,0 +1,158 @@
+.model-page-key-specs {
+    padding-bottom: $space-8;
+    
+    &__spec-list {
+        padding: 0 $space-4;
+        border: 1px solid $alto;
+        
+        @include media($large) {
+            @include outer-container();
+            padding: $space-3 0;
+        }
+    }
+    
+    &__spec-item {
+        @include copy-narrow-reg;
+        color: $dove-gray;
+        padding: $space-2 0;
+        border-bottom: 1px solid $alto;
+        height: 42px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        
+        @include media($large) {
+            @include span-columns(4);
+            padding: 0 $space-4;
+            border-bottom: none;
+            height: $space-4;
+            display: flex;
+        }
+
+        .model-page-key-specs__spec-list--two-specs & {
+            @include media($large) {
+                @include span-columns(6);
+                display: flex;
+            }
+
+            &:after {
+                @include media($large) {
+                    right: -9px;
+                }
+                @include media($xlarge) {
+                    right: -12px;
+                }
+            }
+        }
+        
+        &--ACCELERATION, &--NET_POWER, &--NET_TORQUE, &--TOWING_CAPACITY {
+            @extend .model-page-key-specs__spec-item;
+        }
+        
+        &--ACCELERATION {
+            
+            .icon-mb {
+                font-size: 15px;
+                
+                &:after {
+                    @include icon($icon-acceleration);
+                }
+            }
+        }
+        
+        &--NET_POWER {
+            
+            .icon-mb {
+                font-size: 24px;
+                
+                &:after {
+                    @include icon($icon-horsepower);
+                }
+            }
+        }
+        
+        &--NET_TORQUE {
+            
+            .icon-mb {
+                font-size: 20px;
+                display: block;
+                float: left;
+                
+                &:after {
+                    @include icon($icon-torque);
+                }
+            }
+        }
+        
+        &--TOWING_CAPACITY {
+            
+            .icon-mb {
+                font-size: 19px;
+                
+                &:after {
+                    @include icon($icon-towing);
+                }
+            }
+        }
+        
+        &:first-child {
+            
+            @include media($xlarge) {
+                padding-left: $space-6;
+            }
+        }
+        
+        &:last-child {
+            border-bottom: none;
+            
+            @include media($xlarge) {
+                padding-right: $space-6;
+            }
+            
+            &:after {
+                
+                @include media($large) {
+                    border-right: none;
+                }
+            }
+        }
+        
+        &:after {
+            
+            @include media($large) {
+                content: "";
+                display: block;
+                height: 100%;
+                width: 0;
+                border-right: 1px solid $alto;
+                position: absolute;
+                top: 0;
+                right: -4%;
+            }
+        }
+        
+        .icon-mb {
+            color: $denim;
+            width: $space-7;
+            padding-right: $space-2;
+            display: inline-block;
+            text-align: center;
+            
+            @include media($large) {
+                width: auto;
+            }
+        }
+    }
+    
+    &__name {
+        @include copy-narrow-reg;
+        flex-grow: 1;
+    }
+    
+    &__value {
+        flex-grow: 0;
+        text-align: right;
+        white-space: nowrap;
+        @include copy-narrow-bold;
+    }
+}

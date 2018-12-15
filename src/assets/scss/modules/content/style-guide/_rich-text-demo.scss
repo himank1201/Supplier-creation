@@ -1,0 +1,61 @@
+// Styling to demo the rich text editor styles (.rte)
+.rte-demo {
+    &__heading {
+        @include call-out-text-bold;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        margin: $space-6 0 $space-12 0;
+    }
+
+    &__item {
+        margin-bottom: $space-6;
+        @include clearfix();
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__item-cell {
+        @include span-columns(12);
+
+        @include media($tablet) {
+            @include span-columns(4);
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__properties {
+        display: flex;
+        flex-flow: row;
+        flex-wrap: wrap;
+        overflow: visible;
+    }
+
+    &__property-label {
+        flex: 0 0 50%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        @include copy-wide-reg;
+        font-weight: bold;
+    }
+
+    &__property-value {
+        flex: 0 0 50%;
+        margin-left: auto;
+        text-align: left;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        @include copy-wide-reg;
+    }
+
+    code {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}

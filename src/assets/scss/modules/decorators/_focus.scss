@@ -1,0 +1,20 @@
+// Styles for decorating the focus of an element
+*:focus {
+    outline: thin solid transparent;
+    animation: focus-element $speed-33;
+}
+
+div:focus {
+    outline: none;
+    animation: none;
+}
+
+@keyframes focus-element {
+    0% {
+        outline: thin solid $silver-chalice;
+    }
+
+    100% {
+        outline: thin solid transparent;
+    }
+}

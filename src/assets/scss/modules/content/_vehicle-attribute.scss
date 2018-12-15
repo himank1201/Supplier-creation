@@ -1,0 +1,21 @@
+.vehicle-attribute {
+    &__row {
+        @include outer-container;
+        border-bottom: 1px solid $blitz;
+        padding: $space-2 0;
+    }
+
+    &__details {
+        color: $dove-gray;
+        display: inline-block;
+        @include span-columns(2 of 4);
+
+        @include media($large) {
+            @include span-columns(4);
+
+            .vehicle-data__classes & {
+                @include span-columns(6);
+            }
+        }
+    }
+}

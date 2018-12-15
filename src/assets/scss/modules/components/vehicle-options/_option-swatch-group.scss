@@ -1,0 +1,62 @@
+.mbs-option-swatch-group {
+    position: relative;
+    padding-bottom: $space-4;
+
+    &__info {
+        @include media($mobile-only) {
+            @include mobile-container-width();
+            margin: 0 auto;
+        }
+    }
+
+    &__heading {
+        display: flex;
+        align-items: center;
+        margin-bottom: $space-2;
+    }
+
+    &__title {
+        @include section-reg;
+        margin-right: $space-2;
+    }
+
+    &__tool-tip {
+        @include copy-narrow-reg();
+    }
+
+    &__selected-swatch-info {
+        @include copy-narrow-reg;
+        min-height: 20px;
+        margin-bottom: $space;
+    }
+
+    &__swatch-name {
+        color: $denim;
+        padding-right: $space;
+
+        @include theme-amg() {
+            color: $guardsman-red;
+        }
+    }
+
+    &__swatch-price {
+        border-left: 1px solid $silver-chalice;
+        color: $blitz;
+        padding-left: $space;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__disclaimer {
+        position: relative;
+        @include copy-narrow-reg;
+        margin: $space $space-2;
+
+        @include media($tablet) {
+            margin: $space 0 $space-4;
+        }
+    }
+}

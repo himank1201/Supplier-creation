@@ -1,0 +1,179 @@
+.image-slider {
+    &__spacer {
+        display: none;
+
+        @include media($large) {
+            @include span-columns(2);
+            display: block;
+        }
+
+        &:before {
+            content: "";
+            border-top: 1px solid $silver;
+            display: block;
+            margin-top: 8px;
+            width: 30px;
+        }
+    }
+
+    &__heading {
+        @include subhead-reg;
+        margin-bottom: $space-4;
+        @include theme-amg() {
+            color: $white;
+        }
+    }
+
+    &__text {
+        @include media($tablet) {
+            @include span-columns(9);
+        }
+    }
+
+    &__desc {
+        @include theme-amg() {
+            color: $dusty-gray;
+        }
+
+        @include variant(ondisplay) {
+            @include paragraph-wide-reg;
+        }
+    }
+
+    &__figure {
+        max-width: 100%;
+        margin: 0 auto $space-5;
+        position: relative;
+    }
+
+    &__images {
+        position: relative;
+        overflow: hidden;
+        font-size: 0;
+        line-height: 0;
+    }
+
+    &__left-image {
+        max-width: none;
+        height: 100%;
+    }
+
+    &__right-image {
+        width: 100%;
+    }
+
+    &__image-caption {
+        color: $dusty-gray;
+        position: absolute;
+        display: block;
+        width: 110px;
+        bottom: $space;
+        @include media($large) {
+            width: 350px;
+            bottom: $space-3;
+        }
+        @include highlight-copy-reg;
+
+        &--left {
+            left: $space-2;
+            text-align: left;
+            line-height: $space-3;
+        }
+
+        &--right {
+            right: $space-2;
+            text-align: right;
+            line-height: $space-3;
+        }
+    }
+
+    &__divider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        margin-top: 0;
+        overflow: hidden;
+        border-right: 1px solid $silver;
+    }
+
+    &__range {
+        appearance: none;
+        display: block;
+        box-sizing: border-box;
+        width: 106%;
+        cursor: ew-resize;
+        background: transparent;
+        position: absolute;
+        top: 50%;
+        padding: 0;
+        height: 53px; // account for IE not able to show background-image bigger than track
+        margin: -26px 0 -26px -3.1%;
+
+        &:hover,
+        &:focus {
+            animation: none;
+            outline: 0;
+        }
+
+        &:active {
+            outline: 0;
+        }
+
+        &::-moz-range-track {
+            height: 0;
+        }
+
+        &::-ms-track {
+            -ms-appearance: none;
+            padding: 0;
+            height: 0;
+
+            /* Remove default styles */
+            color: transparent;
+            border-color: transparent;
+            background: transparent;
+        }
+
+        &::-ms-fill-lower {
+            background: transparent;
+        }
+
+        &::-ms-fill-upper {
+            background: transparent;
+        }
+
+        @mixin range-thumb {
+            appearance: none;
+            cursor: pointer;
+            width: 55px;
+            height: 55px;
+            background-color: transparent;
+            background-image: url('/etc/designs/mb-nafta/images/icon-slider-01.png');
+            @include theme-amg() {
+                background-image: url('/etc/designs/mb-nafta/images/icon-slider-amg.png');
+            }
+            background-size: contain;
+            border: none;
+            outline: none;
+        }
+
+        &::-webkit-slider-thumb {
+            @include range-thumb;
+        }
+
+        &::-moz-range-thumb {
+            @include range-thumb;
+        }
+
+        &::-ms-thumb {
+            @include range-thumb;
+            margin-top: 0;
+        }
+
+        &::-ms-tooltip {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+.fixed-width-media {
+    &__heading {
+        &--above {
+            text-align: center;
+        }
+    }
+
+    &__copy-container {
+        margin-top: $space-4;
+    }
+
+    &__spacer {
+        display: none;
+
+        @include media($large) {
+            @include span-columns(2);
+            display: block;
+        }
+
+        &:before {
+            content: "";
+            border-top: 1px solid $silver;
+            display: block;
+            margin-top: 8px;
+            width: 30px;
+        }
+    }
+
+    &__text {
+        @include media($tablet) {
+            @include span-columns(9);
+        }
+    }
+
+    &__title {
+        @include subhead-reg;
+        margin-bottom: $space-4;
+    }
+
+    &__body {
+        @include copy-wide-reg;
+
+        @include variant(ondisplay) {
+            @include paragraph-wide-reg;
+        }
+    }
+
+    @include page-specific(corporate-page) {
+
+        &__copy-container {
+            margin-top: $space-2;
+
+            @include media($large) {
+                margin-top: $space-8;
+            }
+        }
+
+        &__title {
+            @include copy-wide-bold;
+            font-size: 14px;
+            margin-bottom: $space;
+        }
+
+        &__body {
+            margin-bottom: $space;
+
+            @include media($large) {
+                margin-bottom: $space-2;
+            }
+        }
+    }
+}

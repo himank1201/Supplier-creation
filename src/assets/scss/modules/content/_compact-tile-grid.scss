@@ -1,0 +1,119 @@
+.compact-tile-grid {
+    &__heading {
+        @include section-reg;
+        text-align: center;
+        margin-bottom: $space-4;
+
+        @include media($tablet) {
+            @include featured-heading;
+            margin-bottom: $space-6;
+        }
+    }
+
+    &__copy-container {
+        text-align: left;
+
+        &--center {
+            text-align: center;
+        }
+    }
+
+    &__link {
+        @extend .link;
+        @extend .link_primary;
+        .compact-tile-grid--button & {
+            @extend .button;
+            @extend .button_primary;
+            color: $white !important;
+            padding: $space $space-2 !important;
+        }
+    }
+
+    &__tiles {
+        @include outer-container(100%);
+    }
+
+    // Overrides for available Tile components for a compact-tile grid
+
+    // Layout Tile
+    .layout-tile-item {
+        margin-bottom: $space-4;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        @include media($tablet) {
+            margin-bottom: $space-6;
+            @include span-columns(4);
+
+            &:nth-last-child(-n + 3) {
+                margin-bottom: 0;
+            }
+
+            &:nth-child(3n) {
+                @include omega;
+            }
+
+            &:nth-child(3n+1) {
+                clear: left;
+
+                @include editorial() {
+                    clear: none;
+                }
+            }
+        }
+    }
+
+    // Link Group
+    .link-group {
+        margin-bottom: $space-6;
+
+        & + .link-group {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include media($large) {
+            &:nth-last-child(-n + 3) {
+                margin-bottom: 0;
+            }
+        }
+
+        &-item {
+            @include list-block(3);
+
+             &:nth-child(3n + 1) {
+                 clear: left;
+
+                 @include editorial() {
+                    clear: none;
+                 }
+             }
+        }
+
+        &__list-container {
+            display: block;
+        }
+
+        &__list-block {
+            display: block;
+            width: 100%;
+            margin-right: 0;
+        }
+
+        &__model {
+            &:nth-child(n+2) {
+                border-top: none;
+            }
+        }
+    }
+
+    @include editorial() {
+       .newpar {
+           float: left;
+           width: 100%;
+       }
+    }
+}

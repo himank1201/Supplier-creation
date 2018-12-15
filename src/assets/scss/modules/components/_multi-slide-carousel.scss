@@ -1,0 +1,101 @@
+.multi-slide-carousel {
+    position: relative;
+    font-size: 0;
+
+    [data-multi-slide-carousel-items-list] {
+        display: inline;
+        position: relative;
+        transition: left 0.3s linear;
+        white-space: normal;
+    }
+
+    [data-multi-slide-carousel-item] {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 8px;
+    }
+
+    [data-multi-slide-carousel-nav-right], [data-multi-slide-carousel-nav-left] {
+        position: absolute;
+        font-size: 1rem;
+        padding: 0 $space;
+        margin-top: -1px;
+        opacity: 0;
+        pointer-events: none;
+        background-color: $white;
+        color: $denim;
+        z-index: 1;
+        top: 0;
+        height: 100%;
+        transition: opacity 0.2s linear;
+
+        &::after {
+            margin-top: -2px;
+        }
+    }
+
+    [data-multi-slide-carousel-nav-right] {
+        right: -1px;
+
+        &::after {
+            @include icon($icon-arrow-right-square);
+        }
+    }
+
+    [data-multi-slide-carousel-nav-left] {
+        left: -1px;
+
+        &::after {
+            @include icon($icon-arrow-left-square);
+        }
+    }
+
+    &.multi-slide-small--active{
+
+        @include media($lt-large) {
+
+            [data-multi-slide-carousel-items-list] {
+                white-space: nowrap;
+                display: inline-block;
+            }
+
+            [data-multi-slide-carousel-item] {
+                margin-bottom: 0;
+            }
+
+            .multi-slide-nav--active {
+                opacity: 1;
+                pointer-events: all;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+
+    &.multi-slide-large--active,
+    &.multi-slide-xlarge--active {
+
+        @include media($lt-large) and media($large) and media($xlarge) {
+
+            [data-multi-slide-carousel-items-list] {
+                white-space: nowrap;
+                display: inline-block;
+            }
+
+            [data-multi-slide-carousel-item] {
+                margin-bottom: 0;
+            }
+
+            .multi-slide-nav--active {
+                opacity: 1;
+                pointer-events: all;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+
+    &-inner {
+        overflow: hidden;
+    }
+}

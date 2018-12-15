@@ -1,0 +1,23 @@
+.preferred-dealer {
+    &[data-show="false"] {
+        display: none;
+    }
+
+    &__heading {
+        @include section-reg;
+        border-bottom: 1px solid $alto;
+        padding: $space-3 0;
+        text-align: center;
+        margin-bottom: $space-2;
+    }
+
+    .dealer-info {
+        border-bottom: 1px solid $mercury;
+
+        &__address-container-dealer {
+            &::before {
+                color: $denim;
+            }
+        }
+    }
+}

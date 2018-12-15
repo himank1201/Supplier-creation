@@ -1,0 +1,29 @@
+.visualizer-details {
+    &__name {
+        @include section-reg();
+        margin-bottom: $space;
+    }
+
+    &__engine {
+        @include highlight-copy-reg();
+        margin-bottom: $space-3;
+    }
+
+    &__engine-accent {
+        @include highlight-copy-bold();
+    }
+
+    &__spacer {
+        &:before {
+            content: '';
+            border-top: 1px solid $silver;
+            display: block;
+            margin-bottom: $space-3;
+            width: $space-4;
+        }
+    }
+
+    &__msrp {
+        @include highlight-copy-reg();
+    }
+}

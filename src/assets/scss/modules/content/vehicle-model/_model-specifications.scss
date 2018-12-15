@@ -1,0 +1,14 @@
+.model-page-specifications {
+    
+    .default-content-section_header {
+        margin-bottom: $space-2;
+        
+        @include media($large) {
+            margin-bottom: $space-5;
+        }
+        
+        @include media($xlarge) {
+            margin-bottom: $space-7;
+        }
+    }
+}

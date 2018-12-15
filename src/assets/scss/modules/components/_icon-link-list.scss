@@ -1,0 +1,60 @@
+.mbs-icon-link-list {
+    padding: $space-6 0 0;
+    background: $white;
+    display: block;
+
+    @include media($tablet) {
+        display: block;
+        padding: $space-6 0;
+    }
+
+    &__links {
+        display: flex;
+        flex-wrap: wrap;
+
+        @include media($tablet) {
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+    }
+
+    &__link {
+        text-align: center;
+        cursor: pointer;
+        width: 50%;
+        float: left;
+        margin-bottom: $space-6;
+        flex: 1 1 50%;
+
+        @include media($tablet) {
+            width: auto;
+            float: none;
+            margin-bottom: 0;
+            flex: 0 1 auto;
+        }
+    }
+
+    &__title {
+        @include copy-wide-reg;
+        color: $blitz;
+
+        &:hover, &:focus {
+            color: $azure-radiance;
+
+            .mbs-icon-link-list__icon {
+                color: $azure-radiance;
+            }
+        }
+    }
+
+    &__icon {
+        display: inline-block;
+        font-size: 25px;
+        color: $denim;
+    }
+
+    &__hide {
+        display: none;
+    }
+}

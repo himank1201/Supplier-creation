@@ -1,0 +1,532 @@
+/**
+ * class-models.scss{}
+ * styles our models module on the class pages
+ */
+.model-section {
+    &__heading {
+        @include heading-reg;
+        padding-bottom: $space-4;
+        text-align: center;
+        border-bottom: 1px solid $silver;
+
+        @include theme-amg() {
+            color: $white;
+        }
+
+        @include variant(ondisplay) {
+            @include section-reg;
+            border-bottom: none;
+        }
+
+        .model-section--slim & {
+            border-bottom: none;
+        }
+    }
+
+    &__subheading {
+        @include section-reg;
+
+        @include media($large) {
+            padding-top: $space-5;
+        }
+    }
+
+    &__items {
+        background-color: $white-sand;
+        padding-top: $space-5;
+        margin-top: -2px;
+        text-align: center;
+
+        @include theme-amg() {
+            background-color: $blitz;
+        }
+    }
+
+    &__item {
+        padding: 0 0 $space-6 0;
+        @include theme-amg() {
+            background-color: $blitz;
+        }
+
+        @include media($tablet) {
+            padding: $space-5 0 $space-6 0;
+        }
+
+        @include variant(ondisplay) {
+            // Not using media queries because all of On Display is at tablet size
+            padding: 25px 0 40px 0;
+            position: relative;
+
+            &:first-of-type::before {
+                content: '';
+                @include triangle ([ 30px, 13px ], $white, 'down');
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 0;
+            }
+
+            &:nth-child(even) {
+                background-color: $white-sand;
+            }
+
+            > .wrapper {
+                border-bottom: 1px solid $silver;
+                padding-bottom: 25px;
+            }
+        }
+
+        @include variant-with-theme(ondisplay, amg) {
+            &:first-of-type::before {
+                @include triangle ([ 30px, 13px ], $black, 'down');
+            }
+
+            &:nth-child(even) {
+                background-color: $blitz;
+            }
+        }
+
+        .model-section--slim & {
+            background-color: $white;
+        }
+    }
+
+    &__summary {
+        list-style: none;
+        text-align: center;
+        margin-bottom: $space-3;
+
+        @include media($tablet) {
+            overflow: hidden;
+            text-align: left;
+            margin-bottom: $space-2;
+        }
+        @include theme-amg() {
+            color: $white;
+        }
+    }
+
+    &__summary-image-mobile {
+        display: block;
+        margin-bottom: $space-3;
+
+        @include media($tablet) {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__summary-name {
+        @include featured-copy-bold;
+        margin-bottom: $space-2;
+
+        @include media($tablet) {
+            @include span-columns(4);
+            margin-bottom: 0;
+        }
+
+        @include media($desktop) {
+            @include span-columns(3);
+        }
+
+        // ondisplay variant styles
+        @include variant(ondisplay) {
+            @include subhead-reg;
+        }
+    }
+
+    &__summary-price {
+        @include copy-wide-bold;
+        margin-bottom: $space-2;
+
+        @include media($tablet) {
+            padding-top: $space;
+            margin-bottom: 0;
+            @include span-columns(2);
+        }
+
+        @include media($desktop) {
+            @include span-columns(3);
+        }
+
+        // ondisplay variant styles
+        @include variant(ondisplay) {
+            @include font-regular-bold(16px, 24/16);
+        }
+
+        &-msrp {
+            display: inline-block;
+        }
+    }
+
+    &__summary-engine {
+        @include copy-wide-bold;
+
+        span {
+            font-weight: normal;
+        }
+
+        @include media($tablet) {
+            padding-top: $space;
+            text-align: right;
+            @include span-columns(6);
+        }
+
+        // ondisplay variant styles
+        @include variant(ondisplay) {
+            @include font-regular-bold(16px, 24/16);
+        }
+    }
+
+    &__features {
+        list-style: none;
+
+        @include media($tablet) {
+            clear: both;
+            overflow: hidden;
+        }
+
+        dl {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            border-bottom: 1px solid $silver;
+            padding: $space-2 0;
+            align-items: flex-end;
+
+            @include media($tablet) {
+                flex-direction: column;
+                align-items: baseline;
+                border: 0;
+                padding-top: $space-4;
+                min-height: 100px;
+            }
+
+            .model-section--slim & {
+                @include media($desktop) {
+                    padding-top: $space-3;
+                    min-height: 75px;
+                }
+            }
+        }
+    }
+
+    &__image-desktop {
+        display: none;
+
+        @include media($tablet) {
+            display: inline-block;
+            margin-right: auto;
+            @include span-columns(4);
+        }
+
+        @include media($desktop) {
+            @include span-columns(3);
+        }
+
+        img {
+            @include media($tablet) {
+                max-height: 90px;
+            }
+
+            // ondisplay variant styles
+            @include variant(ondisplay) {
+                @include media($tablet) {
+                    max-height: 135px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__specs {
+        width: 100%;
+
+        @include media($tablet) {
+            display: inline-block;
+            border-left: 1px solid $silver;
+            padding-left: $space-3;
+            margin-right: auto;
+            @include span-columns(2);
+        }
+
+        @include media($desktop) {
+            padding-left: $space-4;
+        }
+    }
+
+    &__specs-title {
+        margin-right: $space;
+        @include highlight-copy-reg;
+
+        @include media($tablet) {
+            order: 2;
+            margin-right: 0;
+        }
+
+        // ondisplay variant styles
+        @include variant(ondisplay) {
+            @include featured-copy-reg;
+        }
+    }
+
+    &__specs-subtitle {
+        color: $dusty-gray;
+        text-align: left;
+        flex-grow: 2;
+
+        @include media($tablet) {
+            order: 3;
+            @include copy-wide-reg;
+        }
+
+        // ondisplay variant styles
+        @include variant(ondisplay) {
+            @include highlight-copy-reg;
+        }
+    }
+
+    &__specs-value {
+        @include copy-wide-bold;
+
+        @include media($tablet) {
+            @include featured-heading;
+            line-height: 0;
+            order: 1;
+            text-align: left;
+        }
+    }
+
+    &__specs-units {
+        @include highlight-copy-reg;
+    }
+
+    &__cta {
+        margin-top: $space-5;
+        display: flex;
+        justify-content: flex-end;
+        text-align: center;
+
+        @include media($tablet) {
+            margin-left: auto;
+            margin-top: $space-2;
+            @include span-columns(2);
+            float: right;
+        }
+
+        @include media($desktop) {
+            @include span-columns(3);
+            float: right;
+        }
+    }
+
+    &__cta-container {
+        float: right;
+        
+        @include media($lt-large) {
+            width: 100%;
+        }
+    }
+
+    &__cta-build {
+        width: auto;
+        text-align: center;
+
+        @include media($desktop) {
+            display: inline-block;
+            min-width: 140px;
+        }
+
+        @include media($lt-large) {
+            width: 100%;
+        }
+    }
+
+    &__cta-link {
+        @include copy-wide-reg;
+        color: $denim;
+        display: block;
+        padding: $space-4 $space-2 0 $space;
+        margin-right: -5px;
+
+        @include media($tablet) {
+            padding-left: 0;
+        }
+
+        @include media($desktop) {
+            padding-left: $space-2;
+        }
+
+        // ondisplay variant styles
+        @include variant(ondisplay) {
+            @include featured-copy-reg;
+        }
+
+        &:hover,
+        &:focus {
+            color: $azure-radiance;
+            animation: none;
+        }
+
+        @include theme-amg() {
+            color: $white;
+        }
+    }
+
+    &__cta-view {
+        .icon-mb {
+            font-size: 16px;
+            line-height: 0;
+            display: inline-flex;
+            vertical-align: middle;
+            padding-left: 8px;
+            transform-origin: 70%;
+            transition: $menu-transition-open;
+        }
+
+        &[aria-expanded="true"] {
+            .icon-mb {
+                transform: rotate(180deg);
+                transform-origin: 70%;
+            }
+        }
+
+        @include theme-amg() {
+            .icon-mb {
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &__specifications {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s, padding-bottom 0.5s;
+
+        hr {
+            border: none;
+            border-top: 1px solid $silver;
+            margin: $space-6 auto;
+            width: 33px;
+
+            @include media($tablet) {
+                margin: $space-2 auto $space-5 0;
+            }
+        }
+
+        &--open {
+            max-height: 1500px;
+
+            @include media($tablet) {
+                padding-bottom: $space-6;
+            }
+        }
+    }
+
+    &__dimensions {
+        text-align: center;
+
+        @include media($tablet) {
+            text-align: left;
+            @include span-columns(6);
+        }
+    }
+
+    &__dimensions-heading {
+        @include copy-narrow-bold;
+        margin-top: $space-4;
+        margin-bottom: $space-3;
+
+        @include media($tablet) {
+            margin-top: $space-2;
+        }
+    }
+
+    &__dimensions-images {
+        margin-bottom: $space-5;
+
+        @include media($tablet) {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 0;
+        }
+    }
+
+    &__dimensions-image {
+        @include media($tablet) {
+            margin-right: $space-2;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__keyfeatures {
+        text-align: center;
+
+        @include media($tablet) {
+            text-align: left;
+            @include span-columns(6);
+        }
+    }
+
+    &__keyfeatures-heading {
+        @include copy-narrow-bold;
+        margin-top: $space-2;
+        margin-bottom: $space-3;
+
+        @include media($tablet) {
+            margin-bottom: $space-2;
+        }
+    }
+
+    &__keyfeatures-feature {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        border-bottom: 1px solid $silver;
+        padding: $space-3 0;
+    }
+
+    &__keyfeatures-name {
+        @include copy-wide-reg;
+        line-height: 1;
+        text-align: left;
+
+        // ondisplay variant styles
+        @include variant(ondisplay) {
+            @include featured-copy-reg;
+        }
+    }
+
+    &__keyfeatures-value {
+        @include copy-wide-bold;
+        line-height: 1;
+        text-align: right;
+
+        // ondisplay variant styles
+        @include variant(ondisplay) {
+            @include featured-copy-reg;
+        }
+    }
+
+    &__keyfeatures-units {
+        @include copy-wide-reg;
+    }
+
+    &__view-all {
+        margin-top: $space-4;
+        @include media($large) {
+            margin-top: $space-6;
+        }
+        text-align: center;
+    }
+}

@@ -1,0 +1,7 @@
+.model-features-heading {
+    margin-bottom: $space-4;
+
+    &__title {
+        @include section-reg();
+    }
+}

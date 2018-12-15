@@ -1,0 +1,111 @@
+.content-tile {
+    //AB: min-height 400 was chosen arbitrarily due to layout issues in edit mode. 
+    @include editorial() {
+        @include media($tablet) {
+            min-height: 400px;
+        }
+    }
+
+    &__tile {
+        &-heading {
+            @include featured-copy-bold;
+            margin-bottom: $space-3;
+
+            @include media($large) {
+                margin-bottom: $space-4;
+            }     
+        }
+
+        &-desc {
+            @include copy-wide-reg;
+            margin-bottom: $space-3;
+
+            @include media($large) {
+                margin-bottom: $space-4;
+            }
+        }
+
+        &-desc:last-child {
+            margin-bottom: 0px;
+        }
+    }
+
+    & .rte > *:last-child {
+            margin-bottom: 0;
+    }
+
+    &__text-container {
+        @include media($large) {
+            @include outer-container()
+        }
+
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__image-container {
+        margin-bottom: $space-2;
+        width: 100%;
+
+        @include media($large) {
+            margin-bottom: $space-3;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+// If the Content Tile is in Compact/Large Tile Grid component, override Content Tile styles accordingly
+
+.compact-tile-grid__copy-container--button,
+.large-tile-grid__copy-container--button,
+.overlay-tile-grid__container--button {
+    .content-tile__link {
+        @extend .button;
+        @extend .button_primary;
+        padding: $space $space-7;
+
+        &:hover, &:focus {
+            color: $white;
+        }
+
+        & + {
+            .app-badges {
+                margin-top: $space-2;
+                 @include media($large) {
+                    margin-top: $space-3;
+                }
+            }
+        }
+    }
+}
+
+// specific styles for left and center aligned items on a large-tile-grid
+
+.large-tile-grid__copy-container--left {
+    .content-tile__link-container,
+    .content-tile__tile-desc {
+        @include media($large) {
+            @include span-columns(5 of 6);
+            &--multimedia-tile {
+                float: none;
+            }
+        }
+    }
+}
+
+.large-tile-grid__copy-container--center {
+    .content-tile__link-container,
+    .content-tile__tile-desc {
+        @include media($large) {
+            @include span-columns(4 of 6);
+            @include shift(1);
+            &--multimedia-tile {
+                float: none;
+            }
+        }
+    }
+}

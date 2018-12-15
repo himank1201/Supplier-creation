@@ -1,0 +1,93 @@
+.mbs-auth-nav {
+    &--hide {
+        display: none;
+    }
+
+    &__cta {
+        cursor: pointer;
+        &:before {
+            border: none!important;
+        }
+        &:after {
+            @include icon($icon-profile);
+            position: absolute;
+            top: 9px;
+            left: -11px;
+            font-size: 25px;
+        }
+
+        &--active {
+            color: $denim;
+        }
+    }
+
+    &--register {
+        .top-nav__link {
+            position: relative;
+
+            @include media($tablet) {
+                padding: $space-3 0 $space-2+3 $space-3;
+            }
+
+            &::before {
+                border-right: 1px solid $white;
+                content: '';
+                height: $space-3+3;
+                left: 0;
+                position: absolute;
+                top: $space-3+1;
+            }
+        }
+    }
+
+    &--greeting {
+        display: none;
+
+        @include media($tablet) {
+            display: inline-block;
+            position: relative;
+        }
+    }
+
+    &--large-link {
+        padding-bottom: $space-3;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+
+    &__links-container {
+        display: block!important;
+        line-height: 1;
+        padding: $space-4;
+        background: $white;
+        margin-top: $space-2;
+        border-radius: 2px;
+        border: 1px solid $silver;
+
+        &:after {
+            content: '';
+            @include css-triangle(top, $space-2, $white);
+            top: $space + 1;
+            left: 77%;
+        }
+    }
+
+    &__dropdown {
+        width: 148px;
+        position: absolute;
+        top: 37px;
+        right: 0;
+        transition: $submenu-transition-open;
+        max-height: 0;
+        overflow: hidden;
+        z-index: $z-nav;
+
+        &--active {
+            height: auto;
+            max-height: 600px;
+            overflow: visible;
+        }
+    }
+}

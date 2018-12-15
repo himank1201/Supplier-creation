@@ -1,0 +1,128 @@
+.legal {
+    background-color: $white;
+
+    margin-top: $space-3;
+    padding-bottom: $space-3;
+
+    &__links-container {
+        @include clearfix;
+
+        @include media($tablet) {
+            @include span-columns(10);
+            @include omega;
+        }
+
+        @include media($desktop) {
+            @include span-columns(9);
+        }
+    }
+
+    &__section {
+        margin-right: 0;
+        padding-top: $space-2;
+
+        @include media($tablet) {
+            display: inline-block;
+            margin-right: $gutter;
+        }
+
+        @include variant(ondisplay) {
+          pointer-events: none;
+        }
+
+        &:first-child {
+            @include media($tablet) {
+                @include span-columns(4 of 10);
+            }
+
+            @include media($desktop) {
+                @include span-columns(3 of 9);
+            }
+        }
+
+        &:last-child {
+            @include media($tablet) {
+                @include span-columns(6 of 10);
+                @include omega;
+            }
+
+            @include media($desktop) {
+                @include span-columns(6 of 9);
+            }
+        }
+    }
+
+    &__copyright {
+        color: $silver-chalice;
+    }
+
+    &__item {
+        display: inline-block;
+        margin-right: $gutter;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__link {
+        color: $silver-chalice;
+        @include disclaimer;
+
+        @include media($xlarge) {
+            &:hover,
+            &:focus {
+                animation: none;
+                color: $azure-radiance;
+            }
+        }
+
+        &--static {
+            @extend .legal__link;
+
+            @include media($xlarge) {
+                &:hover,
+                &:focus {
+                    color: $silver-chalice;
+                }
+            }
+        }
+    }
+
+    &__disclaimer {
+        display: block;
+        background: $white-sand;
+        margin-top: $space*3;
+        padding: 0 $space;
+        color: $silver-chalice;
+
+        @include media($tablet) {
+            float: right;
+            margin-top: $space*2;
+        }
+
+        @include media($desktop) {
+            cursor: pointer;
+        }
+
+        .icon-mb {
+            padding-left: 3px;
+
+            &:before {
+                @include icon($icon-caret-down-thin);
+            }
+        }
+
+        &--open {
+            color: $azure-radiance;
+
+            .icon-mb {
+                padding-left: $space;
+
+                &:before {
+                    @include icon($icon-caret-up-thin);
+                }
+            }
+        }
+    }
+}

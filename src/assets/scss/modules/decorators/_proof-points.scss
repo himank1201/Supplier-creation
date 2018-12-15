@@ -1,0 +1,21 @@
+/**
+ Definitions for styling the proof points module, which is simply a container with some flexbox settings that holds other components.
+ */
+.proof-points {
+    @include outer-container(100%);
+    
+	&_wrapper {
+        padding-top: 0;
+        
+        @include media($tablet) {
+            @include shift(1);
+            @include span-columns(10);
+            @include omega;
+            @include clearfix;
+        }
+        
+        &.module-separator {
+            padding-bottom: 0;
+        }
+	}
+}

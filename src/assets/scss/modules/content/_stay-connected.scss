@@ -1,0 +1,182 @@
+.stay-connected {
+    
+    &__stay-in-touch {
+        @include media($mobile-only) {
+            order: 6;
+            padding-top: $space-4;
+
+            .footer__accordion-item-heading {
+                @include section-reg;
+                padding: 0 $space-2;
+                border-top: none;
+            }
+
+            .footer__accordion-item-content {
+                background: transparent;
+                border-top: none;
+                padding: $space-2;
+            }
+        }
+    }
+
+    &__other-sites {
+        
+        @include media($mobile-only) {
+            border-bottom: 1px solid $silver;
+        }
+    }
+
+    &__title {
+        color: $black;
+    }
+
+    &__sub-title {
+        margin-bottom: $space;
+        color: $blitz;
+    }
+
+    &__link-container {
+        @include clearfix;
+        
+        @include media($xlarge) {
+            @include outer-container();
+        }
+    }
+
+    &__social-links-container {
+        
+        @include media($xlarge) {
+            float: right;
+            margin-top: $space;
+        }
+    }
+
+    &__social-links-list {
+        display: inline-block;
+        padding-left: $space-4;
+
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+
+    &__social-link {
+        font-size: $space-8;
+        color: $black;
+        display: inline-block;
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+        }
+    }
+
+    &__other-sites-container {
+
+        @include media($mobile-only) {
+            padding-top: $space-2;
+        }
+        
+        @include media($tablet) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+    }
+
+    &__other-links-list {
+
+        @include media($mobile-only) {
+            
+            &:first-child {
+                
+                .stay-connected__other-link {
+                    padding-top: $space;
+                }
+            }
+
+            &:last-child {
+                
+                .stay-connected__other-link {
+                    padding-top: 0;
+                }
+            }
+        }
+
+        .icon-mb.icon-mbvans span {
+            @include font-heading(18px, 1);
+        }
+
+        .icon-mb.icon-mbfs span {
+            @include font-heading(18px, 1, $font-weight-regular, italic)
+        }
+
+        .icon-mb.icon-mbvans span,
+        .icon-mb.icon-mbfs span {
+            //override offscreen class
+            position: static;  //or relative
+            overflow: visible;
+        }
+
+        .icon-smart, .icon-AMG_logo {
+            line-height: $space-2;
+        }
+    }
+
+    &__other-link {
+        color: $black;
+
+        @include media($mobile-only) {
+            display: block;
+            width: 100%;
+            display: inline-block;
+            height: 30px;
+            overflow: hidden;
+            padding-top: $space-2;
+        }
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+        }
+    }
+
+    &--icon-mbvans {
+        font-size: $space-3;
+    }
+
+    &--icon-smart {
+        font-size: $space-16;
+    }
+
+    &--icon-AMG_logo {
+        font-size: $space-16;
+    }
+
+    &--icon-mbfs {
+        font-size: $space-3;
+    }
+
+    &__subscribe {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: $space-2;
+        
+        @include media($xlarge) {
+            @include span-columns(5);
+            display: flex;
+            margin-bottom: $space;
+        }
+        
+        &-email-wrapper {
+            margin-right: $space-2;
+            flex-grow: 1;
+        }
+        
+        &-cta {
+            margin-top: $space-4;
+        }
+    }
+}

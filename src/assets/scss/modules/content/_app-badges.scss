@@ -1,0 +1,42 @@
+.app-badges {
+    
+    &__heading {
+        @include featured-copy-bold;
+        margin-bottom: $space-2;
+    }
+    
+    &__list {
+        @include clearfix();
+        
+        &-item {
+            margin-right: $space-2;
+            float: left;
+            
+            &:last-child {
+                @include omega();
+            }
+        }
+    }
+    
+    &__app-badge {
+        display: block;
+        width: 105px;
+        height: 37px;
+        background: transparent no-repeat left top;
+        background-size: auto 100%;
+        
+        &--itunes {
+            @extend .app-badges__app-badge;
+            background-image: url("#{$images-base-path}/badges/app-badge-apple-store.png");
+        }
+        
+        &--playStore {
+            @extend .app-badges__app-badge;
+            background-image: url("#{$images-base-path}/badges/app-badge-google-play.png");
+        }
+        
+        &-label {
+            @include offscreen();
+        }
+    }
+}

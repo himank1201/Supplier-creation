@@ -1,0 +1,113 @@
+/**
+ Definitions for styling a tool tip module
+ Note: this is intended to be used with a ToolTip view
+ (ui.apps/src/main/resources/presentation/js/partials/tool-tip/views/ToolTip.js)
+ */
+.tool-tip {
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+
+    &__icon {
+        display: inline-block;
+        color: $denim;
+        font-size: 16px;
+        @include pseudo-icon($icon-i-ball, after);
+
+        .tool-tip--active &,
+        &:hover,
+        &:focus {
+            color: $azure-radiance;
+        }
+
+        &:after {
+            position: relative;
+        }
+
+        @include theme-amg() {
+            color: $guardsman-red;
+        }
+    }
+
+    &__caret {
+        display: none;
+
+        .tool-tip--active & {
+            display: block;
+            position: absolute;
+            bottom: -#{$space};
+            z-index: $z-content-1;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:before,
+            &:after {
+                display: block;
+                content: '';
+                position: absolute;
+            }
+
+            &:before {
+                @include css-triangle(top, 8px, $silver);
+                top: 0;
+            }
+
+            &:after {
+                @include css-triangle(top, 8px, $white);
+                top: 2px;
+
+                @include theme-amg() {
+                    border-bottom: transparent;
+                }
+            }
+        }
+    }
+
+    &__flyout {
+        display: none;
+
+        .tool-tip--active & {
+            display: block;
+            position: absolute;
+            width: 95vw;
+            border: 1px solid $silver;
+            border-radius: 2px;
+            top: calc(100% + 8px);
+            padding: $space-3;
+            background: $white;
+            z-index: $z-content;
+
+            @include media($tablet) {
+                width: 300px;
+            }
+
+            @include theme-amg() {
+                background: $blitz;
+            }
+        }
+
+        .tool-tip--custom-size & {
+            width: auto;
+        }
+
+        &[data-tool-tip-position^="left"] {
+            @include media($tablet) {
+                left: -#{$space-3};
+            }
+        }
+
+        &[data-tool-tip-position^="center"] {
+            @include media($tablet) {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        &[data-tool-tip-position^="right"] {
+            @include media($tablet) {
+                right: -#{$space-3};
+            }
+        }
+    }
+}

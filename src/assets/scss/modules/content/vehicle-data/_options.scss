@@ -1,0 +1,27 @@
+.option-appearance {
+    @include span-columns(2);
+
+    &:nth-child(6n) {
+        margin-right: 0;
+    }
+
+    &:nth-child(6n + 1) {
+        clear: left;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    a {
+        border-right: 1px solid $azure-radiance;
+        padding-right: $space;
+    }
+
+    p {
+        color: $dove-gray;
+        font-size: 13px;
+        line-height: 1.5;
+        margin: $space 0 $space-2;
+    }
+}

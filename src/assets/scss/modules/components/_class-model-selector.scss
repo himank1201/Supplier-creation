@@ -1,0 +1,208 @@
+.class-model-selector {
+    &--active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: $z-sticky + 1;
+
+        @include media($large) {
+            position: inherit;
+            width: auto;
+            height: auto;
+        }
+    }
+
+    &__cta {
+        display: flex;
+        position: relative;
+        @include highlight-copy-reg;
+        background: $white;
+        color: $denim;
+        z-index: $z-content;
+        cursor: pointer;
+
+        @include theme-amg() {
+            background: $black;
+            color: $guardsman-red;
+        }
+
+        @include media($large) {
+            padding: 0 $space-4 0 0;
+        }
+
+        @include variant(wheelstand) {
+            display: none;
+        }
+
+        &:after {
+            @include icon($icon-caret-down-thin);
+            margin-left: $space-2;
+            font-size: 13px;
+
+            @include media($large) {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+
+        &:hover {
+            color: $azure-radiance;
+            @include theme-amg() {
+                color: $cinnabar;
+            }
+        }
+
+        .class-model-selector--active & {
+            display: block;
+            width: 100%;
+            justify-content: center;
+            padding: $space-2 0;
+            border-bottom: 1px solid $silver;
+
+            @include media($large) {
+                display: inline-block;
+                border-bottom: none;
+                padding: 0 $space-4 0 0;
+            }
+
+            &:after {
+                position: absolute;
+                transform: rotate(180deg);
+                transition: $menu-transition-open;
+            }
+        }
+    }
+
+    &__overlay {
+        display: none;
+
+        .class-model-selector--active & {
+            display: block;
+            position: relative;
+            background: $white;
+            border-bottom: 1px solid $silver;
+            z-index: $z-nav;
+            left: 0;
+            width: 100%;
+            min-height: $space-32;
+            max-height: calc(100vh - 40px); // view height - cta height
+            overflow-y: auto;
+            padding: $space-6;
+
+            @include media($large) {
+                position: absolute;
+                max-height: none;
+                top: 0;
+                padding: $space-8 0 $space-6 0;
+            }
+
+            @include theme-amg() {
+                background: $black;
+                color: $white;
+            }
+        }
+    }
+
+
+    &__mask {
+        display: none;
+
+        .class-model-selector--active & {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vh;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: $z-subnav;
+
+            @include media($large) {
+                display: none;
+            }
+        }
+    }
+
+    &__models {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    &__model-info {
+        width: 100%;
+        margin-top: $space-4;
+        cursor: pointer;
+
+        @include theme-amg() {
+            color: $white;
+        }
+
+        @include media($large) {
+            @include span-columns(3);
+            @include omega(4n);
+            float: none;
+
+            &:nth-child(-n+4) {
+                @include media($large) {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:hover,
+        &:focus {
+            color: $azure-radiance;
+            @include theme-amg() {
+                color: $cinnabar;
+            }
+        }
+        
+        &--active {
+            color: $denim;
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &__model-name {
+        text-align: left;
+        @include copy-narrow-bold;
+        margin-bottom: $space;
+    }
+
+     &__model-price {
+        text-align: left;
+        @include copy-narrow-reg;
+        margin-bottom: $space;
+    }
+
+    &__model-image {
+        overflow: hidden;
+    }
+
+    &__jellybean {
+        position: relative;
+        transform: translate3d(0, -30px, 0) scale3d(1.05, 1.05, 1);
+
+        @include media($large) {
+            transform: translate3d(0, -15px, 0) scale3d(1.25, 1.25, 1);
+        }
+
+        &--bbd {
+            transform: translate3d(-25px, -20px, 0) scale3d(1.4, 1.4, 1);
+
+            @include media($large) {
+                transform: translate3d(-15px, -10px, 0) scale3d(1.8, 1.8, 1);
+            }
+        }
+    }
+}

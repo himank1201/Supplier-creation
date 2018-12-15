@@ -1,0 +1,61 @@
+.sitemap-vehicles {
+    &__body-group-heading {
+        @include subhead-reg;
+        margin-bottom: $space-6;
+        text-align: left;
+
+        @include media($tablet) {
+            text-align: center;
+        }
+    }
+
+    &__body-group-content {
+        @include copy-wide-reg;
+        margin-bottom: $space-3;
+        text-align: left;
+
+        @include media($tablet) {
+            text-align: center;
+        }
+    }
+
+    &__body-group-listing {
+        @include outer-container;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__class {
+        @include list-block(3);
+        margin-bottom: $space-6;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include media($tablet) {
+            &:nth-last-child(-n + 3) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__class-page-link {
+        display: inline-block;
+        padding-bottom: $space-3;
+    }
+
+    &__model {
+        @extend %list-block-model;
+
+        &:first-child {
+            border-top: 1px solid $mercury;
+        }
+
+        &--active {
+            .link-group__list {
+                color: $azure-radiance;
+            }
+        }
+    }
+}

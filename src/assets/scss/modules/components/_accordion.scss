@@ -1,0 +1,309 @@
+@mixin accordion-enabled($root) {
+    #{$root}__item {
+        &--active {
+            > #{$root}__title {
+                &:after {
+                    color: $azure-radiance;
+                    transform: rotate(180deg) translateY(50%);
+                }
+            }
+
+            > #{$root}__pane {
+                display: block;
+            }
+        }
+    }
+
+    #{$root}__title {
+        @include featured-copy-bold;
+        border-top: 1px solid $silver;
+        position: relative;
+
+        &:after {
+            @include icon($icon-arrow-down-square);
+            position: absolute;
+            right: $space-2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &--disabled {
+            &:after {
+                color: $silver;
+            }
+        }
+    }
+
+    #{$root}__button {
+        cursor: pointer;
+        text-align: left;
+        width: 100%;
+        position: relative;
+        padding: $space-2 $space-5 $space-2 0;
+        z-index: 1;
+
+        &--disabled {
+            &:hover {
+                cursor: default;
+            }
+
+            &:focus {
+                outline: none;
+                animation: none;
+            }
+        }
+    }
+
+    #{$root}__pane {
+        display: none;
+        border-top: 1px solid $silver;
+        padding: $space-2;
+    }
+
+    #{$root}__expand-collapse-all-container {
+        display: block;
+        margin-bottom: $space-2;
+        padding-right: $space-2;
+        text-align: right;
+        width: 100%;
+    }
+
+    #{$root}__expand-collapse-all {
+        display: inline-block;
+
+        &:first-child {
+            &:after {
+                content: '|';
+                font-size: 14px;
+                padding: 0 $space;
+            }
+        }
+    }
+}
+
+.accordion {
+    $root: &;
+
+    &__expand-collapse-all-container {
+        display: none;
+    }
+
+    &--disabled {
+        &:after {
+            color: $dusty-gray;
+        }
+    }
+
+    &__button {
+        font: inherit;
+    }
+
+    &:not(.accordion--disabled-small):not(.accordion--disabled-large) {
+        @include accordion-enabled($root);
+    }
+
+    &--disabled-small {
+        @include media($large) {
+            @include accordion-enabled($root);
+        }
+    }
+
+    &--disabled-large {
+        @include media($mobile-only) {
+            @include accordion-enabled($root);
+        }
+    }
+
+    &--footer {
+        #{$root}__pane {
+            @include media($mobile-only) {
+                background-color: $white;
+            }
+        }
+
+        #{$root}__title {
+            &:after {
+                @include media($mobile-only) {
+                    @include icon($icon-caret-down-thin);
+                }
+            }
+        }
+    }
+
+    &--full-width {
+        &:not(.accordion--disabled-small):not(.accordion--disabled-large) {
+            #{$root}__button {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            #{$root}__pane {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+
+    &--highlight {
+        &:not(.accordion--disabled-small):not(.accordion--disabled-large) {
+            #{$root}__title {
+                &:after {
+                    color: $denim;
+                }
+
+                &--disabled {
+                    &:after {
+                        color: $silver;
+                    }
+                }
+            }
+        }
+    }
+
+    &--model-data {
+        &:not(.accordion--disabled-small):not(.accordion--disabled-large) {
+            #{$root}__button {
+                height: $space-10;
+                padding: $space-2 $space-4;
+            }
+
+            #{$root}__title {
+                border-top: none;
+                padding: 0;
+
+                &:after {
+                    right: $space-3;
+                }
+            }
+
+            #{$root}__pane {
+                padding: $space-2 0;
+                border-top: none;
+            }
+        }
+    }
+
+    &--dealer-locator {
+        &:not(.accordion--disabled-small):not(.accordion--disabled-large) {
+            #{$root}__item {
+                &:first-of-type {
+                    #{$root}__title {
+                        border-top: none;
+                    }
+                }
+
+                &--active {
+                    #{$root}__button {
+                        color: $azure-radiance;
+                    }
+                }
+            }
+
+            #{$root}__title {
+                border-color: $mercury;
+
+                &:after {
+                    @include icon($icon-arrow-down-square, 20px);
+                    color: $silver-chalice;
+                }
+            }
+
+            #{$root}__pane {
+                border-top: none;
+            }
+
+            #{$root}__button {
+                padding: $space-3 $space-2;
+            }
+        }
+    }
+
+    &--no-padding {
+        &:not(.accordion--disabled-small):not(.accordion--disabled-large) {
+            #{$root}__pane {
+                padding: 0;
+                border: none;
+            }
+
+            #{$root}__button {
+                padding: 0;
+            }
+        }
+    }
+
+    &--inverse {
+        &:not(.accordion--disabled-small):not(.accordion--disabled-large) {
+            > #{$root}__item {
+                > #{$root}__title {
+                    background: $blitz;
+
+                    #{$root}__button {
+                        @include copy-narrow-reg();
+                        color: $white;
+                        cursor: pointer;
+                    }
+
+                    &:after {
+                        color: $white;
+                    }
+                }
+
+                &:first-child {
+                    > #{$root}__title {
+                        border-top: none;
+                    }
+                }
+
+                &--active {
+                    > #{$root}__title {
+                        &:after {
+                            color: $denim!important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &--bottom-arrow {
+        &:not(.accordion--disabled-small):not(.accordion--disabled-large) {
+            #{$root}__title {
+                border: none;
+            }
+
+             > #{$root}__item {
+                > #{$root}__title {
+                    &:after {
+                        top: auto;
+                        bottom: $space;
+                        transform: translateY(0);
+                    }
+                }
+
+                &--active {
+                    > #{$root}__title {
+                        &:after {
+                            transform: rotate(180deg) translateY(0);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &--right-arrow {
+         &:not(.accordion--disabled-small):not(.accordion--disabled-large) {
+             > #{$root}__item {
+                 > #{$root}__title {
+                     display: flex;
+                     &:after {
+                         right: 0;
+                     }
+                 }
+             }
+         }
+     }
+}
+
+@import "../decorators/themes/accordion-specs";
+@import "../decorators/themes/accordion-box-pane";

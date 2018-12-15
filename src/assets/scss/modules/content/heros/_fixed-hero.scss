@@ -1,0 +1,122 @@
+.fixed-hero {
+    $fixed-width-small: 768px;
+    $fixed-width-large: 1440px;
+
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    @include media($large) {
+        &--no-gap {
+            line-height: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &__image-container {
+        text-align: center;
+        position: relative;
+        width: $fixed-width-small;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @include media($tablet) {
+            width: $fixed-width-large;
+        }
+    }
+
+    &__interior {
+        padding-top: $space-4;
+        padding-bottom: $space-4;
+
+        @include media($tablet) {
+            padding-top: $space-6 * 2;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &__copy-container {
+        overflow: hidden;
+        @include theme-amg() {
+            text-align: center;
+        }
+
+        &.dark, &.light {
+            .disclaimer__marker, .disclaimer__legend-reference {
+                color: $denim;
+                @include theme-amg() {
+                    color: inherit;
+                }
+            }
+        }
+
+        @include media($tablet) {
+            @include theme-amg() {
+                text-align: inherit;
+            }
+            @include span-columns(4);
+
+            &.right {
+                @include shift(8);
+            }
+
+            &.dark {
+                color: $blitz;
+
+                .disclaimer__legend-reference, .disclaimer__marker {
+                    color: $denim;
+                    @include theme-amg() {
+                        color: $guardsman-red;
+                    }
+                }
+            }
+
+            &.light {
+                color: white;
+
+                .disclaimer__legend-reference, .disclaimer__marker {
+                    color: $white;
+                }
+            }
+
+            &--wide {
+                @include span-columns(5);
+
+                &.right {
+                    @include shift(7);
+                }
+            }
+        }
+    }
+
+    &__eyebrow {
+        @include featured-copy-reg;
+        @include uppercase;
+    }
+
+    &__heading {
+        @include main-heading;
+        margin-bottom: $space-3;
+
+        @include media($large) {
+            margin-bottom: $space-4;
+        }
+    }
+
+    &__sub-heading {
+        @include copy-narrow-reg;
+        margin-bottom: $space-3;
+        line-height: (18/12);
+
+        @include media($large) {
+            margin-bottom: $space-4;
+        }
+    }
+
+    .app-badges {
+        margin-bottom: $space-4;
+    }
+}

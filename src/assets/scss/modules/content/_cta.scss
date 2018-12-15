@@ -1,0 +1,344 @@
+.button {
+    border-radius: 2px;
+    color: currentColor;
+    display: inline-block;
+    font-family: $default-font-family;
+    font-size: 12px;
+    font-weight: $font-weight-bold;
+    line-height: (22/12);
+    padding: $space $space-2;
+    text-decoration: none;
+    cursor: pointer;
+
+    &_primary {
+        background-color: $denim;
+        color: $white;
+
+        &:hover {
+            animation: none;
+            background-color: $azure-radiance;
+        }
+
+        @include theme-amg() {
+            background-color: $guardsman-red;
+            color: $white;
+
+            &:hover,
+            &:focus {
+                animation: none;
+                background-color: $cinnabar;
+            }
+        }
+    }
+
+    &_secondary {
+        background-color: $alto;
+        color: $blitz;
+
+        &:hover,
+        &:focus {
+            animation: none;
+            background-color: $silver;
+        }
+
+        &_alt {
+            background-color: $tundora;
+            color: $white;
+
+            &:hover,
+            &:focus {
+                animation: none;
+                background-color: $dusty-gray;
+            }
+        }
+    }
+
+    &_amg {
+        background-color: $guardsman-red;
+        color: $white;
+
+        &:hover,
+        &:focus {
+            animation: none;
+            background-color: $cinnabar;
+        }
+    }
+
+    &_call-out {
+        background-color: $white;
+        color: $denim;
+        border: 1px solid $denim;
+
+        &:hover,
+        &:focus {
+            color: $azure-radiance;
+            border-color: $azure-radiance;
+        }
+        
+        @include theme-amg() {
+            color: $guardsman-red;
+            background-color: $black;
+            border-color: $guardsman-red;
+            
+            &:hover,
+            &:focus {
+                color: $cinnabar;
+                border-color: $cinnabar;
+            }
+        }
+        
+        &.disabled {
+            background-color: $white !important;
+            color: $silver;
+            border-collapse: $silver;
+        }
+    }
+
+    &--wide {
+        padding-left: $space-6;
+        padding-right: $space-6;
+    }
+
+    &--full-width {
+        text-align: center;
+        width: 100%;
+    }
+
+    &--full-width-small-only {
+        
+        @include media($mobile-only) {
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    &_toggle {
+        background-color: $white;
+        color: $denim;
+        border: 1px solid $alto;
+        text-align: left;
+        font-weight: $font-weight-bold;
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+        }
+
+        [class^="icon-mb"], [class*=" icon-mb"] {
+            vertical-align: middle;
+            padding-left: 15px;
+        }
+    }
+
+    &__value-text {
+        padding-left: 0;
+        transition: $button-loading-transition-open;
+
+        [data-loading="true"] & {
+            padding-left: $space-6;
+        }
+    }
+
+    // Loading spinner related styles
+    .loading-spinner {
+        &:before {
+            content: none;
+            width: 19px;
+            height: 19px;
+            border-width: 3px;
+            border-top-color: inherit;
+            left: auto;
+            top: auto;
+        }
+    }
+
+    &[data-loading="true"] .loading-spinner {
+        
+        &:before {
+            content: '';
+        }
+    }
+}
+
+.link {
+    color: currentColor;
+    text-decoration: none;
+
+    &_primary {
+        @include subsection-reg;
+        padding-left: $space-2;
+        position: relative;
+        
+        @include theme-amg() {
+            font-style: italic;
+            padding-left: $space-3;
+        }
+
+        &:before {
+            color: $azure-radiance;
+            content: $icon-caret-right;
+            display: inline-block;
+            font-family: $icomoon-font-family;
+            font-size: 6px;
+            left: 0;
+            margin-top: 0;
+            position: absolute;
+            right: auto;
+            top: 50%;
+            transform: translateY(-50%);
+
+            @include theme-amg() {
+                color: $guardsman-red;
+                content: $icon-caret-right-amg;
+                font-size: 15px;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+
+            @include theme-amg() {
+                color: $cinnabar;
+            }
+        }
+
+        @include page-specific(corporate-page) {
+            @extend .link_plain-link;
+            font-family: $default-font-family;
+            font-size: 12px;
+            padding: 0;
+
+            &:before {
+                content: none;
+            }
+        }
+    }
+
+    &_secondary {
+        padding-left: $space-2;
+        position: relative;
+
+        &:before {
+            color: $azure-radiance;
+            content: $icon-caret-right;
+            display: inline-block;
+            font-family: $icomoon-font-family;
+            font-size: 6px;
+            left: 0;
+            margin-top: 0;
+            position: absolute;
+            right: auto;
+            top: 6px;
+            transform: translateY(-50%);
+
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+            
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+
+        @media only print {
+            @include copy-narrow-reg;
+        }
+    }
+
+    &_plain-link {
+        color: $denim;
+
+        @include theme-amg() {
+            color: $guardsman-red;
+        }
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+            
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &_in-text {
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+            
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &_bold {
+        font-size: 14px;
+        font-weight: $font-weight-bold;
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+            
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &_bold_sub {
+        font-size: 12px;
+        font-weight: $font-weight-bold;
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+            
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &_icon_text {
+        @include section-reg;
+
+        [class^="icon-mb"], [class*=" icon-mb"] {
+            vertical-align: middle;
+        }
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+        }
+
+        @include theme-amg() {
+            color: $dusty-gray;
+
+            &:hover,
+            &:focus {
+                animation: none;
+                color: $guardsman-red;
+
+                [class^="icon-mb"], [class*=" icon-mb"] {
+                    color: $guardsman-red;
+                }
+            }
+        }
+    }
+}

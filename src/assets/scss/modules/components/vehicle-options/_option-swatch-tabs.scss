@@ -1,0 +1,49 @@
+.mbs-option-swatch-tabs {
+    position: relative;
+
+    &__buttons {
+        margin-bottom: $space-3;
+    }
+
+    &__button {
+        @include section-reg;
+        cursor: pointer;
+        padding-left: $space-6;
+        padding-right: $space-6;
+        border-right: 1px solid $silver;
+
+        &:hover {
+            color: $denim;
+
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+
+        &:first-of-type {
+            padding-left: 0;
+        }
+
+        &:last-of-type {
+            padding-right: 0;
+            border: 0;
+        }
+
+        @include theme-amg() {
+            color: $white;
+            border-right-color: $white;
+        }
+
+        &--active {
+            color: $denim;
+
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &__title {
+        @include section-reg;
+    }
+}

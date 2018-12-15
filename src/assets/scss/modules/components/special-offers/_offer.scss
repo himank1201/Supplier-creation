@@ -1,0 +1,251 @@
+/**
+ * styles for individual offer in Special Offer Module (New Cars)
+ */
+.offer {
+    border-top: 1px solid $alto;
+    padding-bottom: $space-6;
+    @include media($tablet) {
+        padding-top: $space-6;
+    }
+
+    &--first {
+        @include media($mobile-only) {
+            border-top: none;
+        }
+    }
+
+    &__row {
+        @include clearfix();
+    }
+
+    &__jellybean {
+        margin-bottom: $space-4;
+
+        @include media($tablet) {
+            @include span-columns(4);
+            margin-bottom: 0;
+
+            &--cpo {
+                @include span-columns(4, 'block-collapse');
+                margin-right: $space-4;
+            }
+        }
+
+        img {
+            width: 100%;
+            vertical-align: bottom;
+        }
+    }
+
+    &__info {
+        @include media($tablet) {
+            @include span-columns(8);
+        }
+    }
+
+    &__general {
+        margin-bottom: $space-4;
+    }
+
+    &__name {
+        @include call-out-text-reg;
+        text-transform: inherit;
+    }
+
+    &__edit-offer {
+        position: relative;
+    }
+
+    &__publish-flag {
+        @include highlight-copy-reg;
+        color: $guardsman-red;
+        padding-left: $space-7;
+        &:before {
+            @include icon($icon-solid-circle);
+            @include center-content(vertical);
+            position: absolute;
+            left: $space-3;
+        }
+    }
+
+    &__edit-link {
+        color: $blitz;
+        @include highlight-copy-bold;
+        border-bottom: 2px solid $blitz;
+        float: right;
+        &:hover {
+            color: $azure-radiance;
+            border-bottom: 2px solid $azure-radiance;
+        }
+    }
+
+    &__price {
+        @include highlight-copy-bold;
+        display: inline-block;
+    }
+
+    &__cash-credit {
+        @include highlight-copy-reg;
+        display: inline;
+        border-left: 1px solid $blitz;
+        padding-left: 7px;
+        margin-left: 3px;
+    }
+
+    &__sub-title {
+        @include highlight-copy-reg;
+        display: block;
+    }
+
+    &__col {
+        margin-bottom: $space-4;
+
+        @include media($mobile-only) {
+            @include span-columns(2 of 4);
+            @include omega(2n);
+
+            &--cpo {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+
+        @include media($tablet) {
+            @include span-columns(2 of 8);
+            margin-bottom: 0;
+            &--cpo {
+                @include span-columns(5 of 8);
+            }
+        }
+
+        @include media($desktop) {
+            &--cpo {
+                @include span-columns(6 of 8);
+            }
+        }
+    }
+
+    &__label {
+        @include highlight-copy-reg;
+        display: block;
+        &:empty:after {
+            content: " ";
+            white-space: pre;
+        }
+    }
+
+    &__value {
+        @include accent-reg;
+        display: block;
+        position: relative;
+    }
+
+    &__description {
+        display: block;
+        @include copy-narrow-reg;
+    }
+
+    &__tool-tip {
+        bottom: 7px;
+        padding-left: $space;
+        position: absolute;
+    }
+
+    &__tool-tip-details {
+        p {
+            @include copy-narrow-reg();
+            margin-bottom: 0;
+        }
+    }
+
+    &__ctas {
+
+        @include media($tablet) {
+            @include span-columns(2 of 8);
+            float: right;
+
+            &--cpo {
+                @include span-columns(3 of 8);
+            }
+        }
+
+        @include media($desktop) {
+            &--cpo {
+                @include span-columns(2 of 8);
+            }
+        }
+    }
+
+    &__cta {
+        margin-top: $space;
+
+        width: 100%;
+
+        @include media($tablet) {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        &--button {
+            text-align: center;
+        }
+
+        &--link {
+            button {
+                cursor: pointer;
+                @include media($mobile-only) {
+                    width: 100%;
+                    padding: $space-2;
+                    //This button is styled using flex from _toggle-drawer.scss component
+                    justify-content: center;
+                }
+            }
+
+            @include media($large) {
+                margin-top: $space-4;
+
+                @include variant(dealer) {
+                    margin-top: $space-10;
+                }
+
+                @include variant(wheelstand) {
+                    margin-top: $space-10;
+                }
+
+                @include variant(largeformat) {
+                    margin-top: $space-10;
+                }
+            }
+        }
+    }
+
+    &__detailed-view {
+        &:before {
+            content: '';
+            display: block;
+            border-top: 1px solid $silver;
+            margin: $space-4 0;
+            width: $space-8;
+        }
+    }
+
+    &__details {
+        display: block;
+        width: 100%;
+
+        &--separator {
+            @include line-separator($alto);
+            padding-top: $space-6;
+        }
+
+        &--heading {
+            @include copy-narrow-bold();
+            margin: $space-6 0 $space-4;
+            text-transform: uppercase;
+        }
+
+        .text-block__heading {
+            text-transform: uppercase;
+        }
+    }
+}

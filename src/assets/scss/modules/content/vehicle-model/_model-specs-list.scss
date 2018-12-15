@@ -1,0 +1,51 @@
+.model-specs-list {
+    
+    &__item-set {
+        
+        @include media($tablet) {
+            display: flex;
+            flex-wrap: wrap;
+            @include outer-container();
+        }
+    }
+    
+    &__item {
+        @include copy-wide-reg;
+        border-bottom: 1px solid $mercury;
+        padding: $space-2 0;
+        display: flex;
+        justify-content: space-between;
+
+        @include media($tablet) {
+            @include span-columns(6, no-display);
+            @include omega(2n);
+            float: none;
+        }
+        
+        &:last-child {
+            border-bottom: none;
+        }
+        
+        &:nth-last-child(2):nth-child(odd) {
+            
+            @include media($tablet) {
+                border-bottom: none;
+            }
+        }
+
+        &-subtitle {
+            display: inline-block;
+            color: $dusty-gray;
+        }
+        
+        &-name {
+            padding-right: $space-3;
+        }
+        
+        &-value {
+            @include copy-wide-bold;
+            text-align: right;
+        }
+    }
+    
+}

@@ -1,0 +1,98 @@
+%variant-relative-position {
+    position: relative;
+    padding: 0;
+}
+
+%variant-absolute-position {
+    margin: $space-9 0 0;
+    padding: $space-2 $space-4;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    background-color: $white;
+}
+
+.variant-suphero {
+    @include variant(dealer){
+        @extend %variant-relative-position;
+    }
+
+    @include variant(wheelstand) {
+        @extend %variant-relative-position;
+    }
+
+    @include variant(ondisplay) {
+        @extend %variant-relative-position;
+    }
+}
+
+.language-selector {
+    float: right;
+
+    .variant-suphero & {
+        margin: 61px 0 0;
+        padding-left: $space-6;
+        padding-right: 5px;
+
+        @include variant(dealer) {
+            @extend %variant-absolute-position;
+        }
+
+        @include variant(wheelstand) {
+            @extend %variant-absolute-position;
+        }
+
+        @include variant(largeformat) {
+            @extend %variant-absolute-position;
+
+        }
+
+        @include variant(ondisplay) {
+            @extend %variant-absolute-position;
+        }
+    }
+
+    &__item {
+        position: relative;
+        display: inline-block;
+        height: 22px;
+        margin-left: $space-2;
+
+        &--current {
+            pointer-events: none;
+            border-bottom: 2px solid $azure-radiance;
+            @include theme-amg() {
+                border-color: $guardsman-red;
+            }
+        }
+
+        &__link {
+            @include call-out-text-reg;
+            @include uppercase;
+            color: $black;
+
+            @include variant-with-theme(ondisplay, amg) {
+                color: $white;
+            }
+        }
+
+        &:first-of-type {
+            margin: 0 $space-3 0 0;
+        }
+
+        &:last-of-type::after{
+            display: none;
+        }
+
+        &::after{
+            content: '';
+            background-color: $silver;
+            display: block;
+            height: 22px;
+            width: 2px;
+            position: absolute;
+            right: -16px;
+            top: 1px;
+        }
+    }
+}

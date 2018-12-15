@@ -1,0 +1,14 @@
+@mixin variant($name) {
+    // styles for $name variant
+    // $name can be ondisplay, dealer, wheelstand
+    body[data-variant=#{$name}] & {
+        @content
+    }
+};
+
+@mixin variant-with-theme($name, $theme) {
+    // $theme for $name variant
+    body[data-variant=#{$name}][data-theme=#{$theme}] & {
+        @content
+    }
+};

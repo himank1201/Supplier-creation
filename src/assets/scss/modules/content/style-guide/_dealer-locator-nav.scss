@@ -1,0 +1,96 @@
+.dealer-locator-nav {
+    &__section {
+        .sub-nav__level--top {
+            position: relative;
+        }
+
+        .top-nav__link {
+            color: $blitz;
+            text-shadow: none;
+            @include theme-amg() {
+                color: $white;
+            }
+
+            &:hover {
+                color: $azure-radiance;
+                @include theme-amg() {
+                    color: $azure-radiance;
+                }
+            }
+        }
+
+        .top-nav__item--dealer-title:before {
+            color: $blitz;
+            @include theme-amg() {
+                color: $white;
+            }
+        }
+
+        .top-nav__item--dealer-title {
+            &:hover {
+                color: $azure-radiance;
+                @include theme-amg() {
+                    color: $azure-radiance;
+                }
+
+                &:before {
+                    color: $azure-radiance;
+                    @include theme-amg() {
+                        color: $azure-radiance;
+                    }
+                }
+            }
+        }
+
+        .dealer-locator-nav__label {
+            color: $black;
+            @include theme-amg() {
+                color: $white;
+            }
+        }
+
+        .top-nav__item--dealer-title[data-expanded="true"] {
+            right: 0;
+        }
+
+        .dealer-locator-nav .form__input-field {
+            border: 1px solid $blitz;
+            @include theme-amg() {
+                border: 1px solid $white;
+                border-bottom-color: black;
+            }
+        }
+
+        .dealer-locator-nav .form__input-field.error {
+            color: $guardsman-red;
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &__item {
+        &:first-child{
+             @include media($mobile-only) {
+                display: none;
+            }
+        }
+
+        &:nth-child(3) .form__input-field{
+            color: $blitz;
+            @include theme-amg() {
+                color: $white;
+            }
+        }
+
+        &:nth-child(4) .form__input-dropdown{
+            border: solid $blitz;
+            border-width: 0 1px 1px 1px;
+            margin-left: 0;
+            padding-left: $space;
+            @include theme-amg() {
+                border: solid $white;
+            }
+        }
+    }
+}

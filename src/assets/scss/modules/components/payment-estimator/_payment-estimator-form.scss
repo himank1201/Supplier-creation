@@ -1,0 +1,75 @@
+.payment-estimator-form {
+    &__input-wrapper {
+        margin-bottom: $space-4;
+
+        @include media($tablet) {
+            margin-bottom: $space-10;
+        }
+    }
+
+    &__input {
+        margin-bottom: $space-2;
+
+        &--wide-bottom {
+            margin-bottom: $space-6;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+
+            .form__input {
+                padding-bottom: $space;
+            }
+        }
+    }
+
+    &__info {
+        text-align: center;
+    }
+
+    &__additional-info {
+        margin-bottom: $space-4;
+    }
+
+    &__additional-info-row {
+        display: flex;
+        justify-content: center;
+        margin-bottom: $space-2;
+    }
+
+    &__additional-info-item {
+        @include highlight-copy-reg;
+
+        &--with-tooltip {
+            margin-right: $space;
+
+            @include media($tablet) {
+                margin-right: $space-2;
+            }
+        }
+
+        strong {
+            @include highlight-copy-bold;
+        }
+    }
+
+    &__monthly-estimate {
+        @include call-out-text-bold;
+        background: $white-sand;
+        padding: $space-5;
+        margin-bottom: $space-6;
+    }
+
+    &__monthly-estimate-disclaimer {
+        color: $azure-radiance;
+    }
+
+    &__apply-estimate-cta {
+        margin-bottom: $space-6;
+    }
+
+    .form-error-message {
+        width: 100%;
+        margin-bottom: $space-6;
+    }
+}

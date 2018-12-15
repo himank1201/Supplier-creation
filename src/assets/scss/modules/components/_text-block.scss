@@ -1,0 +1,38 @@
+.text-block {
+
+    @include page-specific(model-page) {
+        &__container {
+            text-align: center;
+
+            @include media($tablet) {
+                @include span-columns(6);
+                @include shift(3);
+                float: none;
+            }
+        }
+    }
+
+    &__heading {
+        @include copy-narrow-bold();
+        margin: $space-6 0 $space-4;
+    }
+}
+
+// override Text Block styles when embedded in Individual Tab Component
+.individual-tab__accordion-item {
+
+    .text-block {
+
+        @include media($xlarge) {
+            @include outer-container();
+        }
+
+        &__container {
+
+            @include media($xlarge) {
+                @include span-columns(8);
+                @include shift(2);
+            }
+        }
+    }
+}

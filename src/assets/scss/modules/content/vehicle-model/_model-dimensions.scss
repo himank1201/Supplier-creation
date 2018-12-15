@@ -1,0 +1,48 @@
+.model-page-dimensions {
+    
+    &__figure {
+        @include outer-container();
+        text-align: center;
+        margin-bottom: $space-4;
+        
+        @include media($large) {
+            margin-bottom: $space-13;
+        }
+    }
+    
+    &__image {
+        
+        @include media($large) {
+            @include span-columns(5);
+            width: auto;
+            height: 23vw;
+        }
+        
+        @include media($xlarge) {
+            width: auto;
+            height: 231px;
+        }
+        
+        &--side, &--front {
+            @extend .model-page-dimensions__image;
+        }
+        
+        &--side {
+            
+            @include media($lt-large) {
+                width: 90%;
+            }
+            
+            @include media($large) {
+                @include shift(1);
+            }
+        }
+        
+        &--front {
+            
+            @include media($lt-large) {
+                width: 98%;
+            }
+        }
+    }
+}

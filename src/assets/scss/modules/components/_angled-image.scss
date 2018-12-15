@@ -1,0 +1,25 @@
+.angled-image {
+    display: none;
+
+    @include media($tablet) {
+        @include span-columns(7);
+        display: block;
+        margin-top: -65px;
+        position: relative;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    &__caption {
+        display: block;
+        position: absolute;
+        top: 66%;
+        left: 67%;
+        width: 120px;
+        color: $silver;
+        line-height: $space-4;
+        @include highlight-copy-reg;
+    }
+}

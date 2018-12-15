@@ -1,0 +1,13 @@
+#warranty-services {
+    padding-bottom: 0; 
+}
+
+.page-content {
+    @include variant(ondisplay) {
+        transform: none;
+    }
+
+    @include variant(wheelstand) {
+        transform: none;
+    }
+}

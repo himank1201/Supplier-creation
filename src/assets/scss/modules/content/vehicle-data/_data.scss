@@ -1,0 +1,96 @@
+.vehicle-data {
+
+    margin-top: $space-6;
+
+    &__container {
+        @include copy-wide-reg();
+        padding-bottom: 0;
+    }
+
+    &__title {
+        @include main-heading;
+        border-bottom: 1px solid $silver;
+        overflow-wrap: break-word;
+        padding-bottom: $space-4;
+        text-align: left;
+    }
+
+    &__row-container {
+        @include outer-container;
+        border-bottom: 1px solid $blitz;
+        padding-top: $space-6;
+        padding-bottom: $space-4;
+    }
+
+    &__group-heading {
+        @include section-reg();
+        margin-bottom: 15px;
+    }
+
+    &__info-item {
+        @include media($mobile-only) {
+            @include span-columns(2 of 4);
+            @include omega(2n);
+        }
+
+        @include media($tablet) {
+            @include span-columns(3);
+            @include omega(4n);
+        }
+    }
+
+    &__info-slim {
+        @include span-columns(2 of 4);
+
+        @include media($tablet) {
+            @include span-columns(4);
+
+            .vehicle-data__classes & {
+                @include span-columns(6);
+            }
+        }
+    }
+
+    &__title-container {
+        padding-bottom: $space-4;
+    }
+
+    &__info-title {
+        @include section-reg();
+    }
+
+    &__info-subtitle {
+        color: $blitz;
+        background-color: $white;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__info-image {
+        width: 100%;
+    }
+
+    &__info-list {
+        margin-bottom: $space-3;
+
+        @include media($large) {
+            margin-bottom: $space-4;
+        }
+
+        li {
+            display: block;
+            padding-top: $space-2;
+            padding-bottom: $space-2;
+            color: $blitz;
+            border-top: 1px dotted $asphalt;
+
+            &:last-of-type {
+                border-bottom: 1px dotted $asphalt;
+            }
+        }
+
+        strong {
+            @include copy-wide-bold;
+        }
+    }
+}

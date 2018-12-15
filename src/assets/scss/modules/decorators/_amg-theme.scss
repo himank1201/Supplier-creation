@@ -1,0 +1,6 @@
+body {
+    &[data-theme="amg"] {
+        background-color: $black;
+        color: $white;
+    }
+}

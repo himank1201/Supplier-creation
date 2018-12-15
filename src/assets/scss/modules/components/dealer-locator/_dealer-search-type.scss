@@ -1,0 +1,25 @@
+/**
+ * Styling for the DealerSearchTypes view
+ */
+.dealer-search-type {
+    display: flex;
+
+    &__option {
+        flex: 1 1 auto;
+        padding: $space-2 $space-3;
+        @include copy-narrow-bold();
+        white-space: nowrap;
+        text-align: center;
+        background: $alto;
+        cursor: pointer;
+
+        &--active {
+            background: $white;
+        }
+
+        @include media($xlarge) {
+            padding-left: $space-6;
+            padding-right: $space-6;
+        }
+    }
+}

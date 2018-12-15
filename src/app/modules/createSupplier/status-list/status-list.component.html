@@ -1,0 +1,170 @@
+<section class="form new_supplier_form status_form">	
+  <div class="form__input">
+    <input class="form__input-field" type="text" placeholder="Initiator" />
+  </div>
+  <div class="form__input">
+    <input class="form__input-field" type="text" placeholder="Supplier Name " />
+  </div>
+  <p-dropdown class="select-control__combobox-container" [options]="request"></p-dropdown>
+  <section class="button_wrapper">
+    <button class="button_primary">Filter</button>
+    <button class="button_primary">ProxyUser</button>
+    <button class="button_primary">Reset Filter</button>
+  </section>
+</section>
+
+<app-data-table  class="datatable_container"></app-data-table>
+
+<section class="print_wrapper">
+  <section class="print_wrapper_code">
+    <section class="logo_print">
+      <img src="../../assets/img/MB-std_horiz.png" width="40" alt="">   
+    </section>
+    <table width="100%" cellpadding="0" cellspacing="0">  
+      <tr>
+        <td class="green_text">
+          <p>New Supplier Request [SC-110415-083152877]</p>
+          <span>Awaiting DM review</span>
+        </td>
+        <td class="top_buttons">
+          <button class="small_blue_button">Print</button>
+          <button class="small_blue_button">Approve</button>
+          <button class="small_blue_button">Reject</button>
+        </td>
+      </tr>
+      <tr>
+        <td width="50%" class="comments">
+          <label>Comments</label>
+          <textarea></textarea>
+          <button class="small_blue_button">View Owner</button>
+        </td>
+        <td>
+          <table>
+            <tr>
+              <td>Purchasing Organization:</td>
+              <td><label>MBUSA</label></td>
+            </tr>
+            <tr>
+              <td>Initiator:</td>
+              <td><label>John Doe</label></td>
+            </tr>
+            <tr>
+              <td>Reason for Supplier Creation:</td>
+              <td><label>Invoice Payment</label></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <section class="border_table account_dropdown">
+            <p>
+              <label for="">Reconciliation Account:</label>
+              <select name="" id=""></select>
+            </p>
+            <p>
+              <label for="">Payment terms:</label>
+              <select name="" id=""></select>
+            </p>
+          </section>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label class="info_heading" for="">Supplier Information</label>
+          <table class="info_table">
+            <tr>
+              <td>United way of Northern new Jeresey</td>
+            </tr>            
+          </table>
+          <label class="info_heading" for="">Address</label>
+          <table class="info_table">
+            <tr>
+              <td colspan="2">PO Box 1948 <br> Morristown, NJ07962</td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td>681435438541</td>
+              </tr>
+              <tr>
+                <td>Fax:</td>
+                <td>681435438541</td>
+              </tr>
+          </table>
+        </td>
+        <td>
+            <label class="info_heading" for="">Supplier Details</label>
+            <table class="info_table">
+                <tr>
+                  <td width="50%">Tax ID:</td>
+                  <td>22-118412</td>
+                </tr> 
+                <tr>
+                  <td>Payment Method:</td>
+                  <td>Check</td>
+                </tr>    
+                <tr>
+                  <td>Organization type:</td>
+                  <td>Tax exempt organization</td>
+                </tr>      
+                <tr>
+                  <td>MBUSA Payment Terms:</td>
+                  <td>Accepted</td>
+                </tr>        
+                <tr>
+                  <td>Minority status:</td>
+                  <td>None</td>
+                </tr>          
+                <tr>
+                  <td>Tax Jr. Code:</td>
+                  <td>3102757212</td>
+                </tr>           
+                <tr>
+                  <td>Tax Withholding Code:</td>
+                  <td>Charitable contributions</td>
+                </tr>              
+                <tr>
+                  <td>Manager Name:</td>
+                  <td>Charles Lamarca</td>
+                </tr>    
+              </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <label class="info_heading" for="">Contact Information</label>
+            <table class="info_table">
+              <tr>
+                <td colspan="2">Lisa Golanardo</td>
+              </tr>
+              <tr>
+                  <td>Email:</td>
+                  <td>Lisa.goralndo@gmail.com</td>
+                </tr>
+            </table>    
+        </td>
+        <td>
+            <label class="info_heading" for="">Banking Information</label>
+            <table class="info_table">
+              <tr>
+                <td>Account number:</td>
+                <td>681435438541</td>
+              </tr>
+              <tr>
+                <td>Routing/ABA Number:</td>
+                <td>681435438541</td>
+              </tr>
+              <tr>
+                <td>Bank Name:</td>
+                <td>ABC</td>
+              </tr>
+              <tr>
+                <td>Account Type:</td>
+                <td>None</td>
+              </tr>
+            </table>
+        </td>
+      </tr>
+    </table>
+  </section>
+</section>

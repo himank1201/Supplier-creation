@@ -1,0 +1,38 @@
+.cta-link {
+
+    &__tile {
+        text-align: center;
+    }
+
+    &__logo-label-wrapper {
+        margin-bottom: $space-2;
+    }
+
+    &__logo, &__label {
+        display: inline;
+        vertical-align: middle;
+    }
+
+    &__logo {
+        margin: -2px $space 0 0;
+        max-height: $space-4;
+        max-width: $space-4;
+    }
+
+    &__label {
+        @include highlight-copy-bold;
+    }
+
+    &__description {
+        @include copy-narrow-reg;
+        margin-bottom: $space-2;
+
+        @include media($tablet) {
+            margin-bottom: $space-3;
+        }
+    }
+
+    &__link {
+        color: $denim;
+    }
+}

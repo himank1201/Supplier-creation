@@ -1,0 +1,98 @@
+.leads-success {
+    &__title {
+        @include main-heading;
+        overflow-wrap: break-word;
+        padding: $space-4 0;
+        text-align: center;
+        @include media($large) {
+            padding: $space-6 0;
+        }
+    }
+
+    &__sub-heading {
+        margin-bottom: $space-4;
+        overflow-wrap: break-word;
+        text-align: center;
+        color: $blitz;
+        
+        @include media($large) {
+            @include span-columns(8);
+            @include shift(2);
+            margin-bottom: $space-6;
+        }
+    }
+
+    &__cta {
+        text-align: center;
+    }
+
+    &__promo-container {
+        background: $seashell;
+        padding: $space-4;
+        width: 100%;
+
+        @include media($large) {
+            padding: $space-6 0;
+            @include span-columns(10);
+            @include shift(1);
+        }
+    }
+
+    &__promo-details {
+        padding: $space-4 $space $space-8;
+        border-bottom: 1px solid $silver;
+
+        @include media($large) {
+            padding: $space-6 0 $space-8;
+            @include span-columns(8 of 10);
+            @include shift(1);
+        }
+    }
+
+    &__promo-title {
+        $icon-special-offers-size: 20px;
+
+        position: relative;
+        @include featured-copy-bold;
+
+        &:before {
+            @include icon($icon-special-offers);
+            font-size: $icon-special-offers-size;
+            color: $denim;
+            display: block;
+            margin-bottom: $space-4;
+
+            @include media($large) {
+                position: absolute;
+                left: -($gutter + $icon-special-offers-size); // Gutter + Font-size
+            }
+        }
+
+        @include media($large) {
+            @include span-columns(7 of 8);
+            @include shift(1);
+
+        }
+    }
+
+    &__promo-desc {
+        padding-top: $space-2;
+        @include copy-narrow-reg;
+
+        @include media($large) {
+            @include span-columns(7 of 8);
+            @include shift(1);
+        }
+    }
+
+    &__promo-cta {
+        clear: both;
+        padding: $space-4 0;
+        text-align: center;
+        @include copy-narrow-reg;
+
+        @include media($large) {
+            padding: $space-6 0;
+        }
+    }
+}

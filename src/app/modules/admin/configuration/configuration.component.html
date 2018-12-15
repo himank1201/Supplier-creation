@@ -1,0 +1,94 @@
+<div class="content_header">
+	<h1 class="content_header_heading">Supply Creation</h1>
+	<button class="button_primary">Verify Supplier</button>
+</div>
+<section class="inner_scroll new_supplier_wrapper">	
+	<form>
+		<h1 class="grey_heading">Application Configuration</h1>
+		<section class="form new_supplier_form">	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Application Mode *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Application Title *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Application Email *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Manager Email *" />				
+			</div>	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="File System Path *" />				
+			</div>	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Approval URL *" />				
+			</div>	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Application URL *" />				
+			</div>	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Anti Bribery Limit *" />				
+			</div>	
+			<div class="form__input proxy_label">
+				<label>Application user(Proxy)’s Details</label>
+			</div>	
+			<p-dropdown class="select-control__combobox-container" [options]="cities1"></p-dropdown>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Reconciliation Account *" />				
+			</div>	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Minority Users Email *" />				
+			</div>		
+		</section>
+		<h1 class="grey_heading">Purchase User Information</h1>
+		<section class="form new_supplier_form">	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="User Id *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="User Name *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="User Email *" />
+			</div>
+			<div class="form__input">
+				<p-checkbox name="groupname" value="val1" label="Proxy"></p-checkbox>
+			</div>	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Proxy User Id *" />				
+			</div>	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Proxy User Name *" />				
+			</div>	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Proxy User Email *" />				
+			</div>	
+			<div class="form__input">
+				<p-calendar showIcon="true" placeholder="From Date"></p-calendar>	
+				<p-calendar showIcon="true" placeholder="To Date"></p-calendar>					
+			</div>
+		</section>
+		<h1 class="grey_heading">Account Payable User Information</h1>
+		<section class="form new_supplier_form" placeholder="To Date">	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="User Id *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="User Name *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="User Email *" />
+			</div>
+			<div class="form__input">
+				<p-checkbox name="groupname" value="val1" label="Proxy"></p-checkbox>
+			</div>
+		</section>
+		<section class="button_wrapper">
+			<button class="button_primary">Submit</button>
+			<button class="button_primary">Save Config User</button>
+			<button class="button_primary">Cancel</button>
+			<button class="button_primary">Proxy</button>
+		</section>
+	</form>
+</section>

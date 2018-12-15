@@ -1,0 +1,16 @@
+.tiles-sections {
+    &__section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        opacity: 0;
+        animation: fade-in $speed-13 forwards;
+        width: 100%;
+    }
+
+    @keyframes fade-in {
+        to {
+            opacity: 1;
+        }
+    }
+}

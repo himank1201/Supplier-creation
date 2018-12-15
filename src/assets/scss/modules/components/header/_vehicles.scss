@@ -1,0 +1,684 @@
+@include media($mobile-only) {
+    .top-nav__sublink, .top-nav__item--model-dropdown {
+        display: none;
+    }
+}
+
+@mixin ul-mixin {
+    display: table;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+@mixin controls-mixin {
+    position: absolute;
+    top: 15%;
+    width: 1000px;
+    display: table;
+    z-index: 1;
+    cursor: pointer;
+    opacity: 1;
+    font-size: 23px;
+    @include vehicle-controls--arrows;
+}
+
+@mixin controls-arrows-mixin {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 12px;
+}
+
+//BEGIN TABLET/DESKTOP VEHICLES SUBNAV
+@include media($tablet) {
+    
+    body[data-menu-class="vehicles"][data-submenu-state="open"] {
+        
+        &:not(.class-page):not(.byo-class-landing-page) {
+            
+            .top-nav__vehicle-container {
+                
+                &--main-content {
+                    
+                    & > li {
+                        
+                        &.top-nav__item {
+                            
+                            &:first-child {
+                                
+                                .top-nav__level {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .top-nav__vehicle-container {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            z-index: $z-subnav;
+
+            // begin top-nav__vehicle-container--content
+            &--content {
+                @include ul-mixin;
+
+                .top-nav__vehicle-container--content-ul-wrapper {
+                    @include ul-mixin;
+                    height: $subnav-vehicle-container-height;
+                    position: relative;
+                }
+
+                //controls
+                .vehicle {
+                    &__controls--left-arrow {
+                        @include controls-mixin;
+                        @include vehicle-controls--arrows-left;
+                        left: -983px;
+                        height: $subnav-vehicle-container-height;
+
+                        &:hover,
+                        &:focus {
+                            animation: none;
+                            color: $azure-radiance;
+                        }
+
+                        &:before {
+                            @include controls-arrows-mixin;
+                            float: right;
+                            text-align: right;
+                            padding-left: 0;
+                            padding-right: 12px;
+
+                            //IE ONLY
+                            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                                float: none;
+                            }
+
+                            //EDGE ONLY
+                            @supports (-ms-ime-align:auto) {
+                                float: none;
+                            }
+                        }
+                    }
+
+                    &__controls--right-arrow {
+                        @include controls-mixin;
+                        @include vehicle-controls--arrows-right;
+                        right: -983px;
+                        height: $subnav-vehicle-container-height;
+
+                        &:hover,
+                        &:focus {
+                            animation: none;
+                            color: $azure-radiance;
+                        }
+
+                        &:before {
+                            @include controls-arrows-mixin;
+                        }
+                    }
+
+                    &__controls--hidden {
+                        transition: $carousel-transition-arrows;
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+                }
+            } //end top-nav__vehicle-container--content
+
+            //begin top-nav__vehicle-container--main-content
+            &--main-content > li {
+                &.top-nav {
+                    &__item {
+                        height: auto;
+                        padding: 0;
+                    } // end top-nav__item
+
+                    &__item:first-child {
+                        .top-nav {
+                            &__link_parent {
+                                color: $azure-radiance;
+                            }
+
+                            &__link_parent:after {
+                                display: block;
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+
+                    &__item:last-child {
+                        padding-right: 0;
+                    }
+
+                    &__item--active {
+                        .top-nav {
+                            &__link_parent {
+                                color: $azure-radiance;
+                            }
+
+                            &__link_parent:after {
+                                display: block;
+                                transform: rotate(180deg);
+                            }
+
+                            &__level {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    &__item {
+                        .top-nav {
+                            &__level--hidden {
+                                display: none !important;
+                            }
+
+                            &__level--default {
+                                display: block;
+                            }
+                        }
+                    }
+
+                } // end top nav 1
+
+                .top-nav {
+                    &__link {
+                        height: auto;
+                    }
+
+                    &__link_parent {
+                        @include featured-copy-bold;
+                        color: $blitz;
+                        text-shadow: none;
+                        position: relative;
+                        cursor: pointer;
+                        padding: 8px $space-3;
+                        @include media($xlarge) {
+                            padding: 8px $space-4;
+                        }
+                    }
+
+                    &__link_parent:after {
+                        display: none;
+                        position: absolute;
+                        top: 34px;
+                        left: 0;
+                        padding-left: 0;
+                        z-index: $z-subnav + 1;
+                    }
+
+                    &__link_parent--active:after {
+                        display: block;
+                    }
+
+                    &__link_parent:hover,
+                    &__link_parent:focus {
+                        animation: none;
+                        color: $azure-radiance;
+                        cursor: pointer;
+                    }
+
+                    &__sublink {
+                        @include footer-link;
+                        display: inline-block;
+                        padding-top: 15px;
+                        cursor: pointer;
+
+                        &:link, &:visited, &:active {
+                            color: $blitz;
+                        }
+
+                        &:hover,
+                        &:focus {
+                            animation: none;
+                            color: $azure-radiance;
+                        }
+                    }
+
+                    &__level {
+                        position: absolute;
+                        left: 0;
+                        display: none;
+                        width: 100%;
+                        height: $subnav-vehicle-container-height;
+
+                        &:before {
+                            @include subinset-top-edge--vehicle;
+                            margin-left: 10%;
+                            width: 85%;
+                        }
+
+                        > &:after {
+                            @include subinset-bottom-edge--vehicle;
+                            margin-left: 10%;
+                            width: 85%;
+                        }
+
+                        //main vehicle cards content block
+                        > ul {
+                            position: relative;
+
+                            &:before {
+                                @include subinset-shadowed--vehicle-top;
+                                margin-left: 10%;
+                                width: 85%;
+                            }
+
+                            &:after {
+                                @include subinset-shadowed--vehicle-bottom;
+                                margin-left: 10%;
+                                width: 85%;
+                            }
+
+                            .top-nav__item--hidden {
+                                position: absolute;
+                            }
+                        }
+                    }
+
+                    &__vehicle-info {
+                        color: $mine-shaft;
+                        padding-top: $space-3;
+                        text-shadow: none;
+
+                        .top-nav__vehicle-name {
+                            @include small-subhead-reg;
+                            margin-bottom: 2px;
+                        }
+
+                        .top-nav__msrp-detail {
+                            @include copy-narrow-reg;
+                        }
+                    }
+
+                    &__item {
+                        height: $subnav-card-width+2;
+                        width: $subnav-card-width+1;
+                        @include vehicle-card;
+                        
+                        > .top-nav__link--vehicle-link-inner {
+                            @include vehicle-card-link;
+                            height: $subnav-card-width;
+                            width: $subnav-card-width;
+                            display: table;
+                        }
+                    }
+
+                    &__link--vehicle-link {
+                        @include vehicle-card-link;
+                        height: $subnav-card-width;
+                        width: $subnav-card-width;
+                    }
+
+                    &__link--vehicle-link-inner {
+                        display: inline;
+                        padding: 0;
+                    }
+
+                    &__link--vehicle-link:hover,
+                    &__link--vehicle-link:focus {
+                        animation: none;
+                        @include vehicle-card-link--hover;
+                    }
+
+                } // end top nav 2
+            } //end top-nav__vehicle-container--main-content
+
+            // TODO: remove this when BE returns active class
+            &--main-content-active > li {
+                &.top-nav {
+                    &__item:first-child {
+                        .top-nav {
+                            &__link_parent {
+                                color: $blitz;
+                            }
+
+                            &__link_parent:after {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    &__item--active:first-child {
+                        .top-nav {
+                            &__link_parent {
+                                color: $azure-radiance;
+                            }
+
+                            &__link_parent:after {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // begin bottom nav
+            > ul > li.top-nav {
+                &__item {
+                    vertical-align: bottom;
+                    margin-top: 40px; // TODO - find a different way to push these items down
+
+                    .top-nav {
+                        &__link {
+                            @include featured-copy-bold;
+                            color: $blitz;
+                            text-shadow: none;
+                            padding: $space-2;
+                        }
+
+                        &__link:after {
+                            content: "";
+                            background-color: $silver;
+                            position: absolute;
+                            width: 1px;
+                            height: $space-3;
+                            margin: $space 0 0 21px;
+                            z-index: -1;
+                        }
+
+                        &__link:last-child {
+                            margin-left: $space-5;
+                        }
+
+                        &__link:hover,
+                        &__link:focus {
+                            animation: none;
+                            color: $azure-radiance;
+                        }
+                    }
+                } // end item
+
+                &__item:last-child {
+                    .top-nav {
+                        &__link:last-child:after {
+                            display: none;
+                        }
+                    }
+                } //end item last-child
+            } // end bottom nav
+
+            .top-nav {
+                &__sub-nav {
+                    max-height: 240px;
+                    visibility: visible;
+                    pointer-events: all;
+                }
+
+                &__sub-nav--carousel {
+                    width: 100%;
+                    height: $subnav-vehicle-container-height + 10;
+                    position: absolute;
+                    left: 0;
+                    pointer-events: none;
+                }
+
+                &__sub-nav--carousel--active-right {
+                    .top-nav__level ul li {
+                        transition: $carousel-transition-open;
+                    }
+                }
+
+                &__level {
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+            }
+        } // end vehicle container
+
+        .top-nav {
+            &__item {
+                .top-nav {
+                    &__link_back-btn {
+                        display: none;
+                    }
+
+                    &__shopping-tools-container {
+                        pointer-events: none;
+                    }
+                }
+            }
+
+            .sub-nav {
+                height: $subnav-vehicle-height-desktop;
+                max-height: $subnav-vehicle-height-desktop;
+                @include subnav-vehicle-pillow-bevel;
+            }
+
+            &__vehicle-list {
+                background-image: linear-gradient(to right, $white 0, #eeeeee 42%, #efefef 58%, $white 100%);
+            }
+
+            &[data-submenu-model="true"] {
+                .sub-nav {
+                    height: $subnav-vehicle-height-desktop-with-models;
+                    max-height: $subnav-vehicle-height-desktop-with-models;
+                }
+
+                .top-nav {
+                    &__vehicle-container {
+                        &--content {
+                            .top-nav__vehicle-container--content-ul-wrapper {
+                                height: $subnav-vehicle-container-height-with-models;
+                                display: block;
+                            }
+                        }
+
+                        .all-vehicles {
+                            &__model {
+                                padding: 0;
+                                border-bottom: 1px solid $silver;
+                                &:last-of-type {
+                                    border-bottom: none;
+                                }
+                            }
+
+                            &__model-name {
+                                @include copy-narrow-bold;
+                                line-height: 1.2;
+                                text-align: left;
+                                padding: $space-2 $space-3;
+                                display: block;
+                                width: 100%;
+
+                                .top-nav__link {
+                                    color: $blitz;
+                                    @include copy-narrow-bold;
+                                    text-shadow: none;
+                                    line-height: 1.2;
+                                    padding: 0;
+                                    display: block;
+                                    cursor: pointer;
+
+                                    &:hover,
+                                    &:focus {
+                                        color: $azure-radiance;
+                                    }
+                                }
+                            }
+                        }
+
+                        .vehicle {
+                            &__controls--right-arrow, &__controls--left-arrow {
+                                height: $subnav-vehicle-container-height-with-models;
+                            }
+                        }
+                    }
+
+                    &__sub-nav {
+                        max-height: $subnav-vehicle-container-height-with-models;
+                        height: $subnav-vehicle-container-height-with-models;
+
+                        &--carousel {
+                            height: $subnav-vehicle-container-height-with-models + 10;
+                        }
+                    }
+
+                    &__sublink {
+                        width: 100%;
+
+                        &--model-link {
+                            padding-top: $space-2;
+                            position: relative;
+                            @include dropdown-caret(8px, 55%, 40px);
+                        }
+                    }
+
+                    &__item {
+                        &--model-list {
+                            position: relative;
+                            border-top: 1px solid $silver;
+                            margin-top: 6px;
+                        }
+
+                        &--model-dropdown {
+                            display: none;
+                        }
+
+                        .top-nav__sublink--model-link[data-open="true"] {
+                            color: $azure-radiance;
+
+                            & + .top-nav__item--model-dropdown {
+                                display: block;
+                                background-color: $white;
+                                @include side-nav-label-shadow;
+                                position: absolute;
+                                top: 31px;
+                                width: 100%;
+                                z-index: 1;
+                            }
+                        }
+                    }
+
+                    &__vehicle-container {
+                        > ul > li.top-nav__item {
+                            margin-top: 32px; // TODO - find a different way to push these items down
+                        }
+                    }
+                } // end vehicle container
+            } //end top-nav
+
+            .page-content {
+                margin-top: $subnav-vehicle-height-desktop - $subnav-height-desktop;
+
+                @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                    border: 1px solid transparent;
+                }
+            }
+        }
+    } // end data-submenu-state="open"
+
+    body.class-page[data-menu-class="vehicles"][data-submenu-state="open"], body.byo-class-landing-page[data-menu-class="vehicles"][data-submenu-state="open"] {
+        .top-nav__vehicle-container {
+            &--main-content > li {
+                &.top-nav {
+                    &__item:first-child {
+                        .top-nav {
+                            &__link_parent {
+                                color: $blitz;
+                            }
+
+                            &__link_parent:hover,
+                            &__link_parent:focus {
+                                animation: none;
+                                color: $azure-radiance;
+                            }
+
+                            &__link_parent:after {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    &__item {
+                        .top-nav {
+                            &__link_parent[data-bodystyle-selected="true"] {
+                                color: $azure-radiance;
+                            }
+
+                            &__link_parent[data-bodystyle-selected="true"] + .top-nav__level {
+                                display: block;
+                            }
+
+                            &__link_parent[data-bodystyle-selected="true"]:hover,
+                            &__link_parent[data-bodystyle-selected="true"]:focus {
+                                animation: none;
+                                color: $azure-radiance;
+                            }
+
+                            &__link_parent[data-bodystyle-selected="true"]:after {
+                                display: block;
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+
+                    &__item--active:first-child {
+                        .top-nav {
+                            &__link_parent {
+                                color: $azure-radiance;
+                            }
+
+                            &__link_parent + .top-nav__level {
+                                display: block;
+                            }
+
+                            &__link_parent:hover,
+                            &__link_parent:focus {
+                                animation: none;
+                                color: $azure-radiance;
+                            }
+
+                            &__link_parent:after {
+                                display: block;
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+
+                    &__item--active {
+                        .top-nav {
+                            &__link_parent + .top-nav__level {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+} //end tablet
+
+@include media($desktop) {
+    body[data-menu-class="vehicles"][data-submenu-state="open"] {
+        .top-nav__vehicle-container {
+            &--content {
+                .vehicle {
+                    &__controls--left-arrow {
+                        left: -970px;
+                    }
+                    &__controls--right-arrow {
+                        right: -970px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media($mobile) {
+    .vehicle__controls--left-arrow,
+    .vehicle__controls--right-arrow {
+        display: none;
+    }
+
+
+} // end mobile

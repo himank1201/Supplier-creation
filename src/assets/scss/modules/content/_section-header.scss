@@ -1,0 +1,120 @@
+.section-header {
+    overflow: hidden;
+
+    hr {
+        border: none;
+        border-top: 1px solid $silver;
+        margin-left: 0;
+        text-align: left;
+        width: $space-6;
+    }
+
+    &__hero {
+        position: relative;
+        margin-bottom: $space-4;
+        text-align: center;
+    }
+
+    &__image {
+        @include section-header-image;
+    }
+
+    &__img-caption {
+        color: $dusty-gray;
+        margin-top: $space-3;
+        position: absolute;
+        right: 12px;
+
+        &--legend {
+            position: relative;
+            display: block;
+            text-align: right;
+        }
+
+        @include media($tablet) {
+            margin-top: $space-4;
+            right: $space-6;
+        }
+    }
+
+    &__container {
+        @include theme-amg() {
+            @include media($tablet) {
+                display: flex;
+                position: relative;
+
+                .section-header__divider {
+                    @include span-columns(2);
+                    display: block!important;
+                    position: absolute;
+                    order: 1;
+                    left: 0;
+                }
+
+                .section-header__text {
+                    @include span-columns(10);
+                    order: 2;
+                }
+
+                .section-header__body {
+                    @include span-columns(9);
+                }
+            }
+
+            .section-header__divider {
+                display: none;
+            }
+        }
+    }
+
+    &__text {
+        margin-bottom: $space-8;
+
+        @include media($tablet) {
+            margin-bottom: $space-4;
+        }
+    }
+
+    &__heading {
+        @include highlight-copy-bold;
+        @include uppercase;
+        color: $dove-gray;
+        margin-bottom: 35px;
+
+        @include theme-amg() {
+            color: $white;
+            float: none;
+            margin-bottom: 18px;
+            text-transform: none;
+
+            @include subhead-italic();
+            @include media($tablet) {
+                width: inherit;
+            }
+        }
+
+        @include media($tablet) {
+            @include span-columns(2);
+        }
+    }
+
+    &__body {
+        @include media($tablet) {
+            font-size: 13px;
+
+            @include media($tablet) {
+                @include span-columns(7);
+            }
+        }
+        @media only print {
+            @include highlight-copy-reg;
+        }
+        @include theme-amg() {
+            color: $dusty-gray;
+        }
+
+        @include variant(ondisplay) {
+            @include paragraph-wide-reg;
+        }
+    }
+}

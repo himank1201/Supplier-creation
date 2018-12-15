@@ -1,0 +1,46 @@
+.modal {
+    
+    .carousel {
+        position: static;
+    }
+}
+
+.modal-carousel {
+
+    &__image {
+        margin-bottom: $space-4;
+        font-size: 0;
+    }
+
+    &__details {
+        padding: 0 $space-4 $space-4;
+    }
+
+    &__standard {
+        @include copy-wide-bold;
+        color: $dusty-gray;
+        padding-bottom: $space;
+    }
+
+    &__title {
+        @include copy-wide-bold;
+        margin-bottom: $space-4;
+    }
+
+    &__price {
+        @include featured-copy-reg;
+    }
+
+    &__desc {
+        @include copy-wide-reg;
+        padding-bottom: $space-4;
+    }
+
+    &__link {
+        padding-bottom: $space;
+    }
+
+    &__package {
+        padding-bottom: $space-4;
+    }
+}

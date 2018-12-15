@@ -1,0 +1,103 @@
+/**
+ * Styling for the main DealerLocator view
+ */
+.dealer-locator {
+    @include media($mobile-only) {
+        height: auto !important; // override for JS height
+    }
+
+    &__container {
+        height: 100%;
+
+        @include media($tablet) {
+            display: flex;
+        }
+    }
+
+    &__search {
+        padding: $space-5 $space-3;
+        background-color: $white-sand;
+        display: flex;
+        flex-direction: column;
+
+        @include media($tablet) {
+            flex: 0 0 385px;
+        }
+    }
+
+    &__search-bar {
+        margin-bottom: $space * 7;
+        flex: 0 0 auto;
+    }
+
+    &__search-types {
+        flex: 0 0 auto;
+
+        &--disabled {
+            display: none;
+        }
+    }
+
+    &__results-container {
+        flex: 1 1 auto;
+        overflow-y: auto;
+        background-color: $white;
+        border-top: none;
+        border-radius: 0 0 2px 2px;
+        padding: 0 $space-2;
+    }
+
+    &__map {
+        display: none;
+
+        @include media($tablet) {
+            display: block;
+            flex: auto;
+        }
+    }
+
+    &__expand-button {
+        @include featured-copy-bold;
+        border-top: 1px solid $mercury;
+        color: $blitz;
+        cursor: pointer;
+        text-align: left;
+        width: 100%;
+        position: relative;
+        padding: $space-2;
+        padding-right: $space-8;
+        z-index: 1;
+
+        &:after {
+            @include icon($icon-arrow-down-square, 20px);
+            color: $silver-chalice;
+            position: absolute;
+            right: $space-2;
+            top: $space;
+        }
+
+        &:hover {
+            color: $azure-radiance;
+
+            &:after {
+                color: $azure-radiance;
+            }
+        }
+
+        &--hide {
+            display: none;
+        }
+    }
+
+    &__radius-label {
+        display: none;
+        @include featured-copy-bold;
+        color: $silver-chalice;
+        padding: $space-3 $space-2;
+        border-bottom: 1px solid $mercury;
+
+        &--visible {
+            display: block;
+        }
+    }
+}

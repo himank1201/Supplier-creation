@@ -1,0 +1,17 @@
+$image-aspect-ratio: 123 / 218;
+$image-aspect-ratio-percentage: $image-aspect-ratio * 100;
+
+.carousel--modal-feature-detail {
+    
+    .carousel-nav__buttons {
+        top: calc(#{$image-aspect-ratio-percentage}vw / 2 + 45px);
+
+        @include media($large) {
+            top: 50%;
+        }
+    }
+
+    .modal-carousel__title {
+        margin-bottom: 0;
+    }
+}

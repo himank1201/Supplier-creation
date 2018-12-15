@@ -1,0 +1,186 @@
+@keyframes headerImg {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.color-selector {
+    margin-bottom: $space-3;
+    
+    &__container {
+        text-align: center;
+
+        &--half {
+            @extend .color-selector__container;
+        }
+    }
+
+    &__heading {
+        @include outer-container();
+        text-align: center;
+        background-color: $white-sand;
+        border-bottom: 1px solid $alto;
+        margin-bottom: $space-2;
+        
+        @include media($xlarge) {
+            max-width: none;
+        }
+
+        &__item {
+            @include span-columns(2 of 4);
+            @include shift(1 of 4);
+            margin-bottom: -1px;
+            position: relative;
+            border-bottom: 2px solid transparent;
+            
+            @include media($large) {
+                @include span-columns(3);
+                @include shift(4.5);
+            }
+            
+            &--selected {
+                border-bottom-color: $azure-radiance;
+
+                &::after {
+                    content: '';
+                    @include css-triangle(bottom, 5px, $azure-radiance);
+                    margin-left: -$space;
+                    
+                    @include media($large) {
+                        @include css-triangle(bottom, 6px, $azure-radiance);
+                        margin-left: -6px;
+                    }
+                }
+
+                .color-selector__circle {
+                    border-color: $azure-radiance;
+                }
+
+                .color-selector__heading__item-name {
+                    color: $azure-radiance;
+                }
+            }
+        }
+
+        &__item-name {
+            display: block;
+            padding-bottom: $space-2;
+        }
+    }
+
+    &__circle {
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        margin: -$space-3 auto $space;
+        border: 1px solid $alto;
+        background-color: $white;
+        overflow: hidden;
+        position: relative;
+        
+        @include media($large) {
+            height: $space-7;
+            width: $space-7;
+            margin: -17px auto 7px;
+        }
+
+        &__img {
+            height: 100%;
+
+            &.comer {
+                animation-name: headerImg;
+                animation-duration: 0.2s;
+            }
+        }
+    }
+
+    &__colors {
+        text-align: center;
+        padding-bottom: $space-3;
+        border-bottom: 1px solid $alto;
+        margin-bottom: $space;
+        
+        @include media($large) {
+            margin-bottom: $space-2;
+        }
+
+        &__name {
+            @include copy-narrow-reg;
+            padding-bottom: $space;
+            display: block
+        }
+        
+        &__list {
+            font-size: 0;
+        }
+
+        &__item {
+            font-size: 0;
+            line-height: 0;
+            padding-right: 2px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+            
+            &-btn {
+                width: 56px;
+                height: 28px;
+                
+                @include media($xlarge) {
+                    cursor: pointer;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    left: 0;
+                    bottom: -3px;
+                    width: calc(100% - 2px);
+                    height: 0;
+                    border-bottom: 2px solid $azure-radiance;
+                    pointer-events: none;
+                    opacity: 0;
+                    transition: opacity 0.1s linear;
+                }
+
+                &:hover,
+                &--selected {
+
+                    &::after {
+                      opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &__item-img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__disclaimer {
+        @include copy-narrow-italic;
+        color: $dove-gray;
+        text-align: center;
+        display: block;
+    }
+
+    &__carousel {
+
+        &__container {
+
+            .multi-slide-nav--active {
+                @include media($large) {
+                    opacity: 0;
+                    pointer-events: none;
+                }
+            }
+            
+            &-inner {
+                padding-bottom: 3px;
+            }
+        }
+    }
+}

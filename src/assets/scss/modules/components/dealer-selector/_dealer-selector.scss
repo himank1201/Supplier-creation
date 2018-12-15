@@ -1,0 +1,14 @@
+.dealer-selector {
+    &__title {
+        @include section-reg;
+        margin-bottom: $space-2;
+        text-align: center;
+    }
+
+    &__desc {
+        @include featured-copy-reg;
+        color: $dove-gray;
+        margin-bottom: $space-4;
+        text-align: center;
+    }
+}

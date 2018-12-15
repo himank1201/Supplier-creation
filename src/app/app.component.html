@@ -1,0 +1,26 @@
+<main>
+  
+  <!--Login Starts-->
+  <app-login></app-login><!--Login Ends-->
+
+
+  <div style="display: none;">
+  <!--Sidenav Starts-->
+  <app-sidenav ></app-sidenav><!--Sidenav Ends-->
+
+  <!--Header Starts-->
+  <app-header (emitFunctionOfParent)="headerMenu($event)"></app-header><!--Header Ends-->
+
+  <!-- Router -->
+  <section class="content_wrapper" [ngClass]="{'master_collapse': show === true }">
+    <section class="content_wrapper_inner">
+      <router-outlet></router-outlet> 
+    </section>
+    <section class="overlay" *ngIf="isOverlayVisible"></section>
+  </section>
+
+  <!--Footer Starts-->
+  <app-footer></app-footer><!--Footer Ends-->
+  <!-- <div class="loading" *ngIf="isOverlayVisible">Loading&#8230;</div> -->
+  </div>
+</main>

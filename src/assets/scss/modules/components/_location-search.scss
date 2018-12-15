@@ -1,0 +1,59 @@
+.location-search {
+    position: relative;
+
+    // location results wrapper
+    &__results {
+        position: absolute;
+        width: 100%;
+        z-index: $z-content + 1;
+
+        .location-search--active & {
+            display: block;
+        }
+    }
+
+    // dropdown list of locations
+    &__locations {
+        @include clearfix();
+        background: $white;
+        border: 1px solid $silver;
+        border-top: none;
+        z-index: $z-nav;
+    }
+
+    // individual location item
+    &__location {
+        color: $blitz;
+        display: flex;
+        align-items: center;
+        padding: $space;
+        @include featured-copy-bold();
+
+        &:hover {
+            color: $azure-radiance;
+            cursor: pointer;
+        }
+
+        &:before {
+            @include icon($icon-pin, 120%);
+            color: $dusty-gray;
+            padding-right: $space;
+        }
+
+        &:focus, &--active {
+            color: $azure-radiance;
+        }
+    }
+
+    // search engine
+    &__engine {
+        float: right;
+        margin: 0 $space $space 0;
+        background: url('#{$images-base-path}/powered_by_google_on_white.png');
+        background-size: contain;
+        display: inline-block;
+        width: 112px;
+        height: 14px;
+        @include clearfix();
+    }
+}

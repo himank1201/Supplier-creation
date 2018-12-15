@@ -1,0 +1,186 @@
+// These styles are reused across two AEM modules:
+// * Toggle Image
+// * Angled Vehicle Image
+// There are subtle differences between these modules, which will be implemented via modifiers
+.image-toggle {
+    &__images-container {
+        margin-bottom: $space-4;
+        overflow: hidden;
+        position: relative;
+
+        @include media($tablet) {
+            margin-bottom: $space-6;
+        }
+    }
+
+    &__image-toggle-list {
+        position: absolute;
+        bottom: $space-5;
+        left: $space-4;
+
+        @include media($tablet) {
+            bottom: $space-6;
+            left: $space-8;
+        }
+    }
+
+    &__image-container {
+        position: absolute;
+        opacity: 0;
+        transition: opacity $speed-4;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        overflow: hidden;
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+
+        &--active {
+            position: relative;
+            transition-delay: $speed-4;
+            opacity: 1;
+        }
+    }
+
+    .image-toggle-link {
+        color: $white;
+        display: inline-block;
+        padding-right: 14px;
+        margin-right: 12px;
+        border-right: 1px solid $white;
+        transition: color $speed-2 linear;
+        cursor: pointer;
+        @include call-out-text-reg;
+        @include uppercase;
+
+        sup {
+            font-size: small;
+            vertical-align: super;
+        }
+
+        &:last-child {
+            border-right: 0;
+            margin-right: 0;
+            padding-right: 0;
+        }
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+
+        &--active {
+            color: $azure-radiance;
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+
+        &--icon {
+            font-size: 23px;
+            line-height: 1;
+        }
+
+        &--small {
+            @include call-out-text-small;
+        }
+    }
+
+    &__text {
+        &-container {
+            @include outer-container;
+            position: relative;
+
+            @include media($large) {
+                &:before {
+                    @include line-separator($alto);
+                    content: '';
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                }
+            }
+        }
+
+        @include media($tablet) {
+            @include span-columns(5);
+        }
+
+        &--alternative {
+            @include media($tablet) {
+                @include span-columns(8);
+                @include shift(2);
+            }
+        }
+    }
+
+    &__heading {
+        @include subhead-reg;
+        margin-bottom: $space-5;
+        @include theme-amg() {
+            color: $white;
+        }
+
+        &--alternate {
+            @include copy-wide-bold;
+        }
+    }
+
+    &__heading--hidden {
+        display: none;
+    }
+
+    &__heading--visible {
+        display: block;
+    }
+
+    &__body {
+        @include theme-amg() {
+            color: $dusty-gray;
+        }
+    }
+
+    &__body--hidden {
+        display: none;
+    }
+
+    &__body--visible {
+        display: block;
+    }
+
+    &__alternate-text {
+        display: none;
+    }
+
+    &__caption {
+        display: block;
+        position: absolute;
+        top: 66%;
+        left: 67%;
+        width: 120px;
+        color: $silver;
+        line-height: $space-4;
+        @include highlight-copy-reg;
+    }
+
+    &__cta--hidden {
+        display: none;
+    }
+
+    &__cta--visible {
+        display: inline-block;
+    }
+
+    &__separator {
+        @include media($tablet) {
+            @include line-separator($alto);
+        }
+    }
+}

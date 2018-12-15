@@ -1,0 +1,9 @@
+.hide {
+    display: none !important;
+
+    &-large {
+        @include media($large) {
+            display: none !important;
+        }
+    }
+}

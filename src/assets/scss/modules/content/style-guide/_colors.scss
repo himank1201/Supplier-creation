@@ -1,0 +1,61 @@
+.style-guide {
+    &__container {
+        @include copy-wide-reg();
+    }
+
+    &__palette-heading {
+        @include heading-reg();
+        border-bottom: 1px solid $mercury;
+        margin-bottom: 15px;
+    }
+
+    &__color-palette {
+        height: 50px;
+        box-shadow: 0px 0px 5px 1px $mercury;
+        margin-bottom: 15px;
+
+        @each $color, $bg-color in $palette-colors {
+            &--#{$color} {
+                background: color($color);
+                @include theme-amg() {
+                    @if $color == $black {
+                        background: #010101;
+                    }
+                }
+            }
+        }
+    }
+
+    &__color-wrapper {
+        @include outer-container;
+    }
+
+    &__palette-title {
+        @include footer-link;
+        margin-bottom: 15px;
+    }
+
+    &__palette-subtitle {
+        color: $blitz;
+        background-color: $white;
+        margin: 0;
+        padding: 0;
+        @include theme-amg() {
+            color: $white;
+            background-color: $black;
+        }
+    }
+
+    &__color-item {
+        @include media($mobile-only) {
+            @include span-columns(2 of 4);
+            @include omega(2n);
+        }
+
+        @include media($tablet) {
+            @include span-columns(3);
+            @include omega(4n);
+        }
+        min-height: 150px;
+    }
+}

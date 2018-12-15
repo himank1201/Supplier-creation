@@ -1,0 +1,74 @@
+//These styles are used to style the module-group section for the style guide
+
+.default-content-section {
+    overflow: hidden;
+
+    &__container {
+        margin-bottom: $space-4;
+
+        @include media($tablet) {
+            margin-bottom: $space-6;
+        }
+
+        &--with-section-divider {
+            @extend .default-content-section__container;
+            padding-bottom: $space-6;
+            border-bottom: 1px solid $silver;
+        }
+    }
+
+    &:last-of-type {
+        & > .default-content-section__container {
+            border-bottom: none;
+        }
+    }
+
+    &_heading-wrapper {
+        padding-bottom: 0;
+
+        @include media($tablet) {
+            @include outer-container(100%);
+
+            &--no-padding {
+                padding-top: 0;
+            }
+        }
+    }
+
+    &_heading {
+        text-align: center;
+
+        @include media($tablet) {
+            @include span-columns(8);
+            @include shift(2);
+        }
+
+        &--left {
+            @extend .default-content-section_heading;
+            text-align: left;
+
+            @include media($tablet) {
+                @include shift(0);
+            }
+        }
+    }
+
+    &_header {
+        @include section-reg;
+        margin-bottom: $space-4;
+
+        @include media($tablet) {
+            @include featured-heading;
+        }
+    }
+
+    &_description {
+        margin-bottom: $space-3;
+    }
+
+    &_cta {
+        &.button {
+            min-width: 160px;
+        }
+    }
+}

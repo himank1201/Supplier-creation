@@ -1,0 +1,231 @@
+.dealer-info {
+    border-bottom: 1px solid $mercury;
+    padding-bottom: $space-2;
+    position: relative;
+    $narrowHeight: 1.83333;
+    cursor: pointer;
+
+    &:last-of-type {
+        border-bottom: none;
+    }
+
+    &[data-show="false"] {
+        display: none;
+    }
+
+    &--slim {
+        padding-left: $space-2;
+        padding-right: $space-2;
+    }
+
+    .link_secondary {
+        margin-bottom: $space-2;
+    }
+
+    &__inventory-link {
+        &--collapsed {
+            display: inline-block;
+            padding-left: $space-6;
+            padding-top: $space-2;
+            color: $denim;
+            @include copy-narrow-reg;
+
+            [data-selected-dealer="true"] & {
+                display: none;
+            }
+
+            @include media(375px) {
+                padding-left: 35px;
+            }
+        }
+
+        &--expanded {
+            display: none;
+            width: 98%;
+            margin-top: $space-3;
+            margin-bottom: $space-2;
+            text-align: center;
+
+            [data-selected-dealer="true"] & {
+                display: inline-block;
+            }
+        }
+    }
+
+    .hideLink {
+        display: none;
+    }
+
+    &__collision-center {
+        padding-bottom: $space-2;
+
+        &--certified {
+            @include disclaimer;
+            font-size: 12px;
+            line-height: $narrowHeight;
+        }
+
+        &--sponsor {
+            @include disclaimer;
+            font-size: 12px;
+            line-height: $narrowHeight;
+            display: block;
+            margin-top: $space-3;
+            color: $silver-chalice;
+
+            [data-selected-center="false"] & {
+                display: none;
+            }
+
+            [data-selected-center="true"] & {
+                display: block;
+            }
+        }
+    }
+
+    &__address-container-dealer,
+    &__address-container-cc {
+        padding-top: $space-2;
+        padding-left: $space-6;
+
+        &::before {
+            position: absolute;
+            width: $space;
+            margin-top: -$space;
+            right: 0;
+            left: 0;
+        }
+
+        @include media(375px) {
+            padding-left: 35px;
+        }
+    }
+
+    &__address-container-cc {
+        [data-selected-center="true"] & {
+            cursor: default;
+        }
+
+        &::before {
+            @include icon($icon-mb-collision-center, 25px);
+        }
+    }
+
+    &__address-container-dealer {
+        &::before {
+            @include icon($icon-mb-dealer-location, 25px);
+            [data-is-preferred="true"] & {
+                color: $denim;
+            }
+
+            .dealer-info--slim & {
+                left: $space-2;
+            }
+        }
+    }
+
+    &__dealer-name {
+        @include copy-narrow-bold;
+        line-height: $narrowHeight;
+        pointer-events: none;
+
+        [data-selected-dealer="true"] & {
+            pointer-events: all;
+        }
+    }
+
+    &__dealer-distance {
+        @include copy-narrow-reg;
+        line-height: $narrowHeight;
+        float: right;
+        margin-right: 0;
+
+        @include media(375px) {
+            margin-right: $space;
+        }
+    }
+
+    &__address {
+        @include copy-narrow-reg;
+        line-height: $narrowHeight;
+
+        &--street {
+            display: none;
+
+            [data-selected-dealer="true"] &,
+            [data-selected-center="true"] & {
+                display: block;
+            }
+        }
+    }
+
+
+    &__phone-number {
+        display: none;
+        @include copy-narrow-bold;
+        line-height: $narrowHeight;
+        color: $azure-radiance;
+
+        [data-selected-dealer="true"] &,
+        [data-selected-center="true"] & {
+            display: block;
+        }
+    }
+
+    &__link-list {
+        display: none;
+
+        [data-selected-dealer="true"] & {
+            display: block;
+            padding-left: $space-3;
+        }
+
+        &-item {
+            margin-bottom: $space;
+        }
+    }
+
+    &__icon {
+        font-size: 6px;
+    }
+
+    &__preferred-dealer__small-heading {
+        @include copy-narrow-reg();
+        color: $dusty-gray;
+        position: relative;
+        display: none;
+        top: $space-2;
+        left: 34px;
+
+        &:hover {
+            cursor: inherit;
+        }
+
+        &--visible {
+            display: block;
+        }
+    }
+
+    &__preferred-dealer-link {
+        &--remove {
+            display: none;
+        }
+
+        [data-is-preferred="true"] & {
+            &--make {
+                display: none;
+            }
+
+            &--remove {
+                display: inline;
+            }
+        }
+    }
+
+    &__preferred-dealer-icon {
+        color: $azure-radiance;
+        font-size: 24px;
+        vertical-align: middle;
+        padding-left: $space;
+    }
+}

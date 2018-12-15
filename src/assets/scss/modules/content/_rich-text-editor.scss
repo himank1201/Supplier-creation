@@ -1,0 +1,17 @@
+// Styles for a CMS rich text editor output
+.rte {
+    @include copy-wide-reg();
+    @include rte;
+
+    &.rte--small {
+        @include disclaimer();
+    }
+
+    &.rte--small p {
+        @include disclaimer();
+    }
+
+    &.rte--small li {
+        @include disclaimer();
+    }
+}

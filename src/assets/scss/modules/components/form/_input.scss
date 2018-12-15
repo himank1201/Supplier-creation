@@ -1,0 +1,180 @@
+/**
+ * Style definitions for form elements
+ */
+.form {
+    $input-height: 24px;
+
+    &__input {
+        position: relative;
+        padding-top: $space-4;
+        padding-bottom: $space-4;
+
+        &.hidden {
+            padding: 0;
+        }
+
+        &--inline {
+            padding-bottom: 0;
+
+            .form__input-reset {
+                bottom: $space-2;
+            }
+        }
+    }
+
+    &__input-field {
+        width: 100%;
+        padding: 0 0 $space 0;
+        background: none;
+        border: none;
+        border-bottom: 1px solid $dusty-gray;
+        transition: border-bottom ease $speed-2;
+        @include input-reg();
+
+        .form__input.error & {
+            border-bottom-color: $guardsman-red;
+        }
+
+        &:focus,
+        .form__input.focused & {
+            outline: none;
+            border-bottom-color: $azure-radiance;
+            animation: unset;
+        }
+
+        &--can-reset {
+            padding-right: $space-5;
+        }
+
+        &[data-required] + .form__input-label .form__input-label-text:after {
+            display: inline;
+            content: "*";
+        }
+
+        &:-moz-ui-invalid {
+            box-shadow: none!important;
+            color: inherit!important;
+        }
+
+        &::-ms-clear {
+            display: none;
+        }
+
+        //IE ONLY
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            padding-top: $space;
+            padding-bottom: $space-2;
+        }
+
+        &--date {
+            min-height: $input-height; // line-height of input-reg
+            padding-right: $space-4;
+        }
+    }
+
+    &__input-label {
+        @include featured-copy-reg;
+        position: absolute;
+        display: block;
+        align-items: center;
+        top: $space * 3.5;
+        left: 0;
+        color: $dove-gray;
+        transition: all ease $speed-2;
+        width: 100%;
+
+        &:hover {
+            cursor: text;
+        }
+
+        &.tool-tip-active {
+            z-index: $z-content;
+        }
+
+        .form__input-field:focus + &,
+        .form__input-field:valid + &,
+        .form__input-field--has-value + & {
+            top: $space;
+            transform: scale(0.9, 0.9);
+            transform-origin: top left;
+        }
+
+
+        .form__input-field:focus + &,
+        .form__input.focused & {
+            color: $azure-radiance;
+        }
+
+        .form__input.error .form__input-field:focus + &,
+        .form__input.error & {
+            color: $guardsman-red;
+        }
+
+    }
+
+    &__input-label-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        font-size: 13px;
+    }
+
+    &__input-error {
+        display: none;
+        color: $guardsman-red;
+
+        .form__input.error & {
+            display: block;
+        }
+    }
+
+    &__input-icon {
+        margin-right: $space;
+
+        &:before {
+            font-size: 120%;
+        }
+    }
+
+    &__input-reset {
+        display: none;
+        position: absolute;
+        right: $space;
+        top: $space-4;
+        height: $input-height;
+        @include pseudo-icon($icon-exit, $position: 'after');
+        cursor: pointer;
+
+        &:active,
+         &--visible {
+             display: block;
+         }
+    }
+
+    &__input-date-trigger {
+        position: absolute;
+        top: $space-4; // padding top of input
+        right: 0;
+        font-size: 16px;
+
+        @include media($mobile-only) {
+            z-index: $z-under-content;
+        }
+
+        @include media($large) {
+            width: 100%;
+            height: $space-6; // height of input
+        }
+
+        .icon-mb {
+            color: $denim;
+
+            @include media($large) {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+}

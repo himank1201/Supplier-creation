@@ -1,0 +1,185 @@
+@mixin waypoint-nav-dot-active {
+    .waypoint-nav__dot {
+        background-color: $denim;
+        position: relative;
+        z-index: 1;
+
+        @include theme-amg() {
+            background-color: $guardsman-red;
+        }
+    }
+}
+
+.waypoint-nav {
+    &__container {
+        display: none;
+        background-color: transparent;
+
+        &.sticky,
+        &.absolute {
+            display: block;
+            right: 0;
+            text-align: right;
+            margin-right: $space-4;
+            width: auto;
+            z-index: $z-content;
+
+            &:after {
+                @include media($large) {
+                    content: none;
+                }
+            }
+        }
+
+        &.sticky {
+            top: 50%;
+            margin-top: -95px;
+            border: none;
+            left: auto;
+
+            @include theme-amg() {
+                background-color: transparent;
+            }
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        min-width: $space-4;
+        margin-bottom: 3px;
+
+        @include media($xlarge) {
+            &:hover,
+            &:focus {
+                animation: none;
+                @include waypoint-nav-dot-active;
+
+                .waypoint-nav__label {
+                    width: auto;
+                    opacity: 1;
+                    transition: width $speed-4, padding-right $speed-4, padding-left $speed-4;
+                    padding-left: $space-4;
+                    padding-right: $space-6;
+                }
+            }
+        }
+
+        &--active {
+            @include waypoint-nav-dot-active;
+        }
+
+        &--active-with-anim {
+            @include waypoint-nav-dot-active;
+
+            .waypoint-nav__label {
+                animation: show-hide-label 2.5s;
+            }
+        }
+    }
+
+    &__label {
+        @include highlight-copy-bold;
+        @include uppercase;
+        @include side-nav-label-shadow;
+        line-height: 1;
+        display: inline-block;
+        color: $denim;
+        width: $space-4;
+        margin-right: -45px;
+        padding: $space-2 0;
+        overflow: hidden;
+        background-color: $white;
+        vertical-align: middle;
+        text-transform: uppercase;
+        transition: width $speed-4, padding-right $speed-4, padding-left $speed-4, opacity $speed;
+        opacity: 0;
+        white-space: nowrap;
+
+        @include media($large) {
+            margin-right: -$space-4;
+        }
+
+        @include theme-amg() {
+            color: $white;
+            background-color: $blitz;
+        }
+    }
+
+    &__dot {
+        display: inline-block;
+        background: $silver;
+        width: 8px;
+        height: 8px;
+        border-radius: 8px;
+
+        @include theme-amg() {
+            color: $dusty-gray;
+        }
+    }
+
+    @keyframes show-hide-label {
+        0% {
+            width: 0;
+            padding-right: 0;
+            padding-left: 0;
+            opacity: 1;
+        }
+
+        15% {
+            width: 100%;
+            min-width: calc(100% + 35px);
+            padding-left: $space-2;
+            padding-right: 52px;
+            opacity: 1;
+        }
+
+        85% {
+            width: 100%;
+            min-width: calc(100% + 35px);
+            padding-left: $space-2;
+            padding-right: 52px;
+            opacity: 1;
+        }
+
+        100% {
+            width: 0;
+            padding-right: 0;
+            padding-left: 0;
+            opacity: 0;
+        }
+    }
+
+    @include media($large) {
+        @keyframes show-hide-label {
+            0% {
+                width: 0;
+                padding-right: 0;
+                padding-left: 0;
+                opacity: 1;
+            }
+
+            15% {
+                width: 100%;
+                min-width: calc(100% + 10px);
+                padding-left: $space-4;
+                padding-right: 35px;
+                opacity: 1;
+            }
+
+            85% {
+                width: 100%;
+                min-width: calc(100% + 10px);
+                padding-left: $space-4;
+                padding-right: 35px;
+                opacity: 1;
+            }
+
+            100% {
+                width: 0;
+                padding-right: 0;
+                padding-left: 0;
+                opacity: 0;
+            }
+        }
+    }
+}

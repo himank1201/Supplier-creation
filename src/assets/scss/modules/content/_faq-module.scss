@@ -1,0 +1,19 @@
+.faq-module {
+    
+    @include media($xlarge) {
+        padding-bottom: $space-5;
+    }
+
+    &__title {
+        @include copy-narrow-bold;
+        margin-bottom: $space-3;
+    }
+    
+    &__accordion {
+        margin-bottom: $space-5;
+    }
+
+    &__cta-container {
+        text-align: center;
+    }
+}

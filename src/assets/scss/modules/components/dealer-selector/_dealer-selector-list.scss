@@ -1,0 +1,29 @@
+.dealer-selector-list {
+    &__header {
+        background: $white-sand;
+        padding: $space-2;
+        @include mobile-container-full-bleed();
+
+        @include media($large) {
+            width: auto;
+            left: auto;
+        }
+    }
+
+    &__header-label {
+        @include copy-narrow-bold;
+    }
+
+    .dealer-info__icon {
+        color: $dusty-gray;
+    }
+
+    &__results-list {
+        @include mobile-container-full-bleed();
+
+        @include media($large) {
+            width: auto;
+            left: auto;
+        }
+    }
+}

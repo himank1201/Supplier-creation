@@ -1,0 +1,16 @@
+/**
+ * Styling for a Dealer Locator DealerSearchBar view
+ */
+.dealer-search-bar {
+    display: flex;
+    align-items: baseline;
+
+    &__location-search {
+        flex: 1 1 auto;
+        margin-right: $space-2;
+    }
+
+    &__cta {
+        flex: 0 0 auto;
+    }
+}

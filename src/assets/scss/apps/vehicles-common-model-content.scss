@@ -1,0 +1,9 @@
+@import "../config/index";
+@import "../mixins/index";
+
+//Components
+@import "../modules/components/bodystyle-specs";
+
+//Content
+@import "../modules/content/vehicle-model/model-featured-specs";
+@import "../modules/content/vehicle-model/model-specs-list";

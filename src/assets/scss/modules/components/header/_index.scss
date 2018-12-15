@@ -1,0 +1,147 @@
+@import "menu-toggle";
+@import "top-nav";
+@import "shopping-tools";
+@import "vehicles";
+@import "owners-menu";
+
+body[data-menu-state="open"] {
+    overflow: hidden;
+    position: fixed;
+
+    .page-content {
+        z-index: $z-subnav;
+    }
+}
+
+body[data-submenu-state="open"] {
+    overflow-x: hidden;
+
+    .page-content {
+        z-index: $z-subnav;
+        position: relative;
+    }
+
+    &[data-menu-class="shopping"] {
+        .header {
+            @include media($tablet) {
+                margin-bottom: $subnav-height-desktop;
+            }
+        }
+    }
+
+    &[data-menu-class="vehicles"] {
+        .header {
+            @include media($tablet) {
+                margin-bottom: $subnav-vehicle-height-desktop;
+            }
+
+            &--with-models {
+                @include media($tablet) {
+                    margin-bottom: $subnav-vehicle-height-desktop-with-models;
+                }
+            }
+        }
+    }
+}
+
+.header {
+    position: relative;
+    z-index: $z-content-1;
+    transition: $menu-transition-close;
+    transform: translate(0, 0);
+    
+    @include media($tablet) {
+        transition: $subnav-transition;
+        z-index: $z-content-1;
+    }
+    
+    @include open-nav() {
+        transition: $menu-transition-open;
+        transform: translate($subnav-width-mobile, 0);
+    }
+}
+
+.header-click-blocker {
+    display: none;
+    width: 100%;
+    position: fixed;
+    top: $header-height;
+    left: 0;
+    background-color: $black;
+    height: 100vh;
+    opacity: 0.4;
+    @include open-nav() {
+        display: block;
+    }
+}
+
+.page-content {
+    z-index: $z-content;
+    position: relative;
+}
+
+.page-content, footer {
+    transition: $menu-transition-close;
+    transform: translate(0, 0);
+    @include open-nav() {
+        transition: $menu-transition-open;
+        transform: translate($subnav-width-mobile, 0);
+    }
+
+    &.un-transform {
+        transform: none;
+    }
+    @include open-subnav() {
+        @include media($tablet) {
+            transform: none;
+        }
+    }
+}
+
+@include media($tablet) {
+    .top-nav {
+        &[data-submenu-model="true"] {
+            .top-nav__sub-nav {
+                height: $subnav-height-desktop-with-model;
+            }
+        }
+
+        &__sub-nav {
+            max-height: 0;
+            height: $subnav-height-desktop;
+            transition: $submenu-transition-open;
+        }
+
+        .sub-nav {
+            max-height: 0;
+        }
+    }
+
+    body[data-submenu-state="open"] {
+        .top-nav {
+            &__shopping-tools-container {
+                ul {
+                    &:nth-of-type(1) {
+                        li {
+                            transform: translateY(0);
+                        }
+                    }
+                }
+            }
+
+            &__vehicle-container {
+                .top-nav {
+                    &__item {
+                        .top-nav {
+                            &__sub-nav {
+                                transition: $menu-transition-open;
+                                transform: translateY(0);
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}//end tablet

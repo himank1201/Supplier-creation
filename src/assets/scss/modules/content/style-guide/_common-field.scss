@@ -1,0 +1,52 @@
+.field {
+    &__section {
+        clear: both;
+        margin-bottom: $space-4;
+
+        @include media($desktop) {
+            margin-bottom: $space-6;
+        }
+    }
+
+    &__list {
+        margin-top: $space-2;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        display: block;
+        width: 100%;
+        margin-bottom: $space-4;
+
+        @include media($tablet) {
+            @include span-columns(6);
+            @include omega(2n);
+        }
+    }
+
+    &__heading {
+        @include call-out-text-bold;
+        text-transform: uppercase;
+    }
+
+    &__input-field-with-btn {
+        .form__input {
+            @include span-columns(3 of 4);
+            @include media($tablet) {
+                @include span-columns(5 of 6);
+            }
+        }
+
+        .form__input-field-btn {
+            text-align: center;
+            margin-top: $space-4;
+            @include span-columns(1 of 4);
+            @include media($tablet) {
+                @include span-columns(1 of 6);
+            }
+        }
+
+    }
+
+}

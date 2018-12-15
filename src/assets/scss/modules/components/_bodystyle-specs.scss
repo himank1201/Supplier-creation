@@ -1,0 +1,33 @@
+.bodystyle-specs {
+    padding-top: $space-2;
+    
+    &-group {
+
+        &__title {
+            @include featured-copy-bold;
+            margin-bottom: $space;
+        }
+    }
+
+    &-list {
+        @include outer-container();
+        padding-bottom: $space-8;
+        border-bottom: 1px solid $black;
+        margin-bottom: $space;
+        
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &__title {
+            @include featured-copy-reg;
+            @include span-columns(12);
+            margin-bottom: $space-3;
+        }
+
+        &__spec {
+            @include copy-narrow-bold;
+            @include span-columns(4);
+        }
+    }
+}

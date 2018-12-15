@@ -1,0 +1,26 @@
+.vehicle-info {
+    display: inline-block;
+
+    @include variant(ondisplay) {
+        float: left;
+    }
+
+    &__model_year {
+      @include featured-copy-bold;
+    }
+
+    &__model-name {
+      @include main-heading;
+      // removes the white space created by the Font family
+      margin-left: -2px;
+    }
+
+    &__msrp_heading {
+      @include call-out-text-reg;
+      color: $dove-gray;
+
+      @include theme-amg() {
+          color: $dusty-gray;
+      }
+    }
+}

@@ -1,0 +1,114 @@
+.select-control {
+    $wrapper-side-space: 3.5%;
+
+    @include input-reg();
+    position: relative;
+
+    &--error {
+        margin-bottom: $space-6;
+    }
+
+    &__combobox-container {
+        display: flex;
+        position: relative;
+    }
+
+    &__input-label {
+    }
+
+    &__input-label-text {
+        display: inline-block;
+        overflow: hidden;
+        @include featured-copy-reg;
+        color: $dove-gray;
+        vertical-align: middle;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%;
+    }
+
+    &__combobox {
+        border-bottom: 1px solid $dusty-gray;
+        padding: 0 0 $space;
+        font: inherit;
+        text-align: left;
+        width: 100%;
+        min-height: 30px;
+
+        .select-control--error & {
+            border-bottom-color: $guardsman-red;
+        }
+
+        .select-control--open & {
+            border-bottom-color: $white;
+        }
+
+        .icon-mb {
+            @include center-content(vertical);
+            color: $denim;
+            font-size: 12px;
+            right: 0;
+        }
+    }
+
+    &__label {
+        &--placeholder {
+            color: $dove-gray;
+            @include featured-copy-reg;
+        }
+    }
+
+    &__list {
+        display: none;
+        background: $white;
+        border: 1px solid $dusty-gray;
+        position: absolute;
+        max-height: 362px;
+        overflow-y: auto;
+        width: 100%;
+        z-index: $z-content;
+
+        @include media($large) {
+            max-height: 220px;
+        }
+
+        &:focus {
+            z-index: $z-content-1;
+        }
+
+        .select-control--open & {
+            display: block;
+        }
+    }
+
+    &__option {
+        padding: $space-2 $wrapper-side-space;
+        border-top: 1px solid $white;
+
+        @include media($large) {
+            padding: $space-2;
+        }
+
+        &:hover,
+        &:focus,
+        &--selected {
+            background: $azure-radiance;
+            color: $white;
+        }
+
+        &:first-child {
+            border-top: 0;
+        }
+    }
+
+    &__error-message {
+        display: none;
+        @include copy-wide-reg;
+        color: $guardsman-red;
+        position: absolute;
+
+        .select-control--error & {
+            display: block;
+        }
+    }
+}

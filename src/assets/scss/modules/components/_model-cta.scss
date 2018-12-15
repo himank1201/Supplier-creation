@@ -1,0 +1,129 @@
+.model-page-cta {
+    text-align: center;
+    margin: 0 $space-2 $space-6;
+
+    @include media($large) {
+        margin: 0 auto $space-6;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        width: 33px;
+        border-bottom: 1px solid $silver;
+        margin: $space-4 auto 0;
+    }
+
+    &__build {
+        margin: 0 auto $space-2;
+
+        @include media($large) {
+            margin: 0 $space-4 0 0;
+            display: inline-block;
+            width: auto;
+        }
+
+        &--no-margin {
+            margin: 0;
+        }
+    }
+
+    &__link {
+        display: block;
+        padding-top: $space-4;
+    }
+
+    &__window-sticker {
+        margin: 0;
+    }
+
+    &__special-offers {
+        @include featured-copy-reg;
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 10;
+        border-radius: 0;
+        padding: $space-2 $space-14;
+    }
+
+    &__icon {
+        padding-right: $space-3;
+        font-size: 20px;
+    }
+
+    &__tools {
+
+        &.button_toggle{
+            line-height: (22/12);
+            font-weight: $font-weight-bold;
+
+            &[aria-expanded="true"] {
+                border-color: $denim;
+            }
+
+            .button_toggle-copy {
+                padding-right: $space-5;
+                padding-left: $space;
+            }
+
+            .icon-mb {
+                position: absolute;
+                right: $space-5;
+
+                @include media($large) {
+                    position: inherit;
+                    right: 0;
+                }
+            }
+        }
+
+        &-container{
+            margin-top: $space-2;
+
+            @include media($large) {
+                background-color: $white-sand;
+                margin-top: $space-5;
+            }
+        }
+
+        &-list {
+            @include outer-container();
+            
+            @include media($large) {
+                padding: $space-6 0;
+            }
+        }
+
+        &-item {
+            padding: $space-2 0;
+
+            @include media($large) {
+                padding: 0;
+                @include span-columns(3);
+            }
+        }
+    }
+
+    &__item {
+
+        &-icon {
+            font-size: 24px;
+            vertical-align: middle;
+            padding-right: $space;
+            color: $denim;
+
+            :hover > & {
+                color: $azure-radiance;
+            }
+            
+            .disabled & {
+                color: $silver;
+            }
+        }
+
+        &-copy {
+            vertical-align: middle;
+        }
+    }
+}

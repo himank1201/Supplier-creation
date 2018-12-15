@@ -1,0 +1,77 @@
+@import "node_modules/pikaday/scss/pikaday.scss";
+
+.form-input__date-picker {
+    background-color: $white-sand;
+
+    .pika-lendar {
+        width: 220px;
+    }
+
+    .pika-title {
+        border-bottom: 1px solid $silver;
+    }
+
+    .pika-label {
+        @include subsection-reg;
+        background-color: transparent;
+    }
+
+    .pika-next, .pika-prev {
+        background-image: none;
+        opacity: 1;
+        text-indent: 0px;
+        width: $space-3;
+        color: $denim;
+        font-size: 14px;
+
+        &:before {
+            margin-right: $space-2;
+        }
+
+        &.is-disabled {
+            color: $silver;
+        }
+    }
+
+    .pika-next {
+        @include pseudo-icon($icon-arrow-right-square);
+        margin-right: $space-2;
+    }
+
+    .pika-prev {
+        @include pseudo-icon($icon-arrow-left-square);
+        margin-left: $space-2;
+    }
+
+    .pika-table {
+        @include call-out-text-small;
+    }
+
+    .pika-button {
+        @include copy-wide-reg;
+        color: $blitz;
+        background-color: transparent;
+        text-align: center;
+
+        &:hover {
+            background-color: $silver;
+            border-radius: 0;
+            box-shadow: none;
+        }
+    }
+
+    .is-disabled {
+        .pika-button {
+            background: none;
+        }
+    }
+
+    .is-selected {
+        .pika-button {
+            background-color: $azure-radiance;
+            color: $white;
+            border-radius: 0;
+            box-shadow: none;
+        }
+    }
+}

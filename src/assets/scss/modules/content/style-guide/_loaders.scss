@@ -1,0 +1,9 @@
+.loader-section {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: $space-6;
+
+    .loading-spinner {
+        margin-left: $space-4;
+    }
+}

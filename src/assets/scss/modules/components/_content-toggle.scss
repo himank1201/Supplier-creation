@@ -1,0 +1,18 @@
+.content-toggle {
+    position: relative;
+    -webkit-tap-highlight-color: transparent; //for iPad: remove black highlight that appears over element while tapped
+
+    &__rollover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        transition: opacity $speed-7 linear;
+
+        &.active {
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+}

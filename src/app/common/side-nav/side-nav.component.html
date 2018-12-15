@@ -1,0 +1,23 @@
+<aside [ngClass]="{'sidenav_collapse': show === true }">
+	<section class="logo_wrapper">
+		<a class="logo" href="javascript:void(0)">Mercedes Benz</a>	
+	</section>	
+	<ul class="navigation_menu">
+		<li [ngClass] = "{'active' : menuToggle}">
+			<a href="javascript:void(0)" (click)="toggleMenu()">Supplier Creation</a>
+			<ul class="navigation_sub_menu" [ngClass] = "{'togglemenu' : !menuToggle}">
+				<li>
+					<a routerLink="create" routerLinkActive="active">New Supplier</a>
+					<a routerLink="statuslist" routerLinkActive="active">Status List</a>
+				</li>	
+			</ul>
+		</li>	
+		<li><a href="javascript:void(0)" (click)="toggleToolsMenu()">Tools</a>
+			<ul class="navigation_sub_menu" [ngClass] = "{'togglemenu' : !toolmenuToggle}">
+				<li>
+					<a routerLink="configuration" routerLinkActive="active">Configuration</a>
+				</li>	
+			</ul>
+		</li>
+	</ul>
+</aside>

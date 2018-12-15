@@ -1,0 +1,21 @@
+.cta-section {
+    .cta-title {
+        @include subsection-reg;
+        color: $black;
+        padding-top: $space;
+        margin-bottom: $space-2;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 1px;
+            background-color: $blitz;
+            position: absolute;
+        }
+    }
+}
+
+.toggle-buttons {
+    width: 180px;
+}

@@ -1,0 +1,117 @@
+.visualizer-key-specs {
+
+    &__list {
+        @include media($large) {
+            padding: $space-6 0;
+            border-top: 1px solid $silver;
+            border-bottom: 1px solid $silver;
+        }
+    }
+
+    &__list-item {
+        border-bottom: 1px solid $silver;
+        width: 100%;
+        padding: $space-3 0;
+
+        @include media($large) {
+            border-bottom: none;
+            position: relative;
+            border-right: 1px solid $silver;
+            @include span-columns(4);
+            display: inline-block;
+            float: none;
+
+            &:before {
+                position: relative;
+                display: block;
+                line-height: 1;
+                color: $denim;
+
+                @include theme-amg() {
+                    color: $guardsman-red
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+                border-right: 0;
+                .model-specification__value-wrapper {
+                    right: 0;
+                }
+            }
+
+            &--ACCELERATION {
+                &:before {
+                    @include icon($icon-acceleration);
+                    font-size: $space-6;
+                }
+            }
+    
+            &--NET_POWER {
+                &:before {
+                    @include icon($icon-horsepower);
+                    font-size: $space-6;
+                }
+            }
+    
+            &--NET_TORQUE {
+                &:before {
+                    @include icon($icon-torque);
+                    font-size: $space-6;
+                }
+            }
+
+            &--TOWING_CAPACITY {
+                &:before {
+                    @include icon($icon-towing);
+                    font-size: $space-6;
+                }
+            }
+        }
+    }
+
+    &__element {
+        @include copy-narrow-reg;
+        @include media($large) {
+            padding-top: $space;
+        }
+    }
+
+    &__detail {
+        color:$dusty-gray;
+        padding-left: $space;
+        @include media($large) {
+            display: none;
+        }
+    }
+
+    &__value-wrapper {
+        float: right;
+        @include media($large) {
+            @include center-content(vertical);
+            right: $space-4;
+            line-height: 1;
+        }
+        
+    }
+
+    &__value {
+        display: inline;
+        @include copy-narrow-bold;
+        @include media($large) {
+            display: block;
+            @include subhead-italic;
+        }
+    }
+
+    &__unit {
+        display: inline;
+        padding-left: $space;
+        @include media($large) {
+            display: block;
+            color: $dusty-gray;
+            padding-left: 0;
+            text-align: left;
+        }
+    }
+}

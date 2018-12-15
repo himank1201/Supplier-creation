@@ -1,0 +1,42 @@
+.form-error-message {
+    display: flex;
+    padding: $space-4;
+    background-color: $white-sand;
+    justify-content: center;
+
+    @include media($tablet) {
+        @include span-columns(6);
+        float: none;
+        display: flex;
+        margin: 0 auto;
+
+        &:last-child {
+            margin-right: auto;
+        }
+    }
+
+    &__text {
+        margin-left: $space-3;
+        text-align: left;
+        flex: 0 1 auto;
+        align-self: center;
+    }
+
+    &__icon{
+
+        &:before {
+            @include icon($icon-warning);
+            color: $guardsman-red;
+            font-size: 25px;
+            line-height: 1.5;
+        }
+    }
+
+    &__title{
+        @include featured-copy-bold();
+    }
+
+    &__description{
+        @include featured-copy-reg();
+    }
+}

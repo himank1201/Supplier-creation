@@ -1,0 +1,52 @@
+.introduction-section {
+    &__container {
+        display: block;
+        text-align: center;
+    }
+
+    &__title {
+        @include subhead-italic;
+        text-align: center;
+        margin-bottom: $space-3;
+    }
+
+    &__paragraph {
+        @include copy-wide-reg;
+        max-width: 70%;
+        text-align: center;
+        margin: 0 auto;
+        word-wrap: break-word;
+        margin-bottom: $space-4;
+
+        @include media($large) {
+            max-width: 48%;
+        }
+
+        @include variant(ondisplay) {
+            @include paragraph-wide-reg;
+        }
+    }
+
+    &__image {
+        @include section-header-image;
+    }
+
+    &__picture {
+        margin-bottom: $space-2;
+    }
+
+    &__caption-wrapper {
+        max-width: 1440px;
+    }
+
+    &__caption {
+        @include disclaimer;
+        display: block;
+        text-align: center;
+
+        @include media($large) {
+            text-align: right;
+            margin-right: $space-2;
+        }
+    }
+}

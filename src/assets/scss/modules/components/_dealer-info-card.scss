@@ -1,0 +1,42 @@
+.dealer-info-card {
+  display: flex;
+
+  &__media {
+    display: none;
+
+    @include media($large) {
+      @include span-columns(3);
+      float: none;
+    }
+  }
+
+  &__title {
+    margin-bottom: $space;
+  }
+
+  &__change-button {
+    margin-left: $space;
+    @include copy-wide-reg;
+  }
+
+  &__dealer-name {
+    @include featured-copy-bold;
+  }
+
+  &__address-container {
+    margin-bottom: $space-2;
+  }
+
+  &__address-item {
+    display: block;
+    @include copy-wide-reg;
+  }
+
+  &__phone-number {
+    color: inherit;
+  }
+
+  &__link-list {
+    margin-bottom: $space-2;
+  }
+}

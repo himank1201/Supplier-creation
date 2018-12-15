@@ -1,0 +1,192 @@
+.section-title {
+    @include subhead-reg();
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.main-heading-example {
+    @include main-heading();
+}
+
+.heading-reg-example {
+    @include heading-reg();
+}
+
+.featured-heading-example {
+    @include featured-heading;
+}
+
+.subhead-reg-example {
+    @include subhead-reg();
+}
+
+.subhead-italic-example {
+    @include subhead-italic();
+}
+
+.section-reg-example {
+    @include section-reg();
+}
+
+.section-italic-example {
+    @include section-italic();
+}
+
+.subsection-reg-example {
+    @include subsection-reg();
+}
+
+.subsection-reg-italic-example {
+    @include subsection-italic();
+}
+
+.small-subhead-reg-example {
+    @include small-subhead-reg();
+}
+
+.accent-reg-example {
+    @include accent-reg();
+}
+
+.accent-bold-example {
+    @include accent-bold();
+}
+
+.call-out-text-reg-example {
+    @include call-out-text-reg();
+}
+
+.call-out-text-bold-example {
+    @include call-out-text-bold();
+}
+
+.call-out-text-italic-example {
+    @include call-out-text-italic();
+}
+
+.call-out-text-bold-italic-example {
+    @include call-out-text-bold-italic();
+}
+
+.call-out-text-small-example {
+    @include call-out-text-small();
+}
+
+.call-out-text-small-bold-example {
+    @include call-out-text-small-bold();
+}
+
+.featured-copy-reg-example {
+    @include featured-copy-reg();
+}
+
+.featured-copy-bold-example {
+    @include featured-copy-bold();
+}
+
+.highlight-copy-reg-example {
+    @include highlight-copy-reg();
+}
+
+.highlight-copy-bold-example {
+    @include highlight-copy-bold();
+}
+
+.highlight-copy-italic-example {
+    @include highlight-copy-italic();
+}
+
+.copy-narrow-reg-example {
+    @include copy-narrow-reg();
+}
+
+.copy-narrow-bold-example {
+    @include copy-narrow-bold();
+}
+
+.copy-narrow-italic-example {
+    @include copy-narrow-italic();
+}
+
+.copy-wide-reg-example {
+    @include copy-wide-reg();
+}
+
+.copy-wide-bold-example {
+    @include copy-wide-bold();
+}
+
+.copy-wide-italic-example {
+    @include copy-wide-italic();
+}
+
+.disclaimer-example {
+    @include disclaimer();
+}
+
+p {
+    @include copy-wide-reg();
+}
+
+.typography-list {
+    border-bottom: 1px solid $mercury;
+    padding: $space-4 0 $space-6 0;
+
+    &:last-child {
+        border: none;
+    }
+}
+
+.typography-item {
+    padding: $space-4 0 $space-4 0;
+    height: 80px;
+
+    div {
+        @include span-columns(12);
+
+        @include media($tablet) {
+            @include span-columns(4);
+        }
+    }
+}
+
+.font-properties {
+    @include span-columns(12);
+    margin-top: $space-4;
+
+    @include media($tablet) {
+        @include span-columns(4);
+        display: flex;
+        margin-top: 0;
+    }
+
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    overflow: visible;
+
+    &__family, &__size, &__height {
+        flex: 0 0 50%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: bold;
+    }
+
+    &__family-value, &__size-value, &__height-value {
+        flex: 0 0 50%;
+        margin-left: auto;
+        text-align: left;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+.font-mixin {
+    @include span-columns(12);
+
+    @include media($tablet) {
+        @include span-columns(4);
+        display: flex;
+    }
+}

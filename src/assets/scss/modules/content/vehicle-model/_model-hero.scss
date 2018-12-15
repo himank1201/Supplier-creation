@@ -1,0 +1,297 @@
+.model-page-hero {
+    
+    &__vehicle {
+        height: 230px;
+        background-size: auto 110%;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: -$space-7;
+        margin-bottom: $space-4;
+        overflow: hidden;
+        position: relative;
+    
+        @include media($large) {
+            height: 385px;
+            background-size: auto 100%;
+            background-position: center top;
+            margin-bottom: $space;
+        }
+        
+        @include media($xlarge) {
+            height: 690px;
+            margin-bottom: -$space-5;
+            background-size: auto 97%;
+        }
+        
+        &--bbd {
+            
+            .model-page-hero__picture {
+                width: 680px;
+                left: calc(50% - 360px);
+                bottom: -$space-12;
+                
+                @include media($large) {
+                    width: 860px;
+                    left: calc(50% - 470px);
+                    bottom: -$space-23;
+                }
+                
+                @include media($xlarge) {
+                    width: 1440px;
+                    left: calc(50% - 780px);
+                    bottom: -$space-39;
+                }
+            }
+        }
+    }
+    
+    &__year {
+        @include main-heading; 
+        color: $white;
+        font-size: 110px;
+        font-weight: 200;
+        font-style: italic;
+        text-align: center;
+        letter-spacing: -$space;
+        display: block;
+        padding-top: $space-2;
+        margin-left: -$space-4;
+        user-select: none;
+        
+        @include media($large) {
+            font-size: 170px;
+            letter-spacing: -$space-3;
+            padding-top: $space-7;
+            margin-left: -$space-8;
+        }
+        
+        @include media($xlarge) {
+            font-size: 330px;
+            font-style: italic;
+            font-weight: 200;
+            padding-top: $space-9;
+            margin-left: -$space-20;
+        }
+    }
+    
+    &__picture {
+        width: 485px;
+        position: absolute;
+        left: calc(50% - 240px);
+        bottom: -$space;
+        
+        @include media($large) {
+            width: 840px;
+            left: calc(50% - 415px);
+            bottom: -$space-4;
+        }
+        
+        @include media($xlarge) {
+            width: 1420px;
+            left: calc(50% - 700px);
+        }
+        
+        &--fallback {
+            @extend .model-page-hero__picture;
+            width: 280px;
+            left: calc(50% - 140px);
+        
+            @include media($large) {
+                width: 490px;
+                left: calc(50% - 240px);
+                bottom: -$space-8;
+            }
+
+            @include media($xlarge) {
+                width: 880px;
+                left: calc(50% - 450px);
+                bottom: -$space-13;
+            }
+        }
+    }
+    
+    &__image {
+        width: 100%;
+        height: auto;
+    }
+    
+    &__details {
+        margin-bottom: $space;
+    }
+    
+    &__model-name {
+        position: relative;
+        text-align: center;
+        margin-bottom: $space-4;
+        
+        @include media($large) {
+            text-align: left;
+            @include span-columns(6);
+            margin-bottom: 0;
+            display: inline-block;
+            display: flex;
+            justify-content: center;
+        }
+        
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: $space-6;
+            height: 0;
+            border-bottom: 1px solid $alto;
+            bottom: -$space-2;
+            left: calc(50% - #{$space-3});
+            
+            @include media($large) {
+                width: 0;
+                height: $space-6;
+                border-right: 1px solid $alto;
+                border-bottom: none;
+                left: auto;
+                right: -9px;
+                bottom: $space;
+            }
+            
+            @include media($xlarge) {
+                right: -12px;
+            }
+        }
+
+        &-inner {
+            position: relative;
+        }
+        
+        &-year {
+            @include call-out-text-small;
+            color: $dove-gray;
+            position: absolute;
+            left: 0;
+            top: -$space-7;
+            
+            @include media($large) {
+                @include call-out-text-reg;
+                top: 0;
+            }
+            
+            &:after {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 0;
+                border-bottom: 1px solid $dove-gray;
+                position: absolute;
+                top: calc(50% - 1px);
+                right: -$space-5;
+                
+                @include media($large) {
+                    right: -$space-6;
+                    top: calc(50% - 2px);
+                }
+            }
+        }
+        
+        &-name {
+            @include subhead-reg;
+            margin-top: $space-4;
+            display: inline;
+            
+            @include media($large) {
+                @include heading-reg;
+                margin-top: $space-5;
+                display: inline-block;
+            }
+        }
+    }
+    
+    &__msrp {
+        position: relative;
+        text-align: center;
+        
+        @include media($large) {
+            @include span-columns(4);
+            text-align: right;
+        }
+        
+        &-inner {
+            position: relative;
+            
+            @include call-out-text-small;
+            color: $dove-gray;
+
+            @include media($large) {
+                @include call-out-text-reg;
+            }
+            
+            [itemprop] {
+                @include subhead-reg;
+                color: $blitz;
+                
+                @include media($large) {
+                    @include heading-reg;
+                    margin-top: $space-5;
+                    display: inline-block;
+                }
+            }
+            
+            .disclaimer__marker {
+                vertical-align: top;
+                position: relative;
+                top: -2px;
+                
+                @include media($large) {
+                    vertical-align: super;
+                    top: -3px;
+                }
+                
+                @include media($xlarge) {
+                    top: -7px;
+                }
+            }
+        }
+        
+        &-price {
+            @include subhead-reg;
+            
+            @include media($large) {
+                @include heading-reg;
+                margin-top: $space-5;
+                display: inline-block;
+            }
+            
+            &-label {
+                @include call-out-text-small;
+                color: $dove-gray;
+                
+                @include media($large) {
+                    @include call-out-text-reg;
+                }
+            }
+        }
+        
+        
+        
+        &-note {
+            @include copy-narrow-italic;
+            color: $dove-gray;
+            position: absolute;
+            bottom: -$space-4;
+            left: 0;
+        }
+    }
+    
+    .loading-spinner {
+        margin-top: $space-2;
+        margin-left: -$space-4;
+        position: absolute;
+        left: 50%;
+        
+        @include media($large) {
+            margin-top: $space-6;
+        }
+        
+        @include media($xlarge) {
+            margin-top: $space-14;
+        }
+    }
+}

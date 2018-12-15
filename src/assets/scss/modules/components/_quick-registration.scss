@@ -1,0 +1,93 @@
+.mbs-quick-registration {
+    padding: $space 0;
+
+    @include media($tablet) {
+        padding: 0;
+    }
+
+    &__header {
+        @include section-reg();
+        width: 100%;
+        text-align: center;
+        margin-bottom: $space-2;
+
+        @include media($tablet) {
+            margin-bottom: $space-4;
+        }
+
+        &--bottom-border {
+            padding-bottom: $space-4;
+            border-bottom: 1px solid $silver;
+        }
+    }
+
+    &__body {
+        @include highlight-copy-reg();
+        margin: 0 auto $space-3;
+        text-align: center;
+
+        @include media($large) {
+            width: 70%;
+        }
+    }
+
+    &__recaptcha-container {
+        margin: $space-4 0;
+        text-align: center;
+
+        @include media($large) {
+            margin-bottom: $space-6;
+        }
+    }
+
+    &__recaptcha {
+        display: inline-block;
+    }
+
+    &__policy-container {
+        margin-bottom: $space-7;
+
+        .form__checkbox-label {
+            @include highlight-copy-bold();
+        }
+    }
+
+    &__submit-container {
+        margin-bottom: $space-6;
+        text-align: center;
+    }
+
+    &__continue-container {
+        text-align: center;
+    }
+
+    &__error-message {
+        margin-top: $space-4;
+
+        &:empty {
+            margin-top: 0;
+        }
+
+        .form-error-message {
+            width: 100%;
+        }
+    }
+
+    &__reminder-container {
+        text-align: center;
+    }
+
+    &__reminder-log-in-descr, &__reminder-login-link {
+        margin-bottom: $space-3;
+    }
+
+    &__login {
+        @include section-reg();
+        text-align: center;
+    }
+
+    &__success {
+        padding-left: $space-2;
+        padding-right: $space-2;
+    }
+}

@@ -1,0 +1,24 @@
+.title-hero {
+    
+    &__title {
+        @include main-heading;
+        overflow-wrap: break-word;
+        text-align: center;
+        
+        @include media($tablet) {
+            @include span-columns(8);
+            @include shift(2);
+        }
+    }
+
+    &__sub-heading {
+        margin: $space-3 auto 0;
+        overflow-wrap: break-word;
+        text-align: center;
+        
+        @include media($tablet) {
+            @include span-columns(8);
+            @include shift(2);
+        }
+    }
+}

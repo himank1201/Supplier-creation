@@ -1,0 +1,57 @@
+.toggle-drawer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s, padding-bottom 0.5s;
+
+    &[aria-hidden="false"] {
+        max-height: 100%;
+    }
+
+    @media print {
+        max-height: 100%;
+    }
+}
+
+.toggle-drawer-cta {
+    @include copy-narrow-reg;
+    color: $denim;
+    display: inline-flex;
+    align-items: center;
+
+    .icon-mb {
+        font-size: 16px;
+        display: inline-flex;
+        align-content: center;
+        padding-left: 8px;
+
+        &:before {
+            font-size: 15px;
+            transition: $menu-transition-open;
+            transform-origin: center;
+
+            @media print {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .icon-mb--large {
+        &:before {
+            font-size: 22px;
+        }
+    }
+
+    &[aria-expanded="true"] {
+        .icon-mb {
+            &:before {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &:hover,
+    &:focus {
+        color: $azure-radiance;
+        animation: none;
+    }
+}

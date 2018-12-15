@@ -1,0 +1,631 @@
+//BEGIN MOBILE NAVIGATION
+@include media($mobile-only) {
+    %top-nav-link-item {
+        display: block;
+        padding: $space-2 $space-6 $space-2 $space-2;
+    }
+
+    .top-nav {
+        background-color: $seashell;
+        height: 100vh;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        transform: translateX(-100%);
+        width: $subnav-width-mobile;
+
+        &__item {
+            border-bottom: 1px solid $silver;
+
+            &--dealer-title {
+                .top-nav__link {
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .top-nav__dealer {
+                    display: none;
+                }
+
+                .dealer-locator-nav {
+                    display: block;
+                }
+            }
+
+            .logo__container {
+                display: none;
+            }
+
+            &--company-title {
+                &--login-enabled {
+                    position: relative;
+                    top: -1*$space*8-2
+                }
+
+                .top-nav__label {
+                    &--divider {
+                        display: none;
+                    }
+
+                    &--mobile {
+                        display: block;
+                    }
+                }
+            }
+
+            &--account-links {
+                position: relative;
+                top: $space*8+2;
+            }
+            
+            > .top-nav__link--vehicle-link-inner {
+                @extend %top-nav-link-item;
+                display: inline-flex;
+                position: relative;
+                width: 100%;
+                padding-right: $space-2;
+            }
+        }
+
+        &__link {
+            @extend %top-nav-link-item;
+            @include featured-copy-reg;
+            position: relative;
+            color: $blitz;
+            width: 100%;
+
+            &_parent {
+                @include featured-copy-bold;
+                cursor: pointer;
+                text-align: left;
+
+                &:after {
+                    @include icon($icon-caret-right-thin);
+                    position: absolute;
+                    right: $space-4;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                }
+            }
+
+            &_back-btn {
+                @extend %top-nav-link-item;
+                @include featured-copy-bold;
+                background-color: $black;
+                color: $white-sand;
+
+                &:before {
+                    @include icon($icon-caret-left-thin);
+                    float: left;
+                    margin-right: 10px;
+                }
+            }
+
+            &--vehicle-link {
+                width: 100%;
+                padding-right: $space-2;
+                
+                &-inner {
+                    display: inline-flex;
+                    color: inherit;
+                    padding: 0;
+                    position: static;
+                    width: 100%;
+                }
+            }
+
+            &--shopping-tools {
+                span {
+                    @include featured-copy-reg;
+                }
+
+                &:before {
+                    display: none;
+                }
+            }
+        }
+
+        &__level {
+            background-color: $seashell;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            transform: translateX(-100%);
+            transition: $menu-transition-open;
+            visibility: hidden;
+            width: $subnav-width-mobile;
+
+            &--open {
+                transform: none;
+                visibility: visible;
+                z-index: 1;
+            }
+
+            &--active {
+                overflow: scroll;
+                padding-bottom: 50%;
+            }
+
+        }
+
+        &__vehicle-image-container {
+            margin-right: $space-4;
+        }
+
+        &__vehicle-image {
+            width: 80px;
+        }
+
+        &__vehicle-name {
+            @include subsection-reg;
+        }
+
+        & > .top-nav__level {
+            width: 100%;
+        }
+    }//end top-nav
+}//end mobile-only
+//END BEGIN MOBILE NAVIGATION
+
+//BEGIN TABLET/DESKTOP NAVIGATION
+@include media($tablet) {
+    //COMMON
+    %top-nav-link-item {
+        display: block;
+        padding: $space*2+2 $space;
+    }
+
+    %vertical-align-bottom {
+        display: table-cell;
+        vertical-align: bottom;
+    }
+
+    .top-nav {
+        background-color: $black;
+        height: $header-height-desktop;
+        width: 100%;
+        position: relative;
+
+        &__level {
+            height: 100%;
+            position: relative;
+            visibility: visible;
+            background-color: transparent;
+            display: table;
+        }
+
+        &__link {
+            @extend %top-nav-link-item;
+            @include featured-copy-reg;
+            @include media($xlarge) {
+                padding-left: $space-4;
+                padding-right: $space-4;
+            }
+        }
+
+        &__item {
+            list-style: none;
+            display: inline-block;
+            border: none;
+            height: 100%;
+
+            &--dealer-title {
+                height: auto;
+                position: relative;
+                right: 0px;
+                margin-top: 0px;
+                transition: right .15s ease-out 0s;
+                vertical-align: top;
+                font-size: $space-4;
+
+                &:hover {
+                    color: $azure-radiance;
+                    cursor: pointer;
+
+                    &:before {
+                        color: $azure-radiance;
+                    }
+                }
+
+                .top-nav__link {
+                    padding-right: 0;
+                    padding-left: $space*5;
+                    padding-top: $space-4 + 1;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .top-nav__dealer {
+                    transition: display .15s ease-out 0s;
+                    position: relative;
+
+                    &:before {
+                        @include icon($icon-pin);
+                        position: absolute;
+                        top: $space-3;
+                        left: 0;
+                        font-size: $space-4;
+                        transition: display .05s ease 0s;
+                    }
+
+                    &:hover {
+                        &:before {
+                            color: $azure-radiance;
+                        }
+                    }
+                }
+
+                &[data-expanded="false"] {
+                    .dealer-locator-nav {
+                        display: none;
+                    }
+                }
+
+                &[data-expanded="true"] {
+                    margin-top: $space-2;
+                    right: $space-6;
+
+                    &:hover {
+                        color: inherit;
+                        cursor: inherit;
+                    }
+
+                    .top-nav__dealer {
+                        display: none;
+                    }
+
+                    .dealer-locator-nav {
+                        display: inline-flex;
+                    }
+
+                    &:before {
+                        display: none;
+                    }
+                }
+
+                @media screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                    margin-top: 0;
+                    top: 0;
+
+                    .top-nav__label {
+                        display: inline-block;
+                    }
+                }
+            }
+
+            &--account-links {
+                .top-nav {
+                    &__sub-nav {
+                        ul {
+                            .top-nav__item {
+                                &:first-child {
+                                    .top-nav__link {
+                                        padding: $space*3 $space*2 $space*2+3 0;
+                                    }
+                                }
+
+                                &:last-child {
+                                    .top-nav__link {
+                                        padding: $space*3 0 $space*2+3 $space*3;
+                                        position: relative;
+
+                                        &::before {
+                                            border-right: 1px solid $white;
+                                            content: '';
+                                            height: $space*3+3;
+                                            left: 0;
+                                            position: absolute;
+                                            top: $space*3+1;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &--company-title {
+                @include span-columns(5);
+                margin-top: -1*$space*2-2;
+
+                .top-nav {
+                    &__link {
+                        padding-left: 0;
+                    }
+
+                    &__label {
+                        &.icon-mbusa-logo {
+
+                            font-size: 9px;
+                            line-height: 0;
+
+                            &:before {
+                                float: left;
+                                margin-top: $space*3+1;
+                            }
+                        }
+
+                        &--mobile {
+                            display: none;
+                        }
+                    }
+
+                    &__label--divider {
+                        padding-left: $space*6;
+
+                        &:after {
+                            content: "";
+                            float: right;
+                            width: 1px;
+                            height: $space*2+2;
+                            margin: $space*2 0 $space $space*3;
+                            border-right: $white 1px solid;
+                        }
+                    }
+                }
+            }
+
+            &--vehicles {
+                @include span-columns(3);
+            }
+
+            &--shopping {
+                @include span-columns(4);
+            }
+
+            .top-nav {
+                &__span {
+                    display: inline-block;
+                }
+
+                &__label {
+                    @extend %vertical-align-bottom;
+                }
+
+                &__sub-nav {
+                    ul, .top-nav__link_back-btn {
+                        display: none;
+                    }
+
+                    .top-nav__account-links-container--account-links-active {
+                        display: block;
+                        margin: 6px 0 0 $space*4;
+                    }
+                }
+
+                &__link {
+                    color: $white;
+                    font-weight: $font-weight-regular;
+                    height: 100%;
+                    display: table;
+                    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+
+                    &_parent {
+                        position: relative;
+
+                        &:after {
+                            @include icon($icon-caret-down);
+                            font-size: 8px;
+                            line-height: 0;
+                            @extend %vertical-align-bottom;
+                            position: absolute;
+                            bottom: $space*4+2;
+                            right: -12px;
+
+                            @include media($desktop) {
+                                right: 0;
+                            }
+
+                        }
+
+                        &[data-open="true"]:after {
+                            transition: $menu-transition-open;
+                            transform: rotate(180deg);
+                            transform-origin: center center;
+                        }
+
+                        &[data-open="false"]:after {
+                            transition: $menu-transition-open;
+                            transform: rotate(0deg);
+
+                        }
+
+                    }
+
+                    &_account {
+                        display: none;
+                    }
+
+                    .icon-pin {
+                        @extend %vertical-align-bottom;
+                        line-height: 2;
+                    }
+
+                    &:hover,
+                    &:focus {
+                        animation: none;
+                        color: $azure-radiance;
+
+                        .icon-mbusa-logo {
+                            color: $white;
+                        }
+                    }
+
+                    &_shopping-tools,
+                    &_vehicles {
+                        &:hover,
+                        &:focus {
+                            animation: none;
+                            color: $silver-chalice;
+                        }
+                    }
+
+
+                }//top-nav__link
+            }
+
+            .logo__container {
+                line-height: 0;
+                height: 100%;
+                display: table-cell;
+                vertical-align: bottom;
+                padding-bottom: 3px;
+
+                //logo
+                .mercedes_benz__logo--desktop {
+                    width: $space*6;
+                    height: $space*6;
+                }
+            }//end logo__container
+
+            .logo-title__container {
+                float: none;
+            }
+        }//end top-nav__item
+
+        &__item--open {
+            .top-nav__link_parent {
+                &:after {
+                    @include icon($icon-caret-up);
+                    font-size: 8px;
+                }
+            }
+        }
+
+        &__vehicle-image {
+            width: 100%;
+            height: auto;
+        }
+    }//end top-nav
+
+    .sub-nav__level {
+        height: $header-height-desktop;
+        display: inline-table;
+        line-height: 0;
+
+        &--top {
+            height: auto;
+            position: absolute;
+            right: 0;
+        }
+
+        &--left {
+            @include span-columns(7);
+            height: $space*9;
+            margin-top: $space*10;
+        }
+
+        &--right {
+            @include span-columns(5);
+            float: right;
+            height: $space*9;
+            margin-top: $space*10;
+            text-align: right;
+
+            li:last-child {
+                a {
+                    padding-right: 0;
+                }
+            }
+        }
+    }//end sub-nav__level
+
+    .menu-toggle {
+        display: none;
+    }
+
+}//end media(tablet)
+//END TABLET/DESKTOP NAVIGATION
+
+@include media($desktop) {
+    .top-nav {
+        &__item {
+            .logo__container .mercedes_benz__logo--desktop {
+                width: $space*8;
+                height: $space*8;
+            }
+
+            &--company-title {
+                margin-top: -1*$space*4-2;
+
+                .top-nav__link {
+                    padding-right: 0;
+                }
+
+                .top-nav {
+                    &__label {
+                        &.icon-mbusa-logo {
+                            font-size: 12px;
+
+                            &:before {
+                                margin-top: $space*4-1;
+                            }
+                        }
+                    }
+
+                    &__label--divider {
+                        padding-left: $space*8;
+
+                        &:after {
+                            height: $space*3;
+                            margin-bottom: $space+1;
+                            margin-left: $space*4;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only print {
+    .top-nav {
+        padding-top: $space-3;
+        padding-bottom: $space-6;
+        border-bottom: 1px $mercury solid;
+        margin-bottom: $space-6*2;
+
+        &__label {
+            &.icon-mbusa-logo {
+                display: table-cell;
+                vertical-align: bottom;
+                font-size: 16px;
+                padding-left: 77px;
+                color: $blitz;
+            }
+
+            &--mobile {
+                display: none;
+            }
+        }
+
+        &__item {
+            &--dealer-title,
+            &--vehicles,
+            &--shopping {
+                display: none;
+            }
+
+            &--company-title {
+                .logo__container {
+                    .mercedes_benz__logo--desktop {
+                        height: 77px;
+                        width: 77px;
+                    }
+                }
+            }
+        }
+    }
+
+    .sub-nav {
+        &__level {
+            &--right {
+                display: none;
+            }
+        }
+    }
+}

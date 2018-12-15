@@ -1,0 +1,40 @@
+.model-packages {
+    
+    &__optional {
+        @include copy-wide-bold;
+        color: $dusty-gray;
+        line-height: 2.5;
+    }
+
+    &__name {
+        @include call-out-text-small-bold;
+        color: $blitz;
+        
+        @include media($large) {
+            @include call-out-text-bold;
+        }
+    }
+
+    &__price {
+        @include call-out-text-small;
+        margin-bottom: $space-3;
+        
+        @include media($large) {
+            @include call-out-text-reg;
+            margin-bottom: $space-4;
+        }
+    }
+
+    &__list {
+        color: $dove-gray;
+    }
+
+    &__open-icon {
+        cursor: pointer;
+        
+        &::before {
+            @include icon($icon-open-display);
+            color: $denim;
+        }
+    }
+}

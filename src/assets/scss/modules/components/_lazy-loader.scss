@@ -1,0 +1,15 @@
+/**
+ Definitions for styling a lazy loader module
+ */
+.lazy-loader {
+    display: block;
+
+    &__asset {
+        opacity: 0;
+        transition: opacity ease $speed-4;
+
+        &--loaded {
+            opacity: 1;
+        }
+    }
+}

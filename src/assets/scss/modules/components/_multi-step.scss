@@ -1,0 +1,211 @@
+.mbs-multi-step-navigation {
+    border-top: 1px solid $silver;
+    position: relative;
+    z-index: $z-sticky;
+
+    @include media($tablet) {
+        border-bottom: 1px solid $silver;
+    }
+
+    &__wrapper {
+        width: 100%;
+    }
+
+    &__selector-container {
+        border-bottom: 1px solid $silver;
+
+        @include media($tablet) {
+            display: none;
+
+        }
+    }
+
+    &__step-selector {
+        @include copy-narrow-bold();
+        @include mobile-container-width();
+        display: flex;
+        margin: 0 auto;
+        height: 40px;
+        cursor: pointer;
+        text-align: left;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__selector-label {
+        flex-grow: 1;
+    }
+
+    &__selector-arrow {
+        display: inline-flex;
+        align-content: center;
+        align-self: center;
+
+        &:before {
+            transition: all 0.4s cubic-bezier(.25,.04,.22,.97);
+            transform: rotate(0deg);
+            transform-origin: center;
+        }
+
+        &.active {
+            &:before {
+                transform: rotate(-180deg);
+                color: $azure-radiance;
+            }
+        }
+    }
+
+    &__step-container {
+        width:100%;
+        display: none;
+        overflow: hidden;
+        background: $white;
+
+        &.active {
+            display: block;
+        }
+
+        @include media($tablet) {
+            @include tablet-container-width();
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+
+        @include media($desktop) {
+            @include desktop-container-width();
+            max-width: 940px;
+        }
+    }
+
+    &__step-element {
+        border-bottom: 1px solid $silver;
+
+        @include media($tablet) {
+            border: none;
+            display: flex;
+            align-items: center;
+            flex: 0 1 auto;
+
+        }
+
+        &.active, &:hover, &:focus {
+            background: $azure-radiance;
+            color: $white;
+        }
+
+        &.active {
+            @include media($tablet) {
+                background: $white;
+                color: $azure-radiance;
+            }
+        }
+
+        &:hover, &:focus {
+            @include media($tablet) {
+                background: $white;
+                color: $azure-radiance;
+                box-sizing: border-box;
+            }
+        }
+
+        &:last-child {
+            &:after {
+                @include media($tablet) {
+                    content: '';
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &__step-spacer {
+        display: none;
+
+        @include media($tablet) {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        &:after {
+            @include media($tablet) {
+                @include icon($icon-caret-right-thin);
+                color: $dusty-gray;
+            }
+        }
+    }
+
+    &__step {
+        @include mobile-container-width();
+        @include copy-narrow-bold();
+        display: flex;
+        margin: 0 auto;
+        min-height: 40px;
+        cursor: pointer;
+        text-align: left;
+        color: $blitz;
+        align-items: center;
+
+        @include media($tablet) {
+            @include tablet-container-width();
+            @include highlight-copy-bold();
+            display: inline-block;
+            align-self: stretch;
+            width: auto;
+            margin: 0;
+            padding: $space 0;
+            text-align: center;
+            border: none;
+            border-bottom: 2px solid transparent;
+        }
+
+        &.active, &:hover, &:focus {
+            background: $azure-radiance;
+            color: $white;
+        }
+
+        &.active{
+            @include media($tablet) {
+                background: $white;
+                color: $azure-radiance;
+                border-radius: 0;
+                border-bottom-color: $silver-chalice;
+            }
+        }
+
+        &:hover, &:focus {
+            @include media($tablet) {
+                background: $white;
+                color: $azure-radiance;
+                box-sizing: border-box;
+
+            }
+        }
+    }
+
+    &__counter {
+        @include media($tablet) {
+            display: none;
+        }
+    }
+
+}
+
+.mbs-multi-step-panes {
+    &__overlay {
+        display: none;
+        &.active {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba($black, 0.5);
+            height: 200%;
+        }
+    }
+}

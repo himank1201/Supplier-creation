@@ -1,0 +1,27 @@
+.mbs-option-swatch {
+    flex: 0 0 auto;
+    position: relative;
+    margin-right: 2px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+
+    @include media($large) {
+        margin-bottom: 4px;
+    }
+
+    &__button {
+        display: flex;
+        align-content: center;
+        cursor: pointer;
+        width: 56px;
+        height: 32px;
+    }
+
+    &--selected {
+        border-bottom-color: $azure-radiance;
+
+        @include theme-amg() {
+            border-bottom-color: $guardsman-red;
+        }
+    }
+}

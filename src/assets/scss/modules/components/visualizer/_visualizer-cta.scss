@@ -1,0 +1,35 @@
+.visualizer-cta {
+    &__container {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column-reverse;
+        @include media($tablet) {
+            width: auto;
+            flex-direction: row;
+        }
+    }
+    &__link {
+        &--learn-more {
+            @include variant(wheelstand) {
+                display: none;
+            }
+
+            @include variant(largeformat) {
+                display: none;
+            }
+
+            @include variant(dealer) {
+                display: none;
+            }
+        }
+
+        &:last-child {
+          margin-bottom: $space-2;
+          @include media($tablet) {
+                margin: 0 0 0 $space-2;
+          }
+        }
+    }
+}

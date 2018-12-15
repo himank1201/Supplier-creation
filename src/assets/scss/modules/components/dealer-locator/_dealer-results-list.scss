@@ -1,0 +1,9 @@
+.dealer-results-list {
+    &__empty-list {  
+        &-copy {
+            .dealer-location-search & {
+                padding: $space-2;
+            } 
+        }
+    }
+}

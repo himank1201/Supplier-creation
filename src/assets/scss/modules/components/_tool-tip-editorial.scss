@@ -1,0 +1,49 @@
+.tool-tip-editorial{
+        border: 1px solid $black;
+        margin: $space-6 0;
+        padding: $space-4 $space-2;
+        @include media($large) {
+            padding: $space-4 $space-4;
+        }
+
+    &__icon-container {
+        display: inline-block;
+        line-height: 1;
+        position: relative;
+        vertical-align: middle;
+    }
+
+    &__icon {
+        color: $denim;
+        font-size: 16px;
+        @include pseudo-icon($icon-i-ball, before);
+        &:hover,
+        &:focus {
+            color: $azure-radiance;
+        }
+
+        &:before {
+            position: relative;
+        }
+
+        @include theme-amg() {
+            color: $guardsman-red;
+        }
+    }
+
+    &__heading {
+        @include copy-wide-bold;
+        display: block;
+        margin-bottom: $space-2;
+    }
+
+    &__details {
+        border: 1px solid $silver;
+        border-radius: 2px;
+        padding: $space-3;
+        width: 300px;
+        @include media($mobile-only) {
+            width: 80vw;
+        }
+    }
+}

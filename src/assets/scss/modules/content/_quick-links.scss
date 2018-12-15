@@ -1,0 +1,114 @@
+.quick-links {
+
+    &__container {
+        padding: $space-4 0;
+
+        @include media($tablet) {
+            padding: $space-6 0 $space-2;
+        }
+
+        &:before {
+            content: "";
+            display: block;
+            width: 33px;
+            border-top: 1px solid $silver;
+            margin: 0 auto $space-8;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+
+        @include media($tablet) {
+            align-items: center;
+        }
+    }
+
+    &__element {
+        margin-bottom: $space-8;
+        text-align: center;
+        @include span-columns(2 of 4);
+
+        &:nth-child(even) {
+            @include omega;
+        }
+
+        @include media($tablet) {
+            padding: 0;
+            width: auto;
+            margin-bottom: $space-4;
+            @include span-columns(3 of 12);
+
+            &:nth-child(even) {
+                margin-right: flex-gutter(12);
+            }
+
+            /* one item */
+            &:first-child:nth-last-child(1) {
+                @include span-columns(6 of 24);
+                @include shift(9);
+            }
+
+            /* two items */
+            &:first-child:nth-last-child(2) {
+                @include shift(3);
+            }
+
+            /* three items */
+            &:first-child:nth-last-child(3) {
+                @include span-columns(6 of 24);
+                @include shift(3);
+                margin-right: flex-gutter(12);
+            }
+
+            &:last-child {
+                @include omega;
+            }
+        }
+    }
+
+    &__icon {
+        color: $dusty-gray;
+        display: block;
+        margin-right: 0;
+        padding-bottom: $space-2;
+
+        @include media($tablet) {
+            line-height: inherit;
+            margin: -1px $space-2 0 0;
+            padding-bottom: 0;
+            float: left;
+        }
+    }
+
+    &__item {
+        color: $blitz;
+        display: inline-block;
+
+        @include media($tablet) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+
+            .quick-links__icon {
+                color: $azure-radiance;
+                @include theme-amg() {
+                    color: $guardsman-red;
+                }
+            }
+        }
+
+        &-copy {
+            @include media($tablet) {
+                text-align: left;
+            }
+        }
+    }
+}

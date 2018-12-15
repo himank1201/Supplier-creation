@@ -1,0 +1,65 @@
+@mixin slider-enabled($root) {
+    position: relative;
+    overflow: hidden;
+
+    #{$root}__list-container {
+        display: flex;
+        flex-wrap: nowrap;
+        position: relative;
+        overflow: auto;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    #{$root}__button {
+        display: block;
+        background: $white;
+        color: $denim;
+        font-size: 15px;
+        line-height: 1.5;
+        position: absolute;
+        width: $space-6;
+        height: 100%;
+        z-index: $z-nav;
+
+        @include theme-amg() {
+            color: $guardsman-red;
+            background: $black;
+        }
+
+        &--prev {
+            @include pseudo-icon($icon-arrow-left-square);
+            left: 0;
+        }
+
+        &--next {
+            @include pseudo-icon($icon-arrow-right-square);
+            right: 0;
+        }
+
+        &--disabled {
+            display: none;
+        }
+    }
+}
+
+.slider {
+    $root: &;
+
+    &:not(.slider--disabled-large) {
+        @include slider-enabled($root);
+    }
+
+    &--disabled-large {
+        .slider__button {
+            display: none;
+        }
+
+        @include media($mobile-only) {
+            @include slider-enabled($root);
+        }
+    }
+}

@@ -1,0 +1,200 @@
+.gallery {
+    &--dark {
+        background-color: $black;
+    }
+
+    &__heading {
+        @include heading-reg;
+        margin-bottom: $space-3;
+        text-align: center;
+
+        @include media($large) {
+            margin-bottom: 0;
+        }
+        @include theme-amg() {
+            color: $white;
+        }
+    }
+
+    &__container {
+        display: flex;
+        overflow-x: auto;
+
+        @include media($large) {
+            display: block;
+        }
+    }
+
+    &__section {
+        overflow: hidden;
+        margin-bottom: $space-4;
+        height: inherit;
+        @include clearfix();
+        opacity: 0;
+        animation: fade-in $speed-13 forwards;
+    }
+
+    &__items {
+        overflow: hidden;
+        @include clearfix();
+    }
+
+    &__item {
+        float: left;
+        @include theme-amg() {
+            -webkit-filter: grayscale(100%);
+            -webkit-filter: grayscale(1);
+            filter: grayscale(100%);
+            filter: gray;
+            transition: filter $speed-7 ease-out;
+
+            @include media($xlarge) {
+                &:hover {
+                    -webkit-filter: grayscale(0%);
+                    -webkit-filter: grayscale(0);
+                    filter: grayscale(0%);
+                    transition: filter $speed-7 ease-out;
+                }
+            }
+        }
+
+        .gallery__section--gallery-1-up & {
+            width: 100%;
+        }
+
+        .gallery__section--gallery-2-up & {
+            width: calc(50% - #{$space-2});
+
+
+            &:nth-child(2) {
+                float: right;
+            }
+        }
+
+        .gallery__section--gallery-1-2 & {
+            width: calc(50% - #{$space-2});
+
+            &:nth-child(2) {
+                margin-bottom: $space-3;
+            }
+
+            &:nth-child(n+2) {
+                float: right;
+            }
+        }
+
+        .gallery__section--gallery-2-1 & {
+            width: calc(50% - #{$space-2});
+
+            &:nth-child(1) {
+                margin-bottom: $space-3;
+            }
+
+            &:nth-child(2) {
+                margin-right: 50%;
+            }
+
+            &:nth-child(3) {
+                float: right;
+                transform: translateY(-100%);
+                margin-bottom: -100%;
+            }
+        }
+
+        &--carousel {
+            float: none;
+        }
+
+        &--thumbnail {
+            flex: 0 0 82px;
+            margin-right: $space-2;
+        }
+
+        &--focus {
+            position: relative;
+            height: 100%;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: $black;
+                opacity: .7;
+            }
+        }
+    }
+
+    &__picture, &__youtube-container {
+        display: block;
+        width: 100%;
+    }
+
+    &__youtube-container {
+        // 540/339 is the image specs for small image https://mbusarf.atlassian.net/wiki/display/NO/Gallery%3A+2-Up
+        // 299/320 is the ratio of content well
+        height: calc((299/320) / (540/339) * 100vw);
+
+        @include media($tablet) {
+            height: calc((700/768) / (1410/794) * 100vw);
+            max-height: calc(700px / (1410/794));
+        }
+
+        @include media($desktop) {
+            height: calc((940/980) / (1410/794) * 100vw);
+            max-height: calc(940px / (1410/794));
+        }
+    }
+
+    &__image {
+        display: inherit;
+        line-height: 1;
+        max-width: 100%;
+
+        @include media($large) {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+
+            &:hover,
+            &:focus {
+                animation: none;
+                opacity: 0.5;
+                @include theme-amg() {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__thumbnail-nav {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__preview-container {
+        margin-bottom: $space-2;
+
+        .modal & {
+            margin-bottom: 0;
+        }
+
+        @include theme-amg() {
+            .carousel-nav__button {
+                color: $white;
+            }
+        }
+    }
+
+    @keyframes fade-in {
+        to {
+            opacity: 1;
+        }
+    }
+}

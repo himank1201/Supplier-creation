@@ -1,0 +1,93 @@
+.image-text-promo {
+
+    background-color: $seashell;
+    padding-top: $space-8;
+    padding-bottom: $space-8;
+    
+    .wrapper & {
+        width: 100vw;
+        left: calc(50% - 50vw);
+        position: relative;
+
+        .wrapper {
+            @include mobile-container-width();
+        }
+    }
+
+    @include media($large) {
+        padding-top: $space-6 * 2;
+        padding-bottom: $space-6 * 2;
+    }
+
+    &__copy-container {
+        @include media($tablet) {
+            @include span-columns(4);
+            @include shift(-12);
+
+            .image-text-promo--small-image & {
+                @include shift(0);
+                @include span-columns(8);
+            }
+
+            .image-text-promo--small-image-right & {
+                @include shift(-12);
+            }
+        }
+    }
+
+    &__image-container {
+        margin-bottom: $space-3;
+
+        @include media($tablet) {
+            @include span-columns(8);
+            @include shift(4);
+            margin-bottom: 0;
+
+            .image-text-promo--small-image & {
+                @include shift(0);
+                @include span-columns(4);
+            }
+
+            .image-text-promo--small-image-right & {
+                @include shift(8);
+            }
+        }
+    }
+
+    &__promo-image {
+        max-width: 100%;
+        display: block;
+    }
+
+    &__eyebrow {
+        @include highlight-copy-bold;
+        @include uppercase;
+        color: $denim;
+        @include theme-amg() {
+            color: $black;
+        }
+        margin-bottom: $space-3;
+    }
+
+    &__logo {
+        margin-bottom: $space-3;
+    }
+
+    &__title {
+        @include subhead-reg;
+        margin-bottom: $space-3;
+        @include theme-amg() {
+            color: $black;
+        }
+    }
+
+    &__body {
+        margin-bottom: $space-4;
+    }
+
+    &__sub-title {
+        @include theme-amg() {
+            color: $black;
+        }
+    }
+}

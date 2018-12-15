@@ -1,0 +1,27 @@
+/**
+ * Style definitions for form textarea elements
+ */
+.form {
+    &__textarea-container {
+        position: relative;
+    }
+
+    &__textarea {
+        @include input-reg();
+        border: 1px solid $dusty-gray;
+        height: 225px;
+        padding: $space;
+        resize: none;
+        width: 100%;
+
+        @include media($large) {
+            height: 155px;
+        }
+
+        &:focus, .focused & {
+            outline: none;
+            border: 1px solid $azure-radiance;
+            animation: unset;
+        }
+    }
+}

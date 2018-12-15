@@ -1,0 +1,120 @@
+.disclaimer {
+    
+    &__drawer {
+        background-color: $white;
+        overflow: hidden;
+
+        &[aria-expanded],
+        &[aria-hidden="false"]{
+            height: auto;
+        }
+
+        &[aria-expanded="false"],
+        &[aria-hidden="true"] {
+            height: 0;
+        }
+    }
+
+    &__note {
+        @include disclaimer;
+        color: $black;
+
+        &--regular {
+            @include copy-narrow-reg;
+        }
+    }
+
+    &__legend {
+        float: left;
+        line-height: 1.25;
+        margin-right: $space;
+    }
+
+    &--error {
+        color: $guardsman-red;
+    }
+
+    &__text {
+        @include clearfix;
+        line-height: 1.25;
+        margin-bottom: $space-2;
+
+        &.rich-text p {
+            @include disclaimer;
+            line-height: 1.25;
+        }
+        
+        p {
+            
+            .rte.rte--small & {
+                @include disclaimer;
+                line-height: 1.25;
+            }
+        }
+    }
+
+    &__marker {
+        color: $denim;
+
+        @include theme-amg() {
+            color: $guardsman-red;
+        }
+
+        @include media($mobile-only) {
+            padding: $space;
+            margin: -$space;
+        }
+
+        @include theme-amg() {
+            color: $guardsman-red;
+        }
+    }
+
+    &__legend-reference {
+        @include disclaimer;
+
+        line-height: 0;
+        vertical-align: super;
+    }
+
+    &__toggle {
+        @include disclaimer;
+        color: $denim;
+        cursor: pointer;
+
+        &:hover {
+            color: $azure-radiance;
+        }
+    }
+
+    &__drawer-cta-container {
+        @include row();
+    }
+
+    &__drawer-cta {
+        @include copy-narrow-reg;
+        color: $azure-radiance;
+        display: block;
+        padding: $space-3 0;
+        text-align: left;
+        width: 100%;
+
+        .icon-mb {
+            margin-left: $space;
+
+            &:before {
+                display: inline-block;
+                transform: none;
+                transition: transform 0.4s;
+            }
+        }
+
+        &[aria-expanded="true"] {
+            .icon-mb {
+                &:before {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}

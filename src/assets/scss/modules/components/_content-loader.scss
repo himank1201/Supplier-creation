@@ -1,0 +1,17 @@
+/**
+ * Styling for a displaying an content-loader element
+ */
+.content-loader {
+    position: relative;
+    min-height: 60px;
+
+    &__spinner {
+        position: absolute;
+        @include center-content(both);
+    }
+
+    &__asset{
+        display: block;
+        width: 100%;
+    }
+}

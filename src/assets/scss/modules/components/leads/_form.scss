@@ -1,0 +1,126 @@
+.leads-form {
+    &__section {
+        margin-bottom: $space-4;
+        @include clearfix();
+    }
+
+    &__section-heading {
+        @include subhead-reg;
+        padding-bottom: $space-2;
+        border-bottom: 1px solid $dove-gray;
+        margin-bottom: $space-4;
+        width: 100%;
+    }
+
+    &__sub-heading {
+        @include featured-copy-bold;
+        margin-bottom: $space-2;
+    }
+
+    &__sub-heading-copy {
+        @include featured-copy-reg;
+    }
+
+    &__left-container {
+        @include media($large) {
+            @include span-columns(6);
+        }
+    }
+
+    &__right-container {
+        @include media($large) {
+            @include shift(7);
+        }
+    }
+
+    &__footer {
+        border-top: 1px solid $dove-gray;
+        padding-top: $space-4;
+    }
+
+    &__footer-cta-container {
+        text-align: right;
+        clear: both;
+    }
+
+    &__vehicle-details {
+        margin-bottom: $space-4;
+
+        @include media($large) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__select {
+        padding: $space-2 0;
+    }
+
+    &__dealer-search {
+        margin-bottom: $space-8;
+        @include media($large) {
+            margin-bottom: $space-12;
+        }
+    }
+
+    // checkbox container div for contact by phone section
+    &__checkbox-container {
+        margin-top: $space-4;
+        margin-bottom: $space-8;
+
+        @include media($large) {
+            margin-bottom: $space-4;
+        }
+    }
+
+    //Container for phone and preferred time fields
+    &__contact-by-phone {
+        display:none;
+        margin-top: $space-4;
+
+        &--show {
+            display: block;
+        }
+    }
+
+    &__privacy-statement {
+        width: 100%;
+        vertical-align: top;
+        @include media($tablet) {
+            @include span-columns(6);
+        }
+        @include media($desktop) {
+            @include span-columns(7);
+        }
+    }
+
+    &__recaptcha-container {
+        width: 100%;
+        padding: $space-4 0;
+        @include media($tablet) {
+            @include span-columns(6);
+            @include omega;
+            padding-top: 0;
+        }
+        @include media($desktop) {
+            @include span-columns(5);
+            @include omega;
+        }
+    }
+
+    &__recaptcha {
+        @include media($large) {
+            float: right;
+        }
+    }
+
+    &__textarea {
+        padding: $space 0 $space-4 0;
+        @include media($large) {
+            padding: $space-3 0 0 0;
+        }
+    }
+
+    &__error-message:not(:empty) {
+        margin-top: $space-6;
+    }
+}

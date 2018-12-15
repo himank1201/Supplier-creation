@@ -1,0 +1,29 @@
+.breadcrumb {
+    &__container {
+        padding: $space-4 0;
+        @include media($large) {
+            padding: $space-6 0;
+        }
+
+        .icon-mb {
+            font-size: $space-3;
+            display: inline-flex;
+            align-content: center;
+        }
+
+        &:hover,
+        &:focus {
+            color: $azure-radiance;
+            animation: none;
+        }
+    }
+
+    &__label {
+        @include font-regular(12px, normal);
+        padding-left: $space-2;
+    }
+   
+    &--no-padding-bottom {
+        padding-bottom: 0;
+    }
+}

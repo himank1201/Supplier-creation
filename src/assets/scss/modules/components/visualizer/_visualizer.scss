@@ -1,0 +1,98 @@
+.visualizer {
+    display: block;
+    margin-top: $space-7;
+    margin-bottom: $space-7;
+
+    @include media($large) {
+        margin-top: $space-6;
+        margin-bottom: $space-10;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__details {
+        display: inline-block;
+        order: 1;
+        @include media($mobile-only) {
+            margin-bottom: $space-3;
+        }
+    }
+
+    &__model-selector {
+        margin-bottom: $space-4;
+
+        @include media($large) {
+            display: inline-block;
+            float: right;
+            vertical-align: top;
+        }
+    }
+
+    &__vehicle-image {
+        order: 2;
+        margin-bottom: $space-4;
+        height: 100%;
+    }
+
+    &__options {
+        margin-bottom: $space-6;
+        order: 3;
+
+        @include media($large) {
+            margin-bottom: $space-3;
+        }
+
+        .mbs-option-swatch-group__info {
+            margin-left: 0;
+        }
+
+        .slider {
+            @include media($mobile-only) {
+                margin-left: -$space-2;
+                margin-right: -$space-2;
+            }
+        }
+    }
+
+    &__ctas {
+        order: 5;
+
+        @include media($large) {
+            margin-bottom: $space-6;
+            order: 4;
+        }
+    }
+
+    &__specs {
+        margin-bottom: $space-6;
+        order: 4;
+
+        @include media($large) {
+            margin-bottom: 0;
+            order: 5;
+        }
+    }
+
+    @include theme-amg() {
+        background: transparent url('#{$images-base-path}/amg_models_bkg.jpg')no-repeat center $space-16;
+        background-size: 130%;
+
+        @include media($tablet) {
+            background-position: center;
+        }
+
+        @include media($desktop) {
+            background-position: center;
+            background-size: 100%;
+        }
+    }
+
+    &__details-container {
+        @include media($tablet) {
+            position:relative;
+        }
+    }
+}

@@ -1,0 +1,186 @@
+//BEGIN TABLET/DESKTOP SHOPPING TOOLS
+@include media($tablet) {
+    body[data-menu-class="shopping"][data-submenu-state="open"] {
+        .top-nav {
+            &__shopping-tools-container {
+                width: 100%;
+                position: absolute;
+                left: 0;
+                background-color: transparent;
+                clip: auto;
+                overflow: hidden;
+                z-index: $z-subnav;
+                max-height: $subnav-height-desktop;
+
+                ul {
+                    display: block;
+                    position: relative;
+
+                    &:nth-of-type(1) {
+                        height: 220px;
+                        visibility: visible;
+
+                        .top-nav {
+                            &__item {
+                                @include span-columns(3);
+                                display: table;
+                                padding-top: 5px;
+
+                                &:before {
+                                    @include media($large-only) {
+                                        transform: scale(0.9);
+                                    }
+                                }
+                            }
+
+                            &__link {
+                                @include featured-copy-bold;
+                                width: 100%;
+                                text-align: center;
+                                color: $blitz;
+                                text-shadow: none;
+                                display: table-cell;
+                                vertical-align: bottom;
+                                position: relative;
+                                z-index: 1;
+                                padding-bottom: 26px;
+
+                                &:hover,
+                                &:focus {
+                                    animation: none;
+                                    color: $azure-radiance;
+                                }
+                            }
+                        }
+                    }
+
+                    &:nth-of-type(2) {
+                        display: flex;
+                        justify-content: space-between;
+                        text-align: center;
+                        width: 100%;
+                        height: 70px;
+                        visibility: visible;
+
+                        .top-nav {
+                            &__link {
+                                color: $blitz;
+                                text-shadow: none;
+                                display: flex;
+                                align-items: center;
+                                padding-left: $space-2/2;
+                                padding-right: $space-2/2;
+
+                                &:hover,
+                                &:focus {
+                                    animation: none;
+                                    color: $azure-radiance;
+                                }
+
+                                span {
+                                    @include dropdown-sub-link;
+                                }
+
+                                &.icon-mb:before {
+                                    font-size: 20px;  //TODO - move to common file
+                                    padding-right: 8px;
+                                    font-family: "nafta-icons";
+
+                                    @include media($tablet) {
+                                        padding-right: 5px;
+                                    }
+
+                                    @include media($desktop) {
+                                        font-size: 23px;
+                                    }
+                                }
+
+                                &.icon-model-chooser {
+                                    &.icon-mb:before {
+                                        font-size: 15px;
+                                    }
+                                }
+                            }
+
+                            &__item {
+                                max-width: 30%;
+                                margin-right: 20px;
+
+                                &:first-child {
+                                    .top-nav__link {
+                                        padding-left: 0;
+                                    }
+                                }
+
+                                &:last-child {
+                                    margin-right: 0;
+
+                                    .top-nav__link {
+                                        padding-right: 0;
+                                    }
+                                }
+
+                                @include media($tablet) {
+                                    margin-right: 0;
+
+                                    &:first-child {
+                                        .top-nav__link {
+                                            padding-left: 0;
+                                        }
+                                    }
+
+                                    &:last-child {
+                                        .top-nav__link {
+                                            padding-right: 0;
+                                        }
+                                    }
+                                }
+
+                                @include media($desktop) {
+                                    margin-right: 25px;
+
+                                    .top-nav__link {
+                                        padding-left: $space-2;
+                                        padding-right: $space-2;
+                                    }
+                                }
+                            }
+                        }
+
+                        &:before {
+                            @include subinset-shadowed;
+                            background-image: radial-gradient(closest-corner at 50% 16px, #e6e6e6 0%, #EFEFEF 36%, rgba(255, 255, 255, 0) 72%);
+                            background-position: 0px -10px;
+                            height: 35px;
+                            width: 100%;
+                            opacity: 1;
+                            margin-left: 0;
+                        }
+
+                        &:after {
+                            @include subinset-top-edge--vehicle;
+                            top: 0;
+                        }
+                    }
+                }
+            }//end shopping-tools__container
+
+            .sub-nav {
+                background-color: $white;
+                width: 100%;
+                height: $subnav-height-desktop;
+                max-height: $subnav-height-desktop;
+                @include subnav-pillow-bevel;
+            }
+        } //end top-nav
+    }//end body
+}//END TABLET/DESKTOP SHOPPING TOOLS
+body[data-menu-state="open"] {
+    @include media($mobile-only) {
+        header {
+            li[class*=" icon-top-nav__shopping-tools--"]:before {
+                background-image: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,117 @@
+.model-featured-specs {
+    margin-bottom: $space-2;
+    
+    @include media($large) {
+        margin-bottom: $space-4;
+    }
+    
+    &__title {
+        @include copy-wide-bold;
+        text-align: center;
+        margin-bottom: $space-6;
+        
+        @include media($large) {
+            margin-bottom: $space-8;
+        }
+    }
+    
+    &__list {
+        @include outer-container();
+        
+        &-item {
+            @include span-columns(2 of 4);
+            margin-bottom: $space-6;
+            position: relative;
+            
+            &:nth-child(2n + 1) {
+                
+                @include media($lt-large) {
+                    clear: left;
+                }
+                
+                &:after {
+                    
+                    @include media($lt-large) {
+                        content: "";
+                        width: 0;
+                        height: 100%;
+                        border-right: 1px solid $alto;
+                        position: absolute;
+                        top: 0;
+                        right: -$space-2;
+                    }
+                }
+            }
+            
+            &:nth-child(2n) {
+                
+                @include media($lt-large) {
+                    @include omega();
+                }
+            }
+            
+            &:nth-child(4n) {
+                
+                @include media($large) {
+                    @include omega();
+                }
+                
+                &:after {
+                    
+                    @include media($large) {
+                        content: none;
+                    }
+                }
+            }
+            
+            &:nth-child(4n + 1) {
+                
+                @include media($large) {
+                    clear: left;
+                }
+            }
+            
+            &:after {
+                
+                @include media($large) {
+                    content: "";
+                    width: 0;
+                    height: 100%;
+                    border-right: 1px solid $alto;
+                    position: absolute;
+                    top: 0;
+                    right: -$space-2;
+                }
+            }
+            
+            @include media($large) {
+                @include span-columns(3);
+                margin-bottom: $space-9;
+            }
+            
+            &-inner {
+                text-align: center;
+            }
+            
+            &-value {
+                @include section-reg;
+                
+                @include media($large) {
+                    @include subhead-reg;
+                }
+            }
+            
+            &-unit {
+                @include copy-narrow-reg;
+                display: inline-block;
+            }
+            
+            &-label {
+                @include call-out-text-small;
+                text-align: center;
+                color: $dove-gray;
+                display: block;
+            }
+        }
+    }
+}

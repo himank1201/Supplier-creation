@@ -1,0 +1,22 @@
+.cta-banner {
+    
+    &--wrapper {
+        background-color: $white-sand;
+        padding: $space-6 $space-6 $space-5;
+        
+        @include media($tablet) {
+            @include outer-container(100%);
+            padding: $space-7 0 $space-8;
+        }
+    }
+    
+    &--inner {
+        
+        @include media($tablet) {
+            @include shift(4);
+            @include span-columns(4);
+            @include omega;
+            @include clearfix;
+        }
+    }
+}

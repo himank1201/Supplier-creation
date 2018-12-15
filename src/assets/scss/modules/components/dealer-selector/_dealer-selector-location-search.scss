@@ -1,0 +1,21 @@
+.dealer-selector-location-search {
+    .dealer-search-bar {
+        @include media($mobile-only) {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        &__location-search {
+            @include media($mobile-only) {
+                margin-bottom: $space-6;
+                margin-right: 0;
+            }
+        }
+
+        &__cta {
+            @include media($mobile-only) {
+                text-align: center;
+            }
+        }
+    }
+}

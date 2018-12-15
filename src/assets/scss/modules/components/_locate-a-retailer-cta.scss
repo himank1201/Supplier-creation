@@ -1,0 +1,22 @@
+.locate-a-retailer-cta {
+    display: inline-block;
+
+    @include variant(ondisplay) {
+        float: right;
+        margin-top: 61px;
+    }
+
+    a {
+        @include call-out-text-reg;
+        color: $black;
+
+        @include theme-amg() {
+            color: $white;
+        }
+
+        .icon-mb {
+            font-size: 1rem;
+            padding-left: 3px;
+        }
+    }
+}

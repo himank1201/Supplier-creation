@@ -1,0 +1,191 @@
+.tabbed-module {
+    
+    &__header {
+        display: none;
+        padding-top: $space-6;
+        
+        @include media($large) {
+            display: block;
+            position: relative;
+            
+            &-item {
+                display: inline-block;
+                
+                @include media($tablet) {
+                    width: calc(100% / 4);
+                }
+                
+                @include media($desktop){
+                    width: calc(100% / 5);
+                }
+            }
+        }
+
+        &-slider {
+            overflow: hidden;
+            text-align: center;
+            border-bottom: 1px solid $silver;
+            white-space: nowrap;
+
+            &::-webkit-scrollbar {
+                width: 0px;
+                background: transparent;
+            }
+        }
+
+        &-list {
+            position: relative;
+            
+            @include media($large) {
+                font-size: 0;
+            }
+        }
+
+        &-item {
+            transition: $carousel-transition-open;
+        }
+
+        &-link {
+            font-size: 12px;
+            font-family: $default-font-family;
+            padding: $space-3 $space-3 $space-3;
+            margin: 0 auto;
+            width: 100%;
+            white-space: normal;
+            word-wrap: break-word;
+            cursor: pointer;
+            vertical-align: bottom;
+            border-bottom: 3px solid $white;
+            
+            &:hover {
+                color: $azure-radiance;
+            }
+            
+            &.active {
+                color: $azure-radiance;
+                border-color: $azure-radiance;
+            }
+            
+            &:active, &:focus {
+                
+                .tabbed-module__header-link-inner {
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    &__nav-controls {
+        display: none;
+        position: absolute;
+        bottom: 1px;
+        color: $denim;
+        width: 50px;
+        height: calc(100% - 1px); // Set height a pixel less than 100% to accommodate for bottom: 1px
+        cursor: pointer;
+        
+        &:hover {
+            color: $azure-radiance;
+        }
+        
+        &.active {
+            display: block;
+            z-index: 2;
+        }
+        
+        &--left-arrow {
+            left: 0;
+            background-image: linear-gradient(to left, rgba(255,255,255,0) 0%, $white 40%, $white 100%, rgba(255,255,255,0));
+            
+            &:before {
+                position: absolute;
+                left: 0;
+                bottom: $space-4;
+                font-size: $space-3;
+            }
+        }
+        
+        &--right-arrow {
+            right: 0;
+            background-image: linear-gradient(to right, rgba(255,255,255,0) 0%, $white 40%, $white 100%, rgba(255,255,255,0));
+            
+            &:before {
+                position: absolute;
+                right: 0;
+                bottom: $space-4;
+                font-size: $space-3;
+            }
+        }
+    }
+
+    .module-separator {
+        padding-bottom: 0;
+    }
+
+    .accordion {
+        width: 100%;
+        padding-bottom: 0;
+        
+        &__item {
+
+            &:last-child {
+
+                .accordion__title {
+                    border-bottom: 1px solid $silver;
+                }
+            }
+            
+            &--active {
+
+                .accordion__button {
+                    color: $azure-radiance;
+                }
+                
+                &:last-child {
+                    
+                    .accordion__title {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+        
+        &__title {
+            font-weight: normal;
+            font-size: 12px;
+
+            @include media($large) {
+                display: none;
+            }
+            
+            &:after {
+                right: 0;
+                color: $denim;
+                font-size: 15px;
+            }
+        }
+        
+        &__button {
+            padding-left: 0;
+            min-height: $space-9;
+        }
+        
+        &__pane {
+            padding: $space 0 0;
+            border-top: none;
+            margin-bottom: $space-5;
+            
+            @include media($large) {
+                display: none;
+                padding-top: $space-6;
+                margin-bottom: 0;
+                
+                &[data-active="true"] {
+                    display: block;
+                }
+            }
+        }
+    }
+}

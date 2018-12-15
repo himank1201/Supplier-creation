@@ -1,0 +1,164 @@
+<div class="content_header">
+	<h1 class="content_header_heading">Supply Creation</h1>
+	<button class="button_primary" (click)="showPopup()">Verify Supplier</button>
+</div>
+<section class="inner_scroll new_supplier_wrapper">
+	<form>
+		<h1 class="grey_heading">General Information</h1>
+		<section class="form new_supplier_form">
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Supplier Name *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Supplier Name 2" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Contact Name *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Email *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="General Phone Number *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="General Fax Number *" />
+			</div>
+			<div class="form__input">
+
+			</div>
+			<div class="form__input">
+
+			</div>
+		</section>
+		<h1 class="grey_heading">Address<span class="warning">(Please make sure to enter the remit to address)</span></h1>
+		<section class="form new_supplier_form">
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Street Address *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Address Line 2" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="City *" />
+			</div>
+			<p-dropdown class="select-control__combobox-container" [options]="state"></p-dropdown>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Zip Code *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Country *" disabled="true" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Tax Jr. Code *" disabled="true" />
+			</div>
+			<div class="form__input">
+
+			</div>
+		</section>
+		<h1 class="grey_heading">Supplier Details<span>Only third party vendors (Vendor account group 1508 and reconciliation
+				account 0000440010) will be created. Not to be used for employees, affiliated Companies, or Foreign
+				Vendors.</span></h1>
+		<section class="form new_supplier_form">
+			<div class="supplier_details_checkbox">
+				<p-checkbox name="groupname" value="val1" label="I accept the MBUSA Net 30 Payment Terms"></p-checkbox>
+				<div class="type_tax_id">
+					<label for="">Type of Tax ID *</label>
+					<p-radioButton name="groupname" value="val1" label="Tax ID number(TIN/EIN) for a business"></p-radioButton>
+					<p-radioButton name="groupname" value="val2" label="Social Security Number(SSN) for an individual"></p-radioButton>
+				</div>
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Tax ID / EIN, or SSN *" />
+				<i class="pi pi-question-circle"></i>
+			</div>
+			<div class="form__input">
+				<p-dropdown class="select-control__combobox-container" [options]="oraganization"></p-dropdown>
+				<i class="pi pi-question-circle"></i>
+			</div>
+			<div class="form__input">
+				<p-dropdown class="select-control__combobox-container" [options]="payment"></p-dropdown>
+				<i class="pi pi-question-circle"></i>
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Account Number *" />
+				<i class="pi pi-question-circle"></i>
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Routing or ABA Number *" />
+				<i class="pi pi-question-circle"></i>
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Bank Name *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Account Type *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Purchasing Organization *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Minority Status *" />
+				<i class="pi pi-question-circle"></i>
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Tax withholding code  *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Estimated Spendings for this supplier *" />
+			</div>
+			<div class="form__input">
+
+			</div>
+			<h3 class="sub_heading">Additional Information</h3>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Reason for Supplier Creation *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Initiator *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Cost Center *" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Controlling Area" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Manager Name *" disabled="true" />
+			</div>
+		</section>
+		<section class="button_wrapper">
+			<button class="button_primary">Submit</button>
+		</section>
+	</form>
+</section>
+
+<!--Popup Starts-->
+<section class="popup_wrapper " *ngIf="isPopupVisible">
+	<section class="popup_wrapper_inner">
+		<div class="content_header">
+			<h1 class="content_header_heading">Supply Creation</h1>
+			
+		</div>
+		<section class="form new_supplier_form verify_form">
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Supplier Name" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Supplier Number" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Zip Code" />
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Company Code" />
+			</div>
+			<section class="button_wrapper">
+				<button class="button_primary">Search</button>
+			</section>
+		</section>
+		<section class="button_wrapper">
+			<button class="button button_primary" (click)="hidePopup()">Close</button>
+		</section>
+	</section>
+</section>

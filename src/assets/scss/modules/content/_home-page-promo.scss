@@ -1,0 +1,64 @@
+.home-page-promo {
+    $width-xlarge: 1440px;
+
+    &__background-image--fluid {
+        width: 100%;
+        @include media($xlarge) {
+            width: $width-xlarge;
+        }
+    }
+
+    &__container {
+        padding: 0;
+        position: relative;
+    }
+
+    &__copy-interior {
+        margin-top: $space-4;
+        padding: 0;
+
+        @include media($large) {
+            position: absolute;
+            margin-top: $space-6;
+        }
+    }
+
+    &__image-container {
+        line-height: 0;
+        width: 100%;
+
+        @include media($xlarge) {
+            width: $width-xlarge;
+        }
+    }
+
+    &__eyebrow {
+        @include call-out-text-reg;
+        margin-bottom: $space-3;
+        position: relative;
+        text-align: center;
+
+        &:after {
+            background: $seashell;
+            content: "";
+            height: 1px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+            z-index: -1;
+        }
+        @include media($large) {
+            margin-bottom: $space-4;
+        }
+    }
+
+    &__eyebrow-text {
+        background-color: $white;
+        display: inline-block;
+        padding: 0 $space-2;
+    }
+
+
+}

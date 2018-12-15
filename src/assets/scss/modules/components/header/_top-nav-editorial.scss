@@ -1,0 +1,15 @@
+.inline-editorial-template {
+    @include media($large) {
+        background-color: $black;
+
+        .top-nav {
+            &__item {
+                display: block;
+            }
+
+            &__sub-nav ul {
+                display: block;
+            }
+        }
+    }
+}
