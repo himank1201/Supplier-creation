@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: NewSupplierComponent } ,
   { path: 'statuslist', component: StatusListComponent } ,
   { path: 'verifysupplier', component: VerifySupplierComponent } ,
-  { path: 'configuration', component: ConfigurationComponent } 
+  { path: 'configuration', component: ConfigurationComponent }
 ];
 
 @NgModule({

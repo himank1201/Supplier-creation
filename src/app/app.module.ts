@@ -19,6 +19,9 @@ import { TableModule } from 'primeng/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTableComponent } from './common/data-table/data-table.component';
 import { LoginComponent } from './modules/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -43,9 +46,11 @@ import { LoginComponent } from './modules/login/login.component';
     CheckboxModule,
     CalendarModule,
     RadioButtonModule,
-    TableModule
+    TableModule,
+    HttpClientModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

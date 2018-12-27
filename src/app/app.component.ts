@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { SidenavComponent } from './common/side-nav/side-nav.component';
 import { SharedService } from './services/shared.service';
+import {ToastModule} from 'primeng/toast';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent {
   show = false;
   title = 'app';
   isAppVisible = false;
+  isLoginVisible = true;
 
   isOverlayVisible;
 
@@ -22,7 +24,10 @@ export class AppComponent {
 
   constructor(private sharedService: SharedService) {
     this.sharedService.messageSource.subscribe(isOverlayVisible => this.isOverlayVisible = isOverlayVisible);
-    this.sharedService.appMessageSource.subscribe(isAppVisible => this.isAppVisible = isAppVisible);
+    this.sharedService.appMessageSource.subscribe(isAppVisible => {
+      this.isAppVisible = isAppVisible;
+      this.isLoginVisible = !isAppVisible;
+    });
   }
 
   // tslint:disable-next-line:use-life-cycle-interface

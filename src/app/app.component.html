@@ -1,7 +1,8 @@
 <main>
   
+  <p-toast position="top-center"  [baseZIndex]="5000" sticky="true"></p-toast>
   <!--Login Starts-->
-  <app-login></app-login><!--Login Ends-->
+  <app-login *ngIf="isLoginVisible"></app-login><!--Login Ends-->
 
 
   <div *ngIf="isAppVisible">
