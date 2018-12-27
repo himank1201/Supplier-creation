@@ -4,6 +4,7 @@ import { UserVO } from 'src/app/model/UserVO';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 import { MessageService } from 'primeng/api';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,18 +17,23 @@ export class LoginComponent implements OnInit {
   authenticatedUser: UserVO;
 
   constructor(private supplierService: SupplierService, private sharedService: SharedService, private router: Router,
-     private messageService: MessageService) { }
+     private messageService: MessageService, private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   authenticateUser() {
-    if (this.userVO.userId.length !== 0 && this.userVO.pd.length !== 0) {  
+    if (this.userVO.userId.length !== 0 && this.userVO.pd.length !== 0) {
       this.supplierService.authenticateUser(this.userVO).subscribe(reqData => {
         this.authenticatedUser = reqData;
         console.log('User data = ' , this.authenticatedUser);
         if (this.authenticatedUser.success) {
           this.sharedService.showApplication(true);
+          this.authService.setUserData(this.authenticatedUser);
+          if (this.authenticatedUser.isAdmin === 'X' || this.authenticatedUser.isPurhaseUser === 'X' ||
+              this.authenticatedUser.isAPUser === 'X') {
+
+          }
           this.router.navigate(['statuslist']);
         }
       });

@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserVO } from 'src/app/model/UserVO';
 
 @Component({
   selector: 'app-header',
@@ -6,17 +8,23 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  userName = localStorage.getItem('Name');
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  userData: UserVO;
+  userName: string;
   show = false;
   count = 1;
 
   @Output()
   emitFunctionOfParent: EventEmitter<any> = new EventEmitter<any>();
+
+  constructor(private authService: AuthService) { }
+
+  ngOnInit() {
+    this.userData = this.authService.getUserData();
+    this.userName = this.userData.userName;
+  }
+
+
+
 
   clickMe() {
     if (this.count % 2 === 0) {
