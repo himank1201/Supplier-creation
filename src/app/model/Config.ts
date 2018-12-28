@@ -4,6 +4,6 @@ import { AdminUsers } from './AdminUsers';
 
 export class Config {
     appConfig?: AppConfig;
-    configUserVO?: Array<ConfigUserVO>;
+    configUserVO?: ConfigUserVO;
     adminUsers?: Array<AdminUsers>;
 }

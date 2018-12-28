@@ -13,4 +13,9 @@ export class SupplierService {
   authenticateUser(userVO: UserVO): Observable<any> {
     return this.http.post('../api/validateUser', userVO).pipe(searchData => searchData);
   }
+
+  getAppConfig(company: string): Observable<any> {
+    return this.http.get('../api/getAppConfig?companyCode=' + company + '&rnd=' + new Date().getTime())
+                        .pipe(configDetails => configDetails);
+  }
 }

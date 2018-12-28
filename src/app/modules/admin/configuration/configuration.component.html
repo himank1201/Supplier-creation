@@ -7,62 +7,63 @@
 		<h1 class="grey_heading">Application Configuration</h1>
 		<section class="form new_supplier_form">	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Application Mode *" />
+				<input class="form__input-field" type="text" placeholder="Application Mode *" [(ngModel)]="configData.appConfig.appMode" name="appMode"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Application Title *" />
+				<input class="form__input-field" type="text" placeholder="Application Title *" [(ngModel)]="configData.appConfig.applicationTitle" name="applicationTitle"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Application Email *" />
+				<input class="form__input-field" type="text" placeholder="Application Email *" [(ngModel)]="configData.appConfig.fromEmail" name="fromEmail"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Manager Email *" />				
+				<input class="form__input-field" type="text" placeholder="Manager Email *" [(ngModel)]="configData.appConfig.managerEmail" name="managerEmail"/>				
+			</div>	
+			<!-- <div class="form__input">
+				<input class="form__input-field" type="text" placeholder="File System Path *" [(ngModel)]="configData.appConfig.managerEmail" name="managerEmail"/>				
+			</div> -->	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Approval URL *" [(ngModel)]="configData.appConfig.approvalUrl" name="approvalUrl"/>				
 			</div>	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="File System Path *" />				
+				<input class="form__input-field" type="text" placeholder="Application URL *" [(ngModel)]="configData.appConfig.appUrl" name="appUrl"/>				
 			</div>	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Approval URL *" />				
-			</div>	
-			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Application URL *" />				
-			</div>	
-			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Anti Bribery Limit *" />				
-			</div>	
+				<input class="form__input-field" type="text" placeholder="Anti Bribery Limit *" [(ngModel)]="configData.appConfig.antiBribLimit" name="antiBribLimit"/>				
+			</div>
+			<p-dropdown class="select-control__combobox-container" [options]="adminUsersDropDownValues"></p-dropdown>	
 			<div class="form__input proxy_label">
 				<label>Application user(Proxy)’s Details</label>
 			</div>	
-			<p-dropdown class="select-control__combobox-container" [options]="cities1"></p-dropdown>
+			<p-dropdown class="select-control__combobox-container" [options]="companyDropDownValues" [(ngModel)]="selectedCompany" name="selectedCompany"></p-dropdown>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Reconciliation Account *" />				
+				<input class="form__input-field" type="text" placeholder="Reconciliation Account *" [(ngModel)]="configData.configUserVO.reconAccount" name="reconAccount"/>				
 			</div>	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Minority Users Email *" />				
+				<input class="form__input-field" type="text" placeholder="Minority Users Email *" [(ngModel)]="configData.configUserVO.wbmUsersEmail" name="wbmUsersEmail"/>				
 			</div>		
 		</section>
 		<h1 class="grey_heading">Purchase User Information</h1>
 		<section class="form new_supplier_form">	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="User Id *" />
+				<input class="form__input-field" type="text" placeholder="User Id *" [(ngModel)]="configData.configUserVO.purUserId" name="purUserId"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="User Name *" />
+				<input class="form__input-field" type="text" placeholder="User Name *" [(ngModel)]="configData.configUserVO.purUserName" name="purUserName"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="User Email *" />
+				<input class="form__input-field" type="text" placeholder="User Email *" [(ngModel)]="configData.configUserVO.purUserEmail" name="purUserEmail"/>
 			</div>
 			<div class="form__input">
 				<p-checkbox name="groupname" value="val1" label="Proxy"></p-checkbox>
 			</div>	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Proxy User Id *" />				
+				<input class="form__input-field" type="text" placeholder="Proxy User Id *" [(ngModel)]="configData.configUserVO.purProxyUserId" name="purProxyUserId"/>				
 			</div>	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Proxy User Name *" />				
+				<input class="form__input-field" type="text" placeholder="Proxy User Name *" [(ngModel)]="configData.configUserVO.purProxyUserName" name="purProxyUserName"/>				
 			</div>	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Proxy User Email *" />				
+				<input class="form__input-field" type="text" placeholder="Proxy User Email *" [(ngModel)]="configData.configUserVO.purProxyUserEmail" name="purProxyUserEmail"/>				
 			</div>	
 			<div class="form__input">
 				<p-calendar showIcon="true" placeholder="From Date"></p-calendar>	
@@ -72,16 +73,29 @@
 		<h1 class="grey_heading">Account Payable User Information</h1>
 		<section class="form new_supplier_form" placeholder="To Date">	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="User Id *" />
+				<input class="form__input-field" type="text" placeholder="User Id *" [(ngModel)]="configData.configUserVO.acctsUserId" name="acctsUserId"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="User Name *" />
+				<input class="form__input-field" type="text" placeholder="User Name *" [(ngModel)]="configData.configUserVO.acctsUserName" name="acctsUserName"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="User Email *" />
+				<input class="form__input-field" type="text" placeholder="User Email *" [(ngModel)]="configData.configUserVO.acctsUserEmail" name="acctsUserEmail"/>
 			</div>
 			<div class="form__input">
 				<p-checkbox name="groupname" value="val1" label="Proxy"></p-checkbox>
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Proxy User Id *" [(ngModel)]="configData.configUserVO.acctsProxyUserId" name="acctsProxyUserId"/>				
+			</div>	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Proxy User Name *" [(ngModel)]="configData.configUserVO.acctsProxyUserName" name="acctsProxyUserName"/>				
+			</div>	
+			<div class="form__input">
+				<input class="form__input-field" type="text" placeholder="Proxy User Email *" [(ngModel)]="configData.configUserVO.acctsProxyUserEmail" name="acctsProxyUserEmail"/>				
+			</div>	
+			<div class="form__input">
+				<p-calendar showIcon="true" placeholder="From Date"></p-calendar>	
+				<p-calendar showIcon="true" placeholder="To Date"></p-calendar>					
 			</div>
 		</section>
 		<section class="button_wrapper">
