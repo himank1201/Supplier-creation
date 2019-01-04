@@ -1,5 +1,5 @@
 <div class="content_header">
-	<h1 class="content_header_heading">Supply Creation</h1>
+	<h1 class="content_header_heading">Supplier Creation</h1>
 	<button class="button_primary" (click)="showPopup()">Verify Supplier</button>
 </div>
 <section class="inner_scroll new_supplier_wrapper">
@@ -7,22 +7,22 @@
 		<h1 class="grey_heading">General Information</h1>
 		<section class="form new_supplier_form">
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Supplier Name *" />
+				<input class="form__input-field" type="text" placeholder="Supplier Name *"  [(ngModel)]="supplierVO.supplierName" name="supplierName"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Supplier Name 2" />
+				<input class="form__input-field" type="text" placeholder="Supplier Name 2" [(ngModel)]="supplierVO.supplierName2" name="supplierName2"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Contact Name *" />
+				<input class="form__input-field" type="text" placeholder="Contact Name *" [(ngModel)]="supplierVO.contactName" name="contactName"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Email *" />
+				<input class="form__input-field" type="text" placeholder="Email *" [(ngModel)]="supplierVO.email" name="email"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="General Phone Number *" />
+				<input class="form__input-field" type="text" placeholder="General Phone Number *" [(ngModel)]="supplierVO.phone" name="phone" (focusout)="phoneFormat()"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="General Fax Number *" />
+				<input class="form__input-field" type="text" placeholder="General Fax Number *" [(ngModel)]="supplierVO.fax" name="fax" (focusout)="faxFormat()"/>
 			</div>
 			<div class="form__input">
 
@@ -34,23 +34,23 @@
 		<h1 class="grey_heading">Address<span class="warning">(Please make sure to enter the remit to address)</span></h1>
 		<section class="form new_supplier_form">
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Street Address *" />
+				<input class="form__input-field" type="text" placeholder="Street Address *" [(ngModel)]="supplierVO.stAddress" name="stAddress"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Address Line 2" />
+				<input class="form__input-field" type="text" placeholder="Address Line 2" [(ngModel)]="supplierVO.stAddress1" name="stAddress1"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="City *" />
+				<input class="form__input-field" type="text" placeholder="City *" [(ngModel)]="supplierVO.city" name="city"/>
 			</div>
-			<p-dropdown class="select-control__combobox-container" [options]="state"></p-dropdown>
+			<p-dropdown class="select-control__combobox-container" [options]="stateDropDown" [(ngModel)]="supplierVO.state" name="state"></p-dropdown>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Zip Code *" />
-			</div>
-			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Country *" disabled="true" />
+				<input class="form__input-field" type="text" placeholder="Zip Code *" (focusout)="checkTaxJr()" [(ngModel)]="supplierVO.zipCode" name="zipCode"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Tax Jr. Code *" disabled="true" />
+				<input class="form__input-field" type="text" placeholder="County *" [readonly]="true" [(ngModel)]="supplierVO.county" name="county" (click)="checkTaxJr()"/>
+			</div>
+			<div class="form__input">
+				<input class="form__input-field" type="text" [readonly]="true" placeholder="Tax Jr. Code *" disabled="true" [(ngModel)]="supplierVO.taxJrCode" name="taxJrCode"/>
 			</div>
 			<div class="form__input">
 
@@ -61,74 +61,74 @@
 				Vendors.</span></h1>
 		<section class="form new_supplier_form">
 			<div class="supplier_details_checkbox">
-				<p-checkbox name="groupname" value="val1" label="I accept the MBUSA Net 30 Payment Terms"></p-checkbox>
+				<p-checkbox name="acceptedPayTerms" value="val1" [(ngModel)]="supplierVO.acceptedPayTerms" label="I accept the MBUSA Net 30 Payment Terms" (onChange)="checkTermStatus()" binary="true"></p-checkbox>
 				<div class="type_tax_id">
 					<label for="">Type of Tax ID *</label>
-					<p-radioButton name="groupname" value="val1" label="Tax ID number(TIN/EIN) for a business"></p-radioButton>
-					<p-radioButton name="groupname" value="val2" label="Social Security Number(SSN) for an individual"></p-radioButton>
+					<p-radioButton name="groupname" value="TIN/EIN" [(ngModel)]="supplierVO.taxIdType" label="Tax ID number(TIN/EIN) for a business"></p-radioButton>
+					<p-radioButton name="groupname" value="SSN" [(ngModel)]="supplierVO.taxIdType" label="Social Security Number(SSN) for an individual"></p-radioButton>
 				</div>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Tax ID / EIN, or SSN *" />
+				<input class="form__input-field" type="text" placeholder="Tax ID / EIN, or SSN *" (focusout)="formatTaxId()" [(ngModel)]="supplierVO.taxId" name="taxId"/>
 				<i class="pi pi-question-circle"></i>
 			</div>
 			<div class="form__input">
-				<p-dropdown class="select-control__combobox-container" [options]="oraganization"></p-dropdown>
+				<p-dropdown class="select-control__combobox-container" [options]="oraganizationTypesDropDown" [(ngModel)]="supplierVO.organisationType" name="organisationType"></p-dropdown>
 				<i class="pi pi-question-circle"></i>
 			</div>
 			<div class="form__input">
-				<p-dropdown class="select-control__combobox-container" [options]="payment"></p-dropdown>
+				<p-dropdown class="select-control__combobox-container" [options]="paymentDropDown" [(ngModel)]="supplierVO.paymentMethod" name="paymentMethod" (onChange)="checkPayType()"></p-dropdown>
 				<i class="pi pi-question-circle"></i>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Account Number *" />
+				<input class="form__input-field" type="text" placeholder="Account Number {{accountTypeRequired}}" [(ngModel)]="supplierVO.accountNo" name="accountNo"/>
 				<i class="pi pi-question-circle"></i>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Routing or ABA Number *" />
+				<input class="form__input-field" type="text" placeholder="Routing or ABA Number {{accountTypeRequired}}" [(ngModel)]="supplierVO.routingNo" name="routingNo" (focusout)="checkBank()"/>
 				<i class="pi pi-question-circle"></i>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Bank Name *" />
+				<input class="form__input-field" type="text" placeholder="Bank Name {{accountTypeRequired}}" [(ngModel)]="supplierVO.bankName" name="bankName"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Account Type *" />
+				<p-dropdown class="select-control__combobox-container" [options]="actTypesDropDown" [(ngModel)]="supplierVO.accountType" name="accountType"></p-dropdown>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Purchasing Organization *" />
+				<p-dropdown class="select-control__combobox-container" [options]="purOrgsDropDown" [(ngModel)]="supplierVO.purchaseOrg" name="purchaseOrg"></p-dropdown>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Minority Status *" />
+				<p-dropdown class="select-control__combobox-container" [options]="minorityTypesDropDown" [(ngModel)]="supplierVO.minorityStatus" name="minorityStatus"></p-dropdown>
 				<i class="pi pi-question-circle"></i>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Tax withholding code  *" />
+				<p-dropdown class="select-control__combobox-container" [options]="taxHoldCodesDropDown" [(ngModel)]="supplierVO.withHoldCode" name="withHoldCode"></p-dropdown>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Estimated Spendings for this supplier *" />
+				<input class="form__input-field" type="text" placeholder="Estimated Spendings for this supplier *" [(ngModel)]="supplierVO.estCostCenterAmount" name="estCostCenterAmount"/>
 			</div>
 			<div class="form__input">
 
 			</div>
 			<h3 class="sub_heading">Additional Information</h3>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Reason for Supplier Creation *" />
+				<p-dropdown class="select-control__combobox-container" [options]="rsnTypesDropDown" [(ngModel)]="supplierVO.supCreateReason" name="supCreateReason"></p-dropdown>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Initiator *" />
+				<input class="form__input-field" type="text" placeholder="Initiator *" [(ngModel)]="supplierVO.initiator" name="initiator" [readonly]="true"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Cost Center *" />
+				<input class="form__input-field" type="text" placeholder="Cost Center *" [(ngModel)]="costCenter" name="costCenter" (focusout)="checkManager()"/>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Controlling Area" />
+				<p-dropdown class="select-control__combobox-container" [options]="cntrAreaDropDown" [(ngModel)]="contrArea" name="contrArea"></p-dropdown>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Manager Name *" disabled="true" />
+				<input class="form__input-field" type="text" placeholder="Manager Name *" disabled="true" [(ngModel)]="supplierVO.manager" name="manager"/>
 			</div>
 		</section>
 		<section class="button_wrapper">
-			<button class="button_primary">Submit</button>
+			<input type="button" class="button_primary" (click)= "processForm()" value="Submit"/>
 		</section>
 	</form>
 </section>

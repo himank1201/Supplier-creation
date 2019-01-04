@@ -1,6 +1,6 @@
 <div class="content_header">
-	<h1 class="content_header_heading">Supply Creation</h1>
-	<button class="button_primary">Verify Supplier</button>
+	<h1 class="content_header_heading">Application Configuration</h1>
+	
 </div>
 <section class="inner_scroll new_supplier_wrapper">	
 	<form>
@@ -34,7 +34,7 @@
 			<div class="form__input proxy_label">
 				<label>Application user(Proxy)’s Details</label>
 			</div>	
-			<p-dropdown class="select-control__combobox-container" [options]="companyDropDownValues" [(ngModel)]="selectedCompany" name="selectedCompany"></p-dropdown>
+			<p-dropdown class="select-control__combobox-container" [options]="companyDropDownValues" [(ngModel)]="selectedCompany" name="selectedCompany" (onChange)="changeCompany()"></p-dropdown>
 			<div class="form__input">
 				<input class="form__input-field" type="text" placeholder="Reconciliation Account *" [(ngModel)]="configData.configUserVO.reconAccount" name="reconAccount"/>				
 			</div>	
@@ -43,7 +43,7 @@
 			</div>		
 		</section>
 		<h1 class="grey_heading">Purchase User Information</h1>
-		<section class="form new_supplier_form">	
+		<section class="form new_supplier_form purchase_user_form">	
 			<div class="form__input">
 				<input class="form__input-field" type="text" placeholder="User Id *" [(ngModel)]="configData.configUserVO.purUserId" name="purUserId"/>
 			</div>
@@ -54,24 +54,31 @@
 				<input class="form__input-field" type="text" placeholder="User Email *" [(ngModel)]="configData.configUserVO.purUserEmail" name="purUserEmail"/>
 			</div>
 			<div class="form__input">
-				<p-checkbox name="groupname" value="val1" label="Proxy"></p-checkbox>
+				<p-checkbox name="purProxy" value="valProxy" label="Proxy" [(ngModel)]="purProxy" binary="true" (onChange)="purCheckBoxChange()"></p-checkbox>
 			</div>	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Proxy User Id *" [(ngModel)]="configData.configUserVO.purProxyUserId" name="purProxyUserId"/>				
+				<input class="form__input-field" type="text" placeholder="Proxy User Id {{purProxyRequired}}" [(ngModel)]="configData.configUserVO.purProxyUserId" name="purProxyUserId"/>				
 			</div>	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Proxy User Name *" [(ngModel)]="configData.configUserVO.purProxyUserName" name="purProxyUserName"/>				
+				<input class="form__input-field" type="text" placeholder="Proxy User Name {{purProxyRequired}}" [(ngModel)]="configData.configUserVO.purProxyUserName" name="purProxyUserName"/>				
 			</div>	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Proxy User Email *" [(ngModel)]="configData.configUserVO.purProxyUserEmail" name="purProxyUserEmail"/>				
+				<input class="form__input-field" type="text" placeholder="Proxy User Email {{purProxyRequired}}" [(ngModel)]="configData.configUserVO.purProxyUserEmail" name="purProxyUserEmail"/>				
 			</div>	
 			<div class="form__input">
-				<p-calendar showIcon="true" placeholder="From Date"></p-calendar>	
-				<p-calendar showIcon="true" placeholder="To Date"></p-calendar>					
+					<div class="calendar_user">
+							<input type="text" class="form__input-field" [readonly]="true" placeholder="From Date {{purProxyRequired}}" [(ngModel)]="configData.configUserVO.purProxyStart" name="purProxyStartDate"/>
+							<p-calendar showIcon="true" placeholder="From Date {{purProxyRequired}}" (onSelect)="changePurProxyStartDate()" [(ngModel)]="purProxyCalStartDate"  [minDate]="minPurProxyStartDate" name="purProxyStart" monthNavigator="true" yearNavigator="true" dateFormat="mm/dd/yy" [yearRange]="yearRange"></p-calendar>
+					</div>
+					
+					<div class="calendar_user">
+							<input type="text" class="form__input-field" [readonly]="true" placeholder="To Date {{purProxyRequired}}"  [(ngModel)]="configData.configUserVO.purProxyEnd" name="purProxyEndDate"/>
+							<p-calendar showIcon="true" placeholder="To Date {{purProxyRequired}}" (onSelect)="changePurProxyEndtDate()" [(ngModel)]="purProxCalEndDate" [minDate]="minPurProxyEndDate" name="purProxyEnd" monthNavigator="true" yearNavigator="true" dateFormat="mm/dd/yy" [yearRange]="yearRange"></p-calendar>
+					</div>					
 			</div>
 		</section>
 		<h1 class="grey_heading">Account Payable User Information</h1>
-		<section class="form new_supplier_form" placeholder="To Date">	
+		<section class="form new_supplier_form purchase_user_form">	
 			<div class="form__input">
 				<input class="form__input-field" type="text" placeholder="User Id *" [(ngModel)]="configData.configUserVO.acctsUserId" name="acctsUserId"/>
 			</div>
@@ -82,26 +89,31 @@
 				<input class="form__input-field" type="text" placeholder="User Email *" [(ngModel)]="configData.configUserVO.acctsUserEmail" name="acctsUserEmail"/>
 			</div>
 			<div class="form__input">
-				<p-checkbox name="groupname" value="val1" label="Proxy"></p-checkbox>
+				<p-checkbox name="actsProxy" value="valAcctsProxy" label="Proxy" [(ngModel)]="actsProxy" binary="true" (onChange)="acctsCheckBoxChange()"></p-checkbox>
 			</div>
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Proxy User Id *" [(ngModel)]="configData.configUserVO.acctsProxyUserId" name="acctsProxyUserId"/>				
+				<input class="form__input-field" type="text" placeholder="Proxy User Id {{actsProxyRequired}}" [(ngModel)]="configData.configUserVO.acctsProxyUserId" name="acctsProxyUserId"/>				
 			</div>	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Proxy User Name *" [(ngModel)]="configData.configUserVO.acctsProxyUserName" name="acctsProxyUserName"/>				
+				<input class="form__input-field" type="text" placeholder="Proxy User Name {{actsProxyRequired}}" [(ngModel)]="configData.configUserVO.acctsProxyUserName" name="acctsProxyUserName"/>				
 			</div>	
 			<div class="form__input">
-				<input class="form__input-field" type="text" placeholder="Proxy User Email *" [(ngModel)]="configData.configUserVO.acctsProxyUserEmail" name="acctsProxyUserEmail"/>				
+				<input class="form__input-field" type="text" placeholder="Proxy User Email {{actsProxyRequired}}" [(ngModel)]="configData.configUserVO.acctsProxyUserEmail" name="acctsProxyUserEmail"/>				
 			</div>	
 			<div class="form__input">
-				<p-calendar showIcon="true" placeholder="From Date"></p-calendar>	
-				<p-calendar showIcon="true" placeholder="To Date"></p-calendar>					
+					<div class="calendar_user">
+						<input type="text" class="form__input-field" [readonly]="true" placeholder="From Date {{actsProxyRequired}}" [(ngModel)]="configData.configUserVO.acctsProxyStart" name="acctsProxyStartDate"/>
+						<p-calendar showIcon="true" placeholder="From Date {{actsProxyRequired}}" (onSelect)="changeAcctsProxyStartDate()" [(ngModel)]="acctsProxyStartDate"  [minDate]="minAcctsProxyStartDate" name="acctsProxyStart" monthNavigator="true" yearNavigator="true" dateFormat="mm/dd/yy" [yearRange]="yearRange"></p-calendar>	
+					</div>
+					<div class="calendar_user">
+						<input type="text" class="form__input-field" [readonly]="true" placeholder="To Date {{actsProxyRequired}}" [(ngModel)]="configData.configUserVO.acctsProxyEnd" name="acctsProxyEndDate"/>
+						<p-calendar showIcon="true" placeholder="To Date {{actsProxyRequired}}" (onSelect)="changeAcctsProxyEndDate()" [(ngModel)]="acctsProxyCalEndDate"  [minDate]="minAcctsProxyEndDate" name="acctsProxyEnd" monthNavigator="true" yearNavigator="true" dateFormat="mm/dd/yy" [yearRange]="yearRange"></p-calendar>					
+					</div>
 			</div>
 		</section>
 		<section class="button_wrapper">
-			<button class="button_primary">Submit</button>
-			<button class="button_primary">Save Config User</button>
-			<button class="button_primary">Cancel</button>
+			<button class="button_primary" (click)= "saveConfig()">Save</button>
+			<button class="button_primary" (click)= "getAppConfig()">Cancel</button>
 			<button class="button_primary">Proxy</button>
 		</section>
 	</form>

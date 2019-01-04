@@ -30,14 +30,7 @@ export class AppComponent {
     });
   }
 
-  // tslint:disable-next-line:use-life-cycle-interface
-  // ngOnInit() {
-  //   this.validateUser();
-  // }
 
-  // validateUser() {
-  //   this.isOverlayVisible = !this.isOverlayVisible;
-  // }
 
 headerMenu(value: any) {
      this._child.changeFlag(value);

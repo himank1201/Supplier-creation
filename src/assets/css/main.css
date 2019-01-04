@@ -2139,6 +2139,28 @@ nav .header_navigation ul li .welcome_text span {
 .form.verify_form .button_wrapper button {
   margin: 0 10px 0 0;
 }
+.form.purchase_user_form .calendar_user {
+  position: relative;
+  max-width: 45%;
+  border-bottom: 1px solid #999;
+}
+.form.purchase_user_form .calendar_user .form__input-field {
+  position: absolute;
+  width: 70%;
+  left: 0;
+  bottom: 0;
+  border: none;
+}
+.form.purchase_user_form .calendar_user .ui-calendar {
+  float: right;
+  width: 15%;
+}
+.form.purchase_user_form .calendar_user .ui-calendar .ui-inputtext {
+  visibility: hidden;
+}
+.form.purchase_user_form .calendar_user .ui-button:enabled:focus {
+  box-shadow: none;
+}
 
 @media all and (-ms-high-contrast: none) {
   *::-ms-backdrop, .ui-dropdown {

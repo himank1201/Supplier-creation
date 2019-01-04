@@ -7,7 +7,7 @@ import { ConfigurationComponent } from './modules/admin/configuration/configurat
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: '', component: NewSupplierComponent } ,
+  { path: 'createSupplier', component: NewSupplierComponent } ,
   { path: 'statuslist', component: StatusListComponent } ,
   { path: 'verifysupplier', component: VerifySupplierComponent } ,
   { path: 'configuration', component: ConfigurationComponent },
